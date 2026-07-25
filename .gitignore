@@ -20,16 +20,25 @@ build/
 .env.local
 .env.*.local
 
-## Editor
-.vscode/*
-!.vscode/extensions.json
-.idea/
-.DS_Store
-*.sw?
-
 ## OS
+### MacOS
+.DS_Store
+### Windows
 Thumbs.db
 Desktop.ini
+
+## Editor
+### VS Code
+.vscode/
+!.vscode/extensions.json
+### JetBrains 
+.idea/
+*.iml
+### Vim
+*.swp
+*.swo
+*.swn
+*.un~
 
 ## Coverage
 coverage/
