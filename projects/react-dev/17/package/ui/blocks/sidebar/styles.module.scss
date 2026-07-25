@@ -1,0 +1,28 @@
+// package/ui/blocks/sidebar/styles.module.scss
+
+.viewport {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  min-height: 100svh;
+  padding: 4px;
+}
+
+.sidebarColumn {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 4px;
+  border-right: 1px solid;
+  border-right-color: rgb(0 0 0 / 20%);
+}
+
+.inset {
+  flex-grow: 1;
+}

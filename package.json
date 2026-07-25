@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "packages",
+  "version": "0.0.1-beta",
+
+  "scripts": {
+    "format": "prettier --write ."
+  },
+
+  "devDependencies": {
+    "prettier": "3.9.5"
+  }
+}
