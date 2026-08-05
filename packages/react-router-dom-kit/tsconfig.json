@@ -1,4 +1,4 @@
-// core/react-router-dom-kit/tsconfig.json
+// packages/react-router-dom-kit/tsconfig.json
 
 {
   "compilerOptions": {

@@ -1,4 +1,4 @@
-#  .prettierignore
+# .prettierignore
 
 ## Зависимости
 node_modules/
@@ -11,3 +11,6 @@ package-lock.json
 ## Сборки и билды
 dist/
 build/
+
+## Obsidian
+experience-docs/

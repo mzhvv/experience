@@ -1,8 +1,9 @@
-// vite.config.ts
+// projects/react-dev/17/vite.config.ts
 
-import type { AliasOptions } from 'vite';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+
+import type { AliasOptions } from 'vite';
 import path from 'path';
 
 const alias = {

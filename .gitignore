@@ -47,3 +47,8 @@ coverage/
 tmp/
 temp/
 *.tmp
+
+## .Obsidian
+experience-docs/
+# .obsidian
+# experience-docs/local

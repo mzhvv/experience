@@ -1,4 +1,4 @@
-// jest.config.js
+// projects/react-dev/17/jest.config.js
 
 export default {
   testEnvironment: 'jsdom',
@@ -10,16 +10,3 @@ export default {
   },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 };
-
-// // jest.config.cjs
-
-// module.exports = {
-//   testEnvironment: 'jsdom',
-//   transform: {
-//     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
-//   },
-//   moduleNameMapper: {
-//     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-//   },
-//   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-// };

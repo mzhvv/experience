@@ -1,0 +1,10 @@
+export declare const button: string;
+export declare const destructive: string;
+export declare const ghost: string;
+export declare const icon: string;
+export declare const lg: string;
+export declare const md: string;
+export declare const outline: string;
+export declare const primary: string;
+export declare const secondary: string;
+export declare const sm: string;

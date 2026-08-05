@@ -1,4 +1,4 @@
-// core/react-router-dom-kit/vite.config.ts
+// packages/react-router-dom-kit/vite.config.ts
 
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
