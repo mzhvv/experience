@@ -1,5 +1,5 @@
 <!-- projects/README.md -->
 
-| **Projects**  |     |
-| ------------- | --- |
-| **react-dev** | -   |
+| **projects**  |
+| ------------- |
+| **react-dev** |
