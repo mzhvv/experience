@@ -4,7 +4,7 @@ echo ""
 echo "run scripts/package/removing.sh"
 
 echo ""
-echo "🔄 in ./ (root)"
+echo "🔄 in . (root)"
 echo "   removing ./node_modules ..."
 rm -rf ./node_modules
 echo "   removing ./package-lock.json ..."
