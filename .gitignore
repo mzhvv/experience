@@ -30,7 +30,7 @@ Desktop.ini
 ## Editor
 ### VS Code
 .vscode/
-!.vscode/extensions.json
+!.vscode/settings.json
 ### JetBrains 
 .idea/
 *.iml
@@ -47,6 +47,10 @@ coverage/
 tmp/
 temp/
 *.tmp
+
+##
+
+local/
 
 ## .Obsidian
 experience-docs/
