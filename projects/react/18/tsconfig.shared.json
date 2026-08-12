@@ -1,0 +1,11 @@
+// projects/react/18/tsconfig.shared.json
+
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@packages/*": ["./packages/*"]
+    }
+  }
+}
