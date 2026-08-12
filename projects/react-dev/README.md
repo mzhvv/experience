@@ -2,9 +2,9 @@
 
 # react-dev
 
-| react  | description            |
+| React  | Description            |
 | ------ | ---------------------- |
-| **17** | legacy                 |
+| **17** | Legacy                 |
 | **18** | SPA (client-first)     |
 | **19** | SSR/SSG (server-first) |
 
