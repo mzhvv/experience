@@ -2,8 +2,8 @@
 
 echo ""
 echo "run scripts/package/removing.sh"
-echo ""
 
+echo ""
 echo "🔄 in ./ (root)"
 echo "   removing ./node_modules ..."
 rm -rf ./node_modules
@@ -16,6 +16,7 @@ folders=(
 )
 
 for folder in "${folders[@]}"; do
+  echo ""
   echo "🔄 in $folder ..."
   find "$folder" -name "node_modules" -type d -prune -exec echo "   removing {} ..." \; -exec rm -rf {} \;
   find "$folder" -name "package-lock.json" -type f -exec echo "   removing {} ..." \; -delete

@@ -4,7 +4,7 @@
   "version": "0.0.1-dev",
 
   "scripts": {
-    "package-reset": "bash scripts/package/removing.sh && bash scripts/package/installing.sh",
+    "package-reset": "bash scripts/package/reset.sh",
     "format": "prettier --write ."
   },
 
