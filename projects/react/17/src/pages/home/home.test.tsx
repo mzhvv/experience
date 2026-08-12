@@ -1,4 +1,4 @@
-// src/pages/app.test.tsx
+// projects/react/17/src/pages/home/home.test.tsx
 
 import { render, screen } from '@testing-library/react';
 
@@ -10,6 +10,6 @@ describe('App', () => {
 
     const heading = screen.getByRole('heading', { level: 1 });
     expect(heading).toBeInTheDocument();
-    expect(heading).toHaveTextContent('react-dev-17');
+    expect(heading).toHaveTextContent('react-17');
   });
 });

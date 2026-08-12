@@ -1,9 +1,14 @@
-// package/ui/components/button/types.ts
+// projects/react/17/packages/ui/components/button/types.ts
 
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
 
 export type ButtonVariant =
-  'default' | 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive';
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'ghost'
+  | 'destructive';
 
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
 

@@ -1,10 +1,10 @@
-// src/pages/main-layout/index.tsx
+// projects/react/17/src/pages/main-layout/index.tsx
 
 import { Link, Outlet } from 'react-router-dom';
 import { Info } from 'lucide-react';
 
-import { Inset, Sidebar, SidebarColumn, Viewport } from '@package/ui/blocks/sidebar/sidebar';
-import { Button } from '@package/ui/components/button/button';
+import { Inset, Sidebar, SidebarColumn, Viewport } from '@packages/ui/blocks/sidebar/sidebar';
+import { Button } from '@packages/ui/components/button/button';
 
 export const MainLayout = () => {
   return (

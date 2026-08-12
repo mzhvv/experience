@@ -1,4 +1,4 @@
-// package/ui/blocks/sidebar/sidebar.tsx
+// projects/react/17/packages/ui/blocks/sidebar/sidebar.tsx
 
 import clsx from 'clsx';
 

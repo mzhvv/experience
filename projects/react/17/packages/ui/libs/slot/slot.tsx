@@ -1,4 +1,4 @@
-// package/ui/libs/slot/slot.tsx
+// projects/react/17/packages/ui/libs/slot/slot.tsx
 
 import { forwardRef, isValidElement, cloneElement, type ReactNode } from 'react';
 

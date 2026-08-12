@@ -8,7 +8,7 @@ import path from 'path';
 
 const alias = {
   '@': path.resolve(__dirname, './src'),
-  '@package': path.resolve(__dirname, './package'),
+  '@packages': path.resolve(__dirname, './packages'),
 } as const satisfies AliasOptions;
 
 // https://vite.dev/config/

@@ -1,9 +1,9 @@
-// package/ui/components/button/button.tsx
+// projects/react/17/packages/ui/components/button/button.tsx
 
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 
-import { Slot } from '@package/ui/libs/slot';
+import { Slot } from '@packages/ui/libs/slot';
 
 import type { ButtonProps } from './types';
 import styles from './styles.module.scss';

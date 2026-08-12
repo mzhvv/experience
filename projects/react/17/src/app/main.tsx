@@ -1,4 +1,4 @@
-// src/app/main.tsx
+// projects/react/17/src/app/main.tsx
 
 import React from 'react';
 import ReactDOM from 'react-dom';

@@ -1,4 +1,4 @@
-// package/react-router-dom-kit/route/index.ts
+// projects/react/17/packages/react-router-dom-kit/route/index.ts
 
 import type { RouteObject } from 'react-router-dom';
 

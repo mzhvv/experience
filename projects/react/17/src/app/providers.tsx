@@ -1,4 +1,4 @@
-// src/app/providers.tsx
+// projects/react/17/src/app/providers.tsx
 
 import { Router } from './router';
 

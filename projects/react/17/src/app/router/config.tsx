@@ -1,10 +1,10 @@
-// src/app/router/config.tsx
+// projects/react/17/src/app/router/config.tsx
 
 import { Navigate } from 'react-router-dom';
 
-import { toRouteObjects } from '@package/react-router-dom-kit/route-object';
-import type { RouteObjectConfig } from '@package/react-router-dom-kit/route-object/types';
-import { createRoute, createRouteConfig } from '@package/react-router-dom-kit/route';
+import { toRouteObjects } from '@packages/react-router-dom-kit/route-object';
+import type { RouteObjectConfig } from '@packages/react-router-dom-kit/route-object/types';
+import { createRoute, createRouteConfig } from '@packages/react-router-dom-kit/route';
 
 import { MainLayout } from '@/pages/main-layout';
 import { NotFoundPage } from '@/pages/not-found';

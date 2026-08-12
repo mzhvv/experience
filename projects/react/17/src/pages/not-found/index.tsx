@@ -1,4 +1,4 @@
-// src/pages/not-found/index.tsx
+// projects/react/17/src/pages/not-found/index.tsx
 
 import { Link } from 'react-router-dom';
 
