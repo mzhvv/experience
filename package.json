@@ -4,6 +4,7 @@
   "version": "0.0.1-dev",
 
   "scripts": {
+    "reset": "bash scripts/reset-package.sh",
     "format": "prettier --write ."
   },
 
