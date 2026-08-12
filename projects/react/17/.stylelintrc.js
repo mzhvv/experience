@@ -1,4 +1,4 @@
-// projects/react-dev/17/.stylelintrc.js
+// projects/react/17/.stylelintrc.js
 
 export default {
   extends: ['stylelint-config-standard-scss', 'stylelint-config-property-sort-order-smacss'],

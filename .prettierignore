@@ -1,16 +1,13 @@
 # .prettierignore
 
 ## Зависимости
+
 node_modules/
 **/node_modules/
-
-## Lock files
 package-lock.json
 **/package-lock.json
 
 ## Сборки и билды
+
 dist/
 build/
-
-## Obsidian
-experience-docs/

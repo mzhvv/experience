@@ -1,4 +1,4 @@
-// projects/react-dev/17/vite.config.ts
+// projects/react/17/vite.config.ts
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';

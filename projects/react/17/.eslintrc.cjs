@@ -1,4 +1,4 @@
-// projects/react-dev/17/.eslintrc.cjs
+// projects/react/17/.eslintrc.cjs
 
 module.exports = {
   root: true,

@@ -1,4 +1,4 @@
-// projects/react-dev/17/babel.config.js
+// projects/react/17/babel.config.js
 
 export default {
   presets: [

@@ -1,58 +1,54 @@
 # .gitignore
 
 ## Logs
+
 logs/
 *.log
 npm-debug.log*
 
 ## Dependencies
+
 node_modules/
 **/node_modules/
 
 ## Build outputs
+
 dist/
 dist-ssr/
 build/
 *.local
 
 ## Environment
+
 .env
 .env.local
 .env.*.local
 
 ## OS
-### MacOS
+
 .DS_Store
-### Windows
 Thumbs.db
 Desktop.ini
 
 ## Editor
-### VS Code
-.vscode/
+
+# .vscode/
+# **/.vscode/
 !.vscode/settings.json
-### JetBrains 
-.idea/
-*.iml
-### Vim
-*.swp
-*.swo
-*.swn
-*.un~
+!**/.vscode/settings.json
+# .idea/
+# *.iml
+# *.swp
+# *.swo
+# *.swn
+# *.un~
 
 ## Coverage
+
 coverage/
 
 ## Temporary
+
 tmp/
 temp/
 *.tmp
-
-##
-
-local/
-
-## .Obsidian
-experience-docs/
-# .obsidian
-# experience-docs/local

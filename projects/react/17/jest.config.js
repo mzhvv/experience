@@ -1,4 +1,4 @@
-// projects/react-dev/17/jest.config.js
+// projects/react/17/jest.config.js
 
 export default {
   testEnvironment: 'jsdom',
