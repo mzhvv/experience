@@ -4,8 +4,10 @@
   "version": "0.0.1-dev",
 
   "scripts": {
-    "package-reset-bash": "bash scripts/package/bash/index.sh",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+
+    "package-reset:sh": "bash scripts/package/bash/index.sh",
+    "package-reset:py": "python3 scripts/package/python/index.py"
   },
 
   "devDependencies": {
