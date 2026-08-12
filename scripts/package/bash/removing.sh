@@ -1,7 +1,7 @@
-#!/bin/bash # scripts/package/removing.sh
+#!/bin/bash # scripts/package/bash/removing.sh
 
 echo ""
-echo "run scripts/package/removing.sh"
+echo "run scripts/package/bash/removing.sh"
 
 echo ""
 echo "🔄 in . (root)"
@@ -23,5 +23,5 @@ for folder in "${folders[@]}"; do
 done
 
 echo ""
-echo "success scripts/package/removing.sh"
+echo "success scripts/package/bash/removing.sh"
 echo ""

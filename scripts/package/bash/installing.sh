@@ -1,7 +1,7 @@
-#!/bin/bash # scripts/package/installing.sh
+#!/bin/bash # scripts/package/bash/installing.sh
 
 echo ""
-echo "run scripts/package/installing.sh"
+echo "run scripts/package/bash/installing.sh"
 
 for dir in $(find . -name "package.json" -not -path "*/node_modules/*" -exec dirname {} \;); do
   echo ""
@@ -14,5 +14,5 @@ for dir in $(find . -name "package.json" -not -path "*/node_modules/*" -exec dir
 done
 
 echo ""
-echo "success scripts/package/installing.sh"
+echo "success scripts/package/bash/installing.sh"
 echo ""
