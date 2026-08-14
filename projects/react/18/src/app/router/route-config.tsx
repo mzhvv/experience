@@ -3,6 +3,8 @@
 import type { RouteObject } from 'react-router';
 
 import { NotFoundPage, createNotFoundRoute } from '@packages/react-router-dom-kit';
+import { HomePage } from '@/pages/home';
+import { MainLayout } from '@/pages/main-layout';
 
 export const routeConfig = [
   ...createNotFoundRoute(),
