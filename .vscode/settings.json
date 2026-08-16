@@ -6,5 +6,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit"
-  }
+  },
+
+  // Jest
+  "jest.enable": false
 }
