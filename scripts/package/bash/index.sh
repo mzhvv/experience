@@ -1,4 +1,4 @@
-#!/bin/bash # scripts/package/bash/index.sh
+#!/usr/bin/env bash # scripts/package/bash/index.sh
 
 echo ""
 echo "will run scripts/package/bash/removing.sh && scripts/package/bash/installing.sh"
