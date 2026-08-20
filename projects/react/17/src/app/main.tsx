@@ -5,10 +5,13 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 
 import { Providers } from './providers';
+import { Router } from './router';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Providers />
+    <Providers>
+      <Router />
+    </Providers>
   </React.StrictMode>,
   document.getElementById('root')
 );

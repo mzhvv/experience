@@ -1,7 +1,7 @@
 // projects/react/17/src/app/providers.tsx
 
-import { Router } from './router';
+import { Fragment } from 'react';
 
-export const Providers = () => {
-  return <Router />;
+export const Providers: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+  return <Fragment>{children}</Fragment>;
 };

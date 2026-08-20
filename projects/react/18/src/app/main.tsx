@@ -1,13 +1,16 @@
+// projects/react/18/src/app/main.tsx
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 
-import { Button } from '@packages/ui/components/ui/button';
+import { Providers } from './providers';
+import { Router } from './router';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <div>
-      <Button>a</Button>
-    </div>
+    <Providers>
+      <Router />
+    </Providers>
   </StrictMode>
 );

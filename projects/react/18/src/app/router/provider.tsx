@@ -3,4 +3,5 @@
 import { RouterProvider } from 'react-router';
 import { router } from './router';
 
+/** RouterProvider */
 export const Router = () => <RouterProvider router={router} />;

@@ -1,4 +1,4 @@
-// projects/react/18/src/app/router/route-config.ts
+// projects/react/18/src/app/router/route-config.tsx
 
 import type { RouteObject } from 'react-router';
 
