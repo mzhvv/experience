@@ -1,16 +1,6 @@
 // projects/react/18/src/pages/home/index.tsx
 
-import { Link } from 'react-router';
-import { FolderCode } from 'lucide-react';
-
-import {
-  getGithubData,
-  // useGithubRepo
-  useGithubContents,
-  GithubMark,
-} from '@packages/github-data';
-
-import { Button } from '@packages/ui/components/ui/button';
+import { getGithubData, GithubMark } from '@packages/github-data';
 
 export const HomePage = () => {
   return (
@@ -18,9 +8,6 @@ export const HomePage = () => {
       <aside className="p-1">
         <div className="p-1">
           <GithubData />
-        </div>
-        <div className="p-1">
-          <GithubData2 />
         </div>
       </aside>
       <header className="p-1">
@@ -40,25 +27,13 @@ export const HomePage = () => {
 const GithubData = () => {
   const GITHUB_URL = 'https://github.com/mzhvv/experience/tree/master/projects/react/18';
   const githubData = getGithubData(GITHUB_URL);
-  console.log({
-    owner: githubData.owner,
-    repo: githubData.repo,
-    tree: {
-      projects: githubData.tree.projects,
-      projectsReact: githubData.tree.projectReact,
-      projectsReact18: githubData.tree.projectReact18,
-    },
-  });
+  console.log(githubData);
 
   return (
     <div className="p-1 h-10 flex justify-between items-center bg-secondary text-secondary-foreground rounded-md">
       <div className=" flex items-center ms-2 text-sm gap-2">
         <GithubMark size={16} />
-        <div>
-          <div>projects: {githubData.tree.projects}</div>
-          <div>projectsreact: {githubData.tree.projectsreact}</div>
-          <div>projectsReact: {githubData.tree.projectsReact}</div>
-        </div>
+        <div>...</div>
       </div>
     </div>
   );
@@ -76,31 +51,3 @@ const GithubData = () => {
 //   b: 'https://api.github.com/repos/mzhvv/experience/contents/projects/react',
 //   c: 'https://api.github.com/repos/mzhvv/experience/contents/projects/react/18',
 // };
-
-const GithubData2 = () => {
-  const projects = 'projects/react/18';
-
-  // const { data, loading, error } = useGithubRepo('mzhvv/experience');
-  const { data, loading, error } = useGithubContents(projects);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error</div>;
-
-  console.log(data);
-
-  return (
-    <div className="p-1 h-10 flex justify-between items-center bg-secondary text-secondary-foreground rounded-md">
-      <div className=" flex items-center ms-2 text-sm gap-2">
-        <GithubMark size={16} />
-        {/* <span>github.com/mzhvv/experience/.../{data.name || projects}</span> */}
-      </div>
-      {/* <div className="flex items-center gap-2">
-        <Button asChild size="icon-sm" variant="secondary">
-          <Link to={data.html_url} target="_blank" rel="noopener noreferrer">
-            <FolderCode />
-          </Link>
-        </Button>
-      </div> */}
-    </div>
-  );
-};

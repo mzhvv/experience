@@ -16,6 +16,8 @@ const _examinationData = {
   },
 };
 
+void _examinationData;
+
 // #endregion
 
 type GithubUrl = `https://github.com/${string}`;
@@ -49,16 +51,18 @@ function createData<TreeChildrenKey extends string>(githubUrl: GithubUrl) {
 }
 
 function createTree<TreeChildrenKey extends string>(parts: string[]) {
-  type Tree = Partial<Record<TreeChildrenKey, string>>;
-
-  const treeParts = parts.slice(4); // пропускаем owner, repo, tree, branch
-  const tree: Tree = {};
+  const treeParts = parts.slice(4); // ['projects', 'react', '18']
+  const tree: Partial<Record<TreeChildrenKey, string>> = {};
 
   let currentPath = '';
-
   for (let i = 0; i < treeParts.length; i++) {
     currentPath = currentPath ? `${currentPath}/${treeParts[i]}` : treeParts[i];
-    const key = treeParts.slice(0, i + 1).join('');
+
+    const key = treeParts
+      .slice(0, i + 1)
+      .map((part, index) => (index === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1)))
+      .join('');
+
     tree[key] = currentPath;
   }
 
