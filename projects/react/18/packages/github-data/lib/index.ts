@@ -2,21 +2,33 @@
 
 // #region example
 
-const _GITHUB_REPO = 'https://github.com/mzhvv/experience/tree/master/projects/react/18';
 export type CreateTreeKey<T extends `${string}`> = T;
+
+const _GITHUB_REPO = 'https://github.com/mzhvv/experience/tree/master/projects/react/18';
 type _TreeKey = CreateTreeKey<'projects' | 'projectReact' | 'projectReact18'>;
 const _data = getGithubData<_TreeKey>(_GITHUB_REPO);
-const _examinationData = {
-  owner: _data.owner,
-  repo: _data.repo,
+void (
+  /* _examinationData */ {
+    owner: _data.owner,
+    repo: _data.repo,
+    tree: {
+      projects: _data.tree.projects,
+      projectsReact: _data.tree.projectReact,
+      projectsReact18: _data.tree.projectReact18,
+    },
+  }
+);
+
+export const _referenceData = {
+  owner: 'mzhvv',
+  repo: 'experience',
+  branch: 'master',
   tree: {
-    projects: _data.tree.projects,
-    projectsReact: _data.tree.projectReact,
-    projectsReact18: _data.tree.projectReact18,
+    projects: 'projects',
+    projectsReact: 'projects/react',
+    projectsReact18: 'projects/react/18',
   },
 };
-
-void _examinationData;
 
 // #endregion
 
