@@ -3,9 +3,9 @@
 // #region example
 
 const _GITHUB_REPO = 'https://github.com/mzhvv/experience/tree/master/projects/react/18';
-type _CreateTreeChildrenKey<T extends `${string}`> = T;
-type _TreeChildrenKey = _CreateTreeChildrenKey<'projects' | 'projectReact' | 'projectReact18'>;
-const _data = getGithubData<_TreeChildrenKey>(_GITHUB_REPO);
+export type CreateTreeKey<T extends `${string}`> = T;
+type _TreeKey = CreateTreeKey<'projects' | 'projectReact' | 'projectReact18'>;
+const _data = getGithubData<_TreeKey>(_GITHUB_REPO);
 const _examinationData = {
   owner: _data.owner,
   repo: _data.repo,
