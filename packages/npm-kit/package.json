@@ -3,18 +3,43 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "npm-kit-publish": "dist/bin/publish-version-token.js"
+  },
+
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "postinstall": "node src/bin/postinstall.js",
     "npm-kit:publish-version-token:patch": "node scripts/npm/publish-version-token.js",
     "npm-kit:publish-version-token:minor": "node scripts/npm/publish-version-token.js --minor",
-    "npm-kit:publish-version-token:major": "node scripts/npm/publish-version-token.js --major"
+    "npm-kit:publish-version-token:major": "node scripts/npm/publish-version-token.js --major",
+    "npm-kit:publish-version-token:ts:patch": "tsx scripts/npm/publish-version-token.ts",
+    "npm-kit:publish-version-token:ts:minor": "tsx scripts/npm/publish-version-token.ts --minor",
+    "npm-kit:publish-version-token:ts:major": "tsx scripts/npm/publish-version-token.ts --major"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
-    "dotenv": "^17.4.2",
     "typescript": "~6.0.2",
-    "vite": "^8.2.2"
+    "vite": "^8.2.2",
+    "vite-plugin-dts": "^5.0.3"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0",
+    "vite": "^8.0.0"
   }
 }

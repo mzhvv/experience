@@ -1,4 +1,4 @@
-// packages/npm-kit/bin/publish-version-token.js
+// packages/npm-kit/bin/publish-version-token.ts
 
 import { getNpmToken } from '../src/lib/get-npm-token';
 import { createPublishVersionToken } from '../src/lib/create-publish-version-token';
