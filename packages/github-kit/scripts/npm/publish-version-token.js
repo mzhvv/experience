@@ -1,4 +1,4 @@
-// packages/github-kit/scripts/npm/publish-token.js
+// packages/github-kit/scripts/npm/publish-version-token.js
 
 import { execSync } from 'child_process';
 import dotenv from 'dotenv';
