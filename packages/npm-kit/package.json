@@ -1,0 +1,16 @@
+{
+  "name": "@mzhvv/npm-kit",
+  "version": "0.0.1",
+  "type": "module",
+  "bin": {
+    "npm-publish": "bin/publish.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "scripts:npm:publish-version-token:patch": "node scripts/npm/publish-version-token.js",
+    "scripts:npm:publish-version-token:minor": "node scripts/npm/publish-version-token.js --minor",
+    "scripts:npm:publish-version-token:major": "node scripts/npm/publish-version-token.js --major"
+  }
+}
