@@ -1,6 +1,6 @@
-// packages/github-kit/src/create-data/index.ts
+// packages/github-kit/src/lib/create-data/index.ts
 
-import type { GithubUrl } from '../types';
+import type { GithubUrl } from '../../types';
 
 export function createData<TreeChildrenKey extends string>(githubUrl: GithubUrl) {
   const path = githubUrl.replace('https://github.com/', '');

@@ -1,9 +1,9 @@
-// packages/github-kit/src/get-github-kit.ts
+// packages/github-kit/src/core/create-github-kit/index.ts
 
-import type { GithubUrl, CreateTreeKey } from './types';
-import { createData } from './create-data';
+import type { GithubUrl, CreateTreeKey } from '../../types';
+import { createData } from '../../lib/create-data';
 
-export function getGithubKit<TreeChildrenKey extends string>(
+export function createGithubKit<TreeChildrenKey extends string>(
   githubUrl: GithubUrl
   // GITHUB_API = 'https://api.github.com/repos'
 ) {
@@ -17,7 +17,7 @@ export function getGithubKit<TreeChildrenKey extends string>(
 const _GITHUB_REPO: GithubUrl = 'https://github.com/mzhvv/experience/tree/master/projects/react/18';
 type _TreeKey = CreateTreeKey<'projects' | 'projectReact' | 'projectReact18'>;
 
-const _data = getGithubKit<_TreeKey>(_GITHUB_REPO);
+const _data = createGithubKit<_TreeKey>(_GITHUB_REPO);
 void (
   /* _examinationData */ {
     owner: _data.owner,
