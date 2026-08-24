@@ -1,8 +1,8 @@
-// packages/npm-kit/src/create-publish-version-token.js
+// packages/npm-kit/src/lib/create-publish-version-token.ts
 
 import { execSync } from 'child_process';
 
-export function createPublishVersionToken(token) {
+export function createPublishVersionToken(token: string) {
   // Определяем тип обновления (patch, minor, major)
   const type = process.argv.includes('--minor')
     ? 'minor'

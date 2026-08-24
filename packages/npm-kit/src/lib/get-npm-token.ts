@@ -1,9 +1,10 @@
-// packages/npm-kit/src/get-npm-token.js
+// packages/npm-kit/src/lib/get-npm-token.ts
 
-import dotenv from 'dotenv';
 import { resolve } from 'path';
 
-export async function getNpmToken(path) {
+import dotenv from 'dotenv';
+
+export async function getNpmToken(path?: string) {
   if (!path) {
     dotenv.config({ path: resolve(process.cwd(), '.env') });
   } else {
@@ -19,6 +20,7 @@ export async function getNpmToken(path) {
   if (!npmToken) {
     console.error('❌ NPM_TOKEN not set in .env');
     process.exit(1);
+  } else {
+    return npmToken;
   }
-  return npmToken;
 }
