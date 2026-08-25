@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 import dotenv from 'dotenv';
 
-export function getNpmToken(path?: string) {
+export function getNpmToken(path?: string): string {
   if (!path) {
     dotenv.config({ path: resolve(process.cwd(), '.env') });
   } else {
@@ -18,7 +18,7 @@ export function getNpmToken(path?: string) {
   if (!npmToken) {
     console.error('❌ NPM_TOKEN not set in .env');
     process.exit(1);
-  } else {
-    return npmToken;
   }
+
+  return npmToken;
 }

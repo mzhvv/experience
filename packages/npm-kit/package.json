@@ -1,12 +1,14 @@
 {
   "name": "npm-kit",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -16,11 +18,13 @@
   "bin": {
     "npm-kit-publish": "dist/bin/publish-version-token.js"
   },
-
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "coverage": "vitest --coverage",
     "postinstall": "node src/bin/postinstall.js",
     "npm-kit:publish-version-token:patch": "node scripts/npm/publish-version-token.js",
     "npm-kit:publish-version-token:minor": "node scripts/npm/publish-version-token.js --minor",
@@ -36,7 +40,8 @@
     "@types/node": "^26.2.0",
     "typescript": "~6.0.2",
     "vite": "^8.2.2",
-    "vite-plugin-dts": "^5.0.3"
+    "vite-plugin-dts": "^5.0.3",
+    "vitest": "^4.1.11"
   },
   "peerDependencies": {
     "typescript": ">=5.0.0",
