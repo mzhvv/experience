@@ -1,4 +1,4 @@
-// packages/npm-kit/bin/publish-version-token.ts
+// packages/npm-kit/src/lib/add-scripts.ts
 
 import { updatePackageVersion } from '../src/lib/update-package-version';
 import { getNpmToken } from '../src/lib/get-npm-token';

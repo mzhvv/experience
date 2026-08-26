@@ -24,14 +24,11 @@
     "test:watch": "vitest --watch",
     "coverage": "vitest --coverage",
 
-    "postinstall": "node src/bin/postinstall.js",
+    "postinstall": "node bin/postinstall.js",
 
-    "npm-kit:publish-version-token:patch": "node scripts/npm/publish-version-token.js",
-    "npm-kit:publish-version-token:minor": "node scripts/npm/publish-version-token.js --minor",
-    "npm-kit:publish-version-token:major": "node scripts/npm/publish-version-token.js --major",
-    "npm-kit:publish-version-token:ts:patch": "tsx scripts/npm/publish-version-token.ts",
-    "npm-kit:publish-version-token:ts:minor": "tsx scripts/npm/publish-version-token.ts --minor",
-    "npm-kit:publish-version-token:ts:major": "tsx scripts/npm/publish-version-token.ts --major"
+    "npm-kit:publish-version-token:patch": "node scripts/npm/publish-version-token.ts",
+    "npm-kit:publish-version-token:minor": "node scripts/npm/publish-version-token.ts --minor",
+    "npm-kit:publish-version-token:major": "node scripts/npm/publish-version-token.ts --major"
   },
   "dependencies": {
     "dotenv": "^17.4.2"
