@@ -6,9 +6,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -25,7 +23,9 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "coverage": "vitest --coverage",
+
     "postinstall": "node src/bin/postinstall.js",
+
     "npm-kit:publish-version-token:patch": "node scripts/npm/publish-version-token.js",
     "npm-kit:publish-version-token:minor": "node scripts/npm/publish-version-token.js --minor",
     "npm-kit:publish-version-token:major": "node scripts/npm/publish-version-token.js --major",

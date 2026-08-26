@@ -1,4 +1,4 @@
-// packages/npm-kit/src/bin/postinstall.js
+// packages/npm-kit/bin/postinstall.js
 
 import { writeFileSync, readFileSync } from 'fs';
 import { resolve } from 'path';
