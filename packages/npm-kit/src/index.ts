@@ -1,3 +1,4 @@
 // packages/npm-kit/src/index.ts
 
-export * from './lib';
+export * from '@core';
+export * from '@lib';

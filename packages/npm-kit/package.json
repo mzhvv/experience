@@ -25,7 +25,6 @@
     "coverage": "vitest --coverage",
 
     "postinstall": "node bin/postinstall.js",
-
     "npm-kit:publish-version-token:patch": "node scripts/npm/publish-version-token.ts",
     "npm-kit:publish-version-token:minor": "node scripts/npm/publish-version-token.ts --minor",
     "npm-kit:publish-version-token:major": "node scripts/npm/publish-version-token.ts --major"

@@ -1,5 +1,5 @@
 // packages/npm-kit/bin/postinstall.js
 
-import { addScripts } from '../src/lib/add-scripts';
+import { addScripts } from '@lib';
 
 addScripts();
