@@ -1,4 +1,4 @@
-// packages/npm-kit/src/lib/update-version.ts
+// packages/npm-kit/src/lib/update-package-version.ts
 
 import { execSync } from 'child_process';
 import { resolve } from 'path';

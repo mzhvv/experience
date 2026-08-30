@@ -2,7 +2,8 @@
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import dotenv from 'dotenv';
-import { getNpmToken } from '../lib/get-npm-token';
+
+import { getNpmToken } from '@lib/get-npm-token';
 
 vi.mock('dotenv', () => ({
   default: {

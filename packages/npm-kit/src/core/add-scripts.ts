@@ -1,9 +1,9 @@
-// packages/npm-kit/bin/add-scripts.ts
+// packages/npm-kit/src/core/add-scripts.ts
 
 import { writeFileSync, readFileSync } from 'fs';
 import { resolve } from 'path';
 
-export function addScripts() {
+export function addScripts(): void {
   const packageJsonPath = resolve(process.cwd(), 'package.json');
 
   try {
