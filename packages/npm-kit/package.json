@@ -1,4 +1,16 @@
 {
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "coverage": "vitest --coverage",
+
+    "npm-kit:bin:publish-version-token": "dist/bin/publish-version-token.js",
+    "npm-kit:bin:add-scripts": "dist/src/core/add-scripts.js"
+  },
+
   "name": "npm-kit",
   "private": true,
   "version": "0.0.0",
@@ -13,22 +25,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "bin": {
-    "npm-kit-publish": "dist/bin/publish-version-token.js"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "coverage": "vitest --coverage",
 
-    "postinstall": "node bin/postinstall.js",
-    "npm-kit:publish-version-token:patch": "node scripts/npm/publish-version-token.ts",
-    "npm-kit:publish-version-token:minor": "node scripts/npm/publish-version-token.ts --minor",
-    "npm-kit:publish-version-token:major": "node scripts/npm/publish-version-token.ts --major"
-  },
   "dependencies": {
     "dotenv": "^17.4.2"
   },

@@ -2,7 +2,7 @@
 
 import { execSync } from 'child_process';
 
-import { updatePackageVersion } from '@lib';
+import { updatePackageVersion } from '@/libs';
 
 export function createPublishVersionToken(token: string): void {
   updatePackageVersion();

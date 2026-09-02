@@ -1,9 +1,9 @@
-// packages/npm-kit/src/lib/get-npm-token.test.ts
+// packages/npm-kit/src/libs/get-npm-token.test.ts
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import dotenv from 'dotenv';
 
-import { getNpmToken } from '@lib/get-npm-token';
+import { getNpmToken } from '@libs/get-npm-token';
 
 vi.mock('dotenv', () => ({
   default: {

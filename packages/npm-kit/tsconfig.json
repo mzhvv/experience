@@ -27,8 +27,8 @@
       "@/*": ["./src/*"],
       "@core": ["./src/core"],
       "@core/*": ["./src/core/*"],
-      "@lib": ["./src/lib"],
-      "@lib/*": ["./src/lib/*"]
+      "@libs": ["./src/libs"],
+      "@libs/*": ["./src/libs/*"]
     }
   },
   "include": ["src", "bin"]

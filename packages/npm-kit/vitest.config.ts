@@ -11,7 +11,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 export const alias = {
   '@': path.resolve(__dirname, './src'),
   '@core': path.resolve(__dirname, './src/core'),
-  '@lib': path.resolve(__dirname, './src/lib'),
+  '@libs': path.resolve(__dirname, './src/libs'),
 } as const satisfies AliasOptions;
 
 export default defineConfig({
