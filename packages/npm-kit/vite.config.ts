@@ -18,7 +18,12 @@ export const alias = {
 } as const satisfies AliasOptions;
 
 export default defineConfig({
-  plugins: [dts()],
+  plugins: [
+    dts({
+      staticImport: true, // статические импорты в .d.ts
+      clearPureImport: true, // очистка неиспользуемых импортов
+    }),
+  ],
 
   build: {
     lib: {

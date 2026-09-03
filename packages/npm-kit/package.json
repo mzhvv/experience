@@ -1,18 +1,19 @@
 {
   "bin": {
-    "add-scripts": "dist/src/core/add-scripts.js"
+    "add-scripts": "dist/core/add-scripts.js"
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "build": "vite build",
+    "ci": "npm run typecheck && npm run clean && npm run build",
     "preview": "vite preview",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "coverage": "vitest --coverage",
-
-    "npm-kit:add-scripts": "node dist/src/core/add-scripts.js"
+    "npm-kit:add-scripts": "node dist/core/add-scripts.js"
   },
-
   "name": "npm-kit",
   "private": true,
   "version": "0.0.0",
@@ -27,7 +28,6 @@
       "types": "./dist/index.d.ts"
     }
   },
-
   "dependencies": {
     "dotenv": "^17.4.2"
   },
@@ -36,7 +36,7 @@
     "@vitest/coverage-v8": "^4.1.11",
     "typescript": "~6.0.2",
     "vite": "^8.2.2",
-    "vite-plugin-dts": "^5.0.3",
+    "vite-plugin-dts": "^5.1.0",
     "vitest": "^4.1.11"
   },
   "peerDependencies": {
