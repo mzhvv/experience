@@ -1,4 +1,7 @@
 {
+  "bin": {
+    "add-scripts": "dist/src/core/add-scripts.js"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -7,8 +10,7 @@
     "test:watch": "vitest --watch",
     "coverage": "vitest --coverage",
 
-    "npm-kit:bin:publish-version-token": "dist/bin/publish-version-token.js",
-    "npm-kit:bin:add-scripts": "dist/src/core/add-scripts.js"
+    "npm-kit:add-scripts": "node dist/src/core/add-scripts.js"
   },
 
   "name": "npm-kit",

@@ -1,4 +1,4 @@
-// packages/npm-kit/src/core/create-publish-version-token.ts
+// packages/npm-kit/src/libs/create-publish-version-token/index.ts
 
 import { execSync } from 'child_process';
 

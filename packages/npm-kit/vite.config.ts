@@ -10,6 +10,7 @@ import dts from 'vite-plugin-dts';
 import { fileURLToPath } from 'url';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
+// !TODO - Псевдонимы в vite.config и vitest.config идентичны
 export const alias = {
   '@': path.resolve(__dirname, './src'),
   '@core': path.resolve(__dirname, './src/core'),
@@ -19,16 +20,19 @@ export const alias = {
 export default defineConfig({
   plugins: [dts()],
 
-  resolve: {
-    alias: alias,
-  },
-
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'npm-kit',
       formats: ['es'],
-      fileName: 'index',
+      fileName: (_format, entryName) => `${entryName}.js`,
+    },
+
+    rollupOptions: {
+      external: ['fs', 'path', 'child_process', 'crypto', 'os', 'url', 'dotenv'],
+      output: {
+        preserveModules: true,
+        dir: 'dist',
+      },
     },
   },
 });
