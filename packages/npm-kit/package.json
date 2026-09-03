@@ -1,4 +1,18 @@
 {
+  "name": "@mzhvv/npm-kit",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "bin": {
     "add-scripts": "dist/core/add-scripts.js"
   },
@@ -13,20 +27,6 @@
     "test:watch": "vitest --watch",
     "coverage": "vitest --coverage",
     "npm-kit:add-scripts": "node dist/core/add-scripts.js"
-  },
-  "name": "@mzhvv/npm-kit",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": ["dist"],
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
   },
   "dependencies": {
     "dotenv": "^17.4.2"
