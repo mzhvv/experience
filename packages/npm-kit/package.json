@@ -14,7 +14,7 @@
     "coverage": "vitest --coverage",
     "npm-kit:add-scripts": "node dist/core/add-scripts.js"
   },
-  "name": "npm-kit",
+  "name": "@mzhvv/npm-kit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
