@@ -26,6 +26,10 @@ export default defineConfig({
     }),
   ],
 
+  resolve: {
+    alias,
+  },
+
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),

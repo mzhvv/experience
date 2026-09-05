@@ -23,9 +23,10 @@
     "ci:build": "npm run clean && npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
+    "test:run": "vitest --run",
     "test:watch": "vitest --watch",
     "coverage": "vitest --coverage",
-    "ci:test": "npm run typecheck && npm run test",
+    "ci:test": "npm run typecheck && npm run test:run",
     "ci": "npm run ci:test && npm run ci:build",
     "npm-kit:add-scripts": "node dist/bin/add-scripts.js"
   },
