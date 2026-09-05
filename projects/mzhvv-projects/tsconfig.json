@@ -1,5 +1,3 @@
-// packages/npm-kit/tsconfig.json
-
 {
   "compilerOptions": {
     "target": "es2023",
@@ -20,17 +18,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-
-    /* Alias */
-    "paths": {
-      "@/*": ["./src/*"],
-      "@core": ["./src/core"],
-      "@core/*": ["./src/core/*"],
-      "@libs": ["./src/libs"],
-      "@libs/*": ["./src/libs/*"]
-    }
+    "noFallthroughCasesInSwitch": true
   },
-
   "include": ["src"]
 }

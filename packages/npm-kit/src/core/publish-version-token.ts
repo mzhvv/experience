@@ -2,5 +2,7 @@
 
 import { updatePackageVersion, createPublishVersionToken, getNpmToken } from '@libs';
 
-updatePackageVersion();
-createPublishVersionToken(getNpmToken());
+export function publishVersionWithToken() {
+  updatePackageVersion();
+  createPublishVersionToken(getNpmToken());
+}

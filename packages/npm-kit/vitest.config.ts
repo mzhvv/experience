@@ -8,6 +8,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
+// !TODO - Псевдонимы в vite.config и vitest.config идентичны
 export const alias = {
   '@': path.resolve(__dirname, './src'),
   '@core': path.resolve(__dirname, './src/core'),
@@ -24,13 +25,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      exclude: [
-        '**/node_modules/**',
-        '**/dist/**',
-        '**/__tests__/**',
-        '**/*.config.*',
-        '**/index.ts',
-      ],
+      exclude: ['**/node_modules/**', '**/dist/**', '**/*.config.*', '**/index.ts'],
     },
   },
 });
