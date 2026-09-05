@@ -25,6 +25,8 @@
     /* Alias */
     "paths": {
       "@/*": ["./src/*"],
+      "@bin": ["./src/bin"],
+      "@bin/*": ["./src/bin/*"],
       "@core": ["./src/core"],
       "@core/*": ["./src/core/*"],
       "@libs": ["./src/libs"],

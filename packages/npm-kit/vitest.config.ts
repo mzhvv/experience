@@ -11,6 +11,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 // !TODO - Псевдонимы в vite.config и vitest.config идентичны
 export const alias = {
   '@': path.resolve(__dirname, './src'),
+  '@bin': path.resolve(__dirname, './src/bin'),
   '@core': path.resolve(__dirname, './src/core'),
   '@libs': path.resolve(__dirname, './src/libs'),
 } as const satisfies AliasOptions;

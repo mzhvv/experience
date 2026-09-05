@@ -13,7 +13,7 @@
     }
   },
   "bin": {
-    "add-scripts": "dist/core/add-scripts.js"
+    "add-scripts": "dist/bin/add-scripts.js"
   },
   "scripts": {
     "dev": "vite",
@@ -27,19 +27,18 @@
     "coverage": "vitest --coverage",
     "ci:test": "npm run typecheck && npm run test",
     "ci": "npm run ci:test && npm run ci:build",
-
-    "npm-kit:add-scripts": "node dist/core/add-scripts.js"
+    "npm-kit:add-scripts": "node dist/bin/add-scripts.js"
   },
   "dependencies": {
     "dotenv": "17.4.2"
   },
   "devDependencies": {
     "@types/node": "22.13.4",
-    "@vitest/coverage-v8": "3.0.5",
-    "typescript": "5.7.3",
+    "@vitest/coverage-v8": "3.2.7",
+    "typescript": "^5.9.2",
     "vite": "6.4.3",
     "vite-plugin-dts": "4.5.0",
-    "vitest": "3.0.5"
+    "vitest": "3.2.7"
   },
   "peerDependencies": {
     "typescript": ">=5.0.0",

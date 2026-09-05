@@ -1,8 +1,8 @@
-// packages/npm-kit/src/libs/create-publish-version-token/index.ts
+// packages/npm-kit/src/core/create-publish-version-token.ts
 
 import { execSync } from 'child_process';
 
-import { updatePackageVersion } from '@/libs';
+import { updatePackageVersion } from '@libs';
 
 export function createPublishVersionToken(token: string): void {
   updatePackageVersion();

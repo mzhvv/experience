@@ -1,3 +1,3 @@
 // packages/npm-kit/src/core/index.ts
 
-export { publishVersionWithToken } from './publish-version-token';
+export { createPublishVersionToken } from './create-publish-version-token';

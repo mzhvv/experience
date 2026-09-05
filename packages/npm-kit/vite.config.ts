@@ -13,6 +13,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 // !TODO - Псевдонимы в vite.config и vitest.config идентичны
 export const alias = {
   '@': path.resolve(__dirname, './src'),
+  '@bin': path.resolve(__dirname, './src/bin'),
   '@core': path.resolve(__dirname, './src/core'),
   '@libs': path.resolve(__dirname, './src/libs'),
 } as const satisfies AliasOptions;
@@ -33,7 +34,17 @@ export default defineConfig({
     },
 
     rollupOptions: {
-      external: ['fs', 'path', 'child_process', 'crypto', 'os', 'url', 'dotenv'],
+      external: [
+        // Node.js
+        'fs',
+        'path',
+        'child_process',
+        'crypto',
+        'os',
+        'url',
+        // npm зависимости
+        'dotenv',
+      ],
       output: {
         preserveModules: true,
         dir: 'dist',

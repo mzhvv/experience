@@ -1,4 +1,4 @@
-#!/usr/bin/env node // packages/npm-kit/src/libs/add-scripts/index.ts
+// packages/npm-kit/src/libs/add-scripts.ts
 
 import { writeFileSync, readFileSync } from 'fs';
 import { resolve } from 'path';
