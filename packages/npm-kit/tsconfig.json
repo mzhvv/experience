@@ -30,7 +30,9 @@
       "@core": ["./src/core"],
       "@core/*": ["./src/core/*"],
       "@libs": ["./src/libs"],
-      "@libs/*": ["./src/libs/*"]
+      "@libs/*": ["./src/libs/*"],
+      // "@_packages": ["./src/_packages"],
+      "@_packages/*": ["./src/_packages/*"]
     }
   },
 

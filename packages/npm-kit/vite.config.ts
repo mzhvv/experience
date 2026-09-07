@@ -2,7 +2,7 @@
 
 import type { AliasOptions } from 'vite';
 
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import path from 'path';
 
 import dts from 'vite-plugin-dts';
@@ -16,13 +16,14 @@ export const alias = {
   '@bin': path.resolve(__dirname, './src/bin'),
   '@core': path.resolve(__dirname, './src/core'),
   '@libs': path.resolve(__dirname, './src/libs'),
+  '@_packages': path.resolve(__dirname, './src/_packages'),
 } as const satisfies AliasOptions;
 
 export default defineConfig({
   plugins: [
     dts({
-      staticImport: true, // статические импорты в .d.ts
-      clearPureImport: true, // очистка неиспользуемых импортов
+      staticImport: true,
+      clearPureImport: true,
     }),
   ],
 
