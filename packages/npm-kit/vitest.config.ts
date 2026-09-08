@@ -15,7 +15,7 @@ export const alias = {
   '@core': path.resolve(__dirname, './src/core'),
   '@libs': path.resolve(__dirname, './src/libs'),
   '@_packages': path.resolve(__dirname, './src/_packages'),
-} as const satisfies AliasOptions;
+} satisfies AliasOptions;
 
 export default defineConfig({
   resolve: { alias },

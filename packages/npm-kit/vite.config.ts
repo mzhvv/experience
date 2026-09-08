@@ -4,6 +4,7 @@ import type { AliasOptions } from 'vite';
 
 import { defineConfig, type Plugin } from 'vite';
 import path from 'path';
+import { glob } from 'glob';
 
 import dts from 'vite-plugin-dts';
 
@@ -17,7 +18,7 @@ export const alias = {
   '@core': path.resolve(__dirname, './src/core'),
   '@libs': path.resolve(__dirname, './src/libs'),
   '@_packages': path.resolve(__dirname, './src/_packages'),
-} as const satisfies AliasOptions;
+} satisfies AliasOptions;
 
 export default defineConfig({
   plugins: [
@@ -32,8 +33,19 @@ export default defineConfig({
   },
 
   build: {
+    // sourcemap: true,
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: {
+        index: path.resolve(__dirname, 'src/index.ts'),
+        ...Object.fromEntries(
+          glob
+            .sync('src/bin/*.ts')
+            .map((file) => [
+              file.replace(/^src\//, '').replace(/\.ts$/, ''),
+              path.resolve(__dirname, file),
+            ])
+        ),
+      },
       formats: ['es'],
       fileName: (_format, entryName) => `${entryName}.js`,
     },
