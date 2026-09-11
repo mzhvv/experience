@@ -6,8 +6,8 @@
   "scripts": {
     "format": "prettier --write .",
 
-    "package-reset:sh": "bash scripts/package/bash/index.sh",
-    "package-reset:py": "python3 scripts/package/python/index.py"
+    "package-reset:sh": "bash bin/package/bash/index.sh",
+    "package-reset:py": "python3 bin/package/python/index.py"
   },
 
   "devDependencies": {

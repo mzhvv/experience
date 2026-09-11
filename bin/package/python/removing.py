@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 # scripts/package/python/removing.py
+#!/usr/bin/env python3 // bin/package/python/removing.py
 
 import shutil
 from pathlib import Path

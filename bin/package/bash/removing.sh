@@ -1,4 +1,4 @@
-#!/usr/bin/env bash # scripts/package/bash/removing.sh
+#!/usr/bin/env bash // bin/package/bash/removing.sh
 
 echo ""
 echo "run scripts/package/bash/removing.sh"

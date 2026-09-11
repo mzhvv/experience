@@ -3,11 +3,7 @@
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
 
-/*!D
-  запуск
-  проверка наличмя package.json
-
-*/
+/*!D */
 
 // #region types
 
@@ -25,7 +21,6 @@ export function addScripts() {
   console.log('🚀 npm-kit: adding scripts to package.json...');
 
   const packageJsonPath = resolve(process.cwd(), 'package.json');
-
   if (!existsSync(packageJsonPath)) {
     console.error('❌ package.json not found in current directory');
     return;

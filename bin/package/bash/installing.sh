@@ -1,4 +1,4 @@
-#!/usr/bin/env bash # scripts/package/bash/installing.sh
+#!/usr/bin/env bash // bin/package/bash/installing.sh
 
 echo ""
 echo "run scripts/package/bash/installing.sh"

@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -28,7 +30,10 @@
     "coverage": "vitest --coverage",
     "ci:test": "npm run typecheck && npm run test:run",
     "ci": "npm run ci:test && npm run ci:build",
-    "npm-kit:add-scripts": "node dist/bin/add-scripts.js"
+    "npm-kit:add-scripts": "node dist/bin/add-scripts.js",
+    "publish:patch": "npm-kit-publish",
+    "publish:minor": "npm-kit-publish --minor",
+    "publish:major": "npm-kit-publish --major"
   },
   "dependencies": {
     "dotenv": "17.4.2"

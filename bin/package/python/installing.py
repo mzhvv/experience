@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 # scripts/package/python/installing.py
+#!/usr/bin/env python3 // bin/package/python/installing.py
 
 import subprocess
 from pathlib import Path

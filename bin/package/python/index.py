@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 # scripts/package/python/index.py
+#!/usr/bin/env python3 // bin/package/python/index.py
 
 import subprocess
 import sys
