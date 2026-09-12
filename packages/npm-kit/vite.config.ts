@@ -5,8 +5,8 @@ import { glob } from 'glob';
 import path from 'path';
 import dts from 'vite-plugin-dts';
 
-// import { getDirname } from './_config/get-dirname';
-import { aliasVite } from './_config/alias/vite';
+// import { getDirname } from './_/libs/get-dirname';
+import { aliasVite } from './_/alias/vite';
 
 const __dirname = process.cwd(); // getDirname(import.meta.url, '.');
 

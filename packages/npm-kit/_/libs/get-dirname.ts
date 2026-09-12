@@ -1,4 +1,4 @@
-// packages/npm-kit/_config/_libs/get-dirname.ts
+// packages/npm-kit/_/libs/get-dirname.ts
 
 import { fileURLToPath } from 'url';
 
