@@ -1,24 +1,11 @@
 // packages/npm-kit/vitest.config.ts
 
-import type { AliasOptions } from 'vite';
-
 import { defineConfig } from 'vitest/config';
-import path from 'path';
 
-import { fileURLToPath } from 'url';
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-
-//!C !TODO - Псевдонимы в vite.config и vitest.config идентичны
-export const alias = {
-  '@': path.resolve(__dirname, './src'),
-  '@bin': path.resolve(__dirname, './src/bin'),
-  '@core': path.resolve(__dirname, './src/core'),
-  '@libs': path.resolve(__dirname, './src/libs'),
-  '@packages': path.resolve(__dirname, './src/packages'),
-} satisfies AliasOptions;
+import { aliasVite } from './_config/alias/vite';
 
 export default defineConfig({
-  resolve: { alias },
+  resolve: { alias: aliasVite },
 
   test: {
     globals: true,

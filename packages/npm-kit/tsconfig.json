@@ -31,10 +31,10 @@
       "@core/*": ["./src/core/*"],
       "@libs": ["./src/libs"],
       "@libs/*": ["./src/libs/*"],
-      "@packages": ["./src/packages"],
-      "@packages/*": ["./src/packages/*"]
+      "@packages": ["./src/_packages"],
+      "@packages/*": ["./src/_packages/*"]
     }
   },
 
-  "include": ["src"]
+  "include": ["_config", "src"]
 }
