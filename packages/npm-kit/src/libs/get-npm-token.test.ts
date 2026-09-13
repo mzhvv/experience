@@ -1,6 +1,6 @@
 // packages/npm-kit/src/libs/get-npm-token.test.ts
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import dotenv from 'dotenv';
 
 import { getNpmToken } from './get-npm-token';
@@ -11,49 +11,59 @@ vi.mock('dotenv', () => ({
   },
 }));
 
+const mockDotenv = vi.mocked(dotenv);
+
 describe('getNpmToken', () => {
   beforeEach(() => {
-    vi.resetModules();
+    vi.clearAllMocks();
     delete process.env.NPM_TOKEN;
+    mockDotenv.config.mockImplementation(() => ({ parsed: {} }));
   });
 
-  it('возвращает токен при наличии переменной NPM_TOKEN', () => {
-    const npmToken = 'npm_111';
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
 
-    vi.stubEnv('NPM_TOKEN', npmToken);
+  it('возвращает NPM_TOKEN из .env', () => {
+    const NPM_TOKEN = 'npm_111';
+
+    mockDotenv.config.mockImplementation(() => {
+      process.env.NPM_TOKEN = NPM_TOKEN;
+      return { parsed: { NPM_TOKEN } };
+    });
+
     const token = getNpmToken();
 
-    expect(token).toBe(npmToken);
+    expect(token).toBe(NPM_TOKEN);
+    expect(mockDotenv.config).toHaveBeenCalledWith({
+      path: expect.stringContaining('.env'),
+    });
   });
 
-  it('возвращает токен из кастомной папки, если передана переменная NPM_TOKEN', () => {
-    const npmToken = 'npm_222';
-    const envDir = 'envDir';
-    const configSpy = vi.spyOn(dotenv, 'config');
+  it('возвращает NPM_TOKEN из указанной папки ./envDir/.env', () => {
+    const NPM_TOKEN = 'npm_222';
+    const ENV_DIR = 'envDir';
 
-    vi.stubEnv('NPM_TOKEN', npmToken);
-    const token = getNpmToken(envDir);
-
-    expect(configSpy).toHaveBeenCalledWith({
-      path: expect.stringContaining(`${envDir}/.env`),
+    mockDotenv.config.mockImplementation(() => {
+      process.env.NPM_TOKEN = NPM_TOKEN;
+      return { parsed: { NPM_TOKEN } };
     });
-    expect(token).toBe(npmToken);
 
-    configSpy.mockRestore();
+    const token = getNpmToken(ENV_DIR);
+
+    expect(token).toBe(NPM_TOKEN);
+    expect(mockDotenv.config).toHaveBeenCalledWith({
+      path: expect.stringContaining(`${ENV_DIR}/.env`),
+    });
   });
 
   it('завершает работу с ошибкой, если NPM_TOKEN не задан', () => {
-    const configSpy = vi.spyOn(dotenv, 'config');
-    const spyExit = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
-    const spyConsole = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     getNpmToken();
 
-    expect(spyConsole).toHaveBeenCalledWith('❌ NPM_TOKEN not set in .env');
-    expect(spyExit).toHaveBeenCalledWith(1);
-
-    configSpy.mockRestore();
-    spyExit.mockRestore();
-    spyConsole.mockRestore();
+    expect(errorSpy).toHaveBeenCalledWith('❌ NPM_TOKEN not set in .env');
+    expect(exitSpy).toHaveBeenCalledWith(1);
   });
 });

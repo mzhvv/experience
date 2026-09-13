@@ -3,6 +3,8 @@
 import { resolve } from 'path';
 import dotenv from 'dotenv';
 
+/* !D */
+
 /**
  * ---
  * @example getNpmToken() в ./src/feature/github/.../index.ts
