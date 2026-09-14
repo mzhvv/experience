@@ -6,7 +6,7 @@ import path from 'path';
 import dts from 'vite-plugin-dts';
 
 // import { getDirname } from './_/libs/get-dirname';
-import { aliasVite } from './_/alias/vite';
+import { aliasVite } from './_config/alias/vite';
 
 const __dirname = process.cwd(); // getDirname(import.meta.url, '.');
 
@@ -15,6 +15,7 @@ export default defineConfig({
     dts({
       staticImport: true,
       clearPureImport: true,
+      exclude: ['_config/**', '_bin/**'],
     }),
   ],
 

@@ -5,19 +5,11 @@ import type { PackageJson } from 'type-fest';
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
 
-/*!D */
-
-// #region @private
-
 function _publishScripts(packageJson: PackageJson) {
   packageJson.scripts['publish:patch'] = 'npm-kit-publish';
   packageJson.scripts['publish:minor'] = 'npm-kit-publish --minor';
   packageJson.scripts['publish:major'] = 'npm-kit-publish --major';
 }
-
-// #endregion
-
-// #region @public
 
 export function addScripts() {
   console.log('🚀 npm-kit: adding scripts to package.json...');
@@ -25,7 +17,7 @@ export function addScripts() {
   const packageJsonPath = resolve(process.cwd(), 'package.json');
   if (!existsSync(packageJsonPath)) {
     console.error('❌ package.json not found in current directory');
-    return;
+    process.exit(1);
   }
 
   console.log('📦 Found package.json, adding scripts...');
@@ -41,7 +33,6 @@ export function addScripts() {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.error('❌ Failed to update package.json:', message);
+    process.exit(1);
   }
 }
-
-// #endregion

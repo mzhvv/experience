@@ -21,7 +21,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "ci:build": "npm run clean && npm run build",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "node _bin/typecheck.js",
     "test": "vitest",
     "test:run": "vitest --run",
     "test:watch": "vitest --watch",

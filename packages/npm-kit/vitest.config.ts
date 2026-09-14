@@ -2,7 +2,7 @@
 
 import { defineConfig } from 'vitest/config';
 
-import { aliasVite } from './_/alias/vite';
+import { aliasVite } from './_config/alias/vite';
 
 export default defineConfig({
   resolve: { alias: aliasVite },

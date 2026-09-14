@@ -3,17 +3,6 @@
 import { resolve } from 'path';
 import dotenv from 'dotenv';
 
-/* !D */
-
-/**
- * ---
- * @example getNpmToken() в ./src/feature/github/.../index.ts
- * @returns (относительно корня) ./.env
- *
- * ---
- * @example getNpmToken(envDir) в ./src/feature/github/.../index.ts
- * @returns (относительно корня) ./envDir/.env
- */
 export function getNpmToken(envDir?: string): string {
   if (!envDir) {
     dotenv.config({ path: resolve(process.cwd(), '.env') });
