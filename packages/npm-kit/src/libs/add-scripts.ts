@@ -1,16 +1,18 @@
 // packages/npm-kit/src/libs/add-scripts.ts
 
+import type { PackageJson } from 'type-fest';
+
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
 
 /*!D */
 
-// #region types
+// #region @private
 
-//!N @types/node - Нет прямого типа для package.json. Нужно устанавливать @types/npm-package-json или type-fest
-interface PackageJson {
-  scripts?: Record<string, string>;
-  [key: string]: unknown;
+function _publishScripts(packageJson: PackageJson) {
+  packageJson.scripts['publish:patch'] = 'npm-kit-publish';
+  packageJson.scripts['publish:minor'] = 'npm-kit-publish --minor';
+  packageJson.scripts['publish:major'] = 'npm-kit-publish --major';
 }
 
 // #endregion
@@ -40,16 +42,6 @@ export function addScripts() {
     const message = error instanceof Error ? error.message : String(error);
     console.error('❌ Failed to update package.json:', message);
   }
-}
-
-// #endregion
-
-// #region @private
-
-function _publishScripts(packageJson: PackageJson) {
-  packageJson.scripts['publish:patch'] = 'npm-kit-publish';
-  packageJson.scripts['publish:minor'] = 'npm-kit-publish --minor';
-  packageJson.scripts['publish:major'] = 'npm-kit-publish --major';
 }
 
 // #endregion

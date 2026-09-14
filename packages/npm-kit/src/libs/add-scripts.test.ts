@@ -1,10 +1,10 @@
 // packages/npm-kit/src/libs/add-scripts.test.ts
 
-// packages/npm-kit/src/libs/add-scripts.test.ts
-
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+
 import { writeFileSync, readFileSync, existsSync, unlinkSync } from 'fs';
 import { resolve } from 'path';
+
 import { addScripts } from './add-scripts';
 
 // 👇 Мокаем console чтобы не засорять вывод
