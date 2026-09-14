@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// packages/npm-kit/bin/typecheck.js
+// packages/npm-kit/_bin/typecheck.js
 
 import { execSync } from 'child_process';
 

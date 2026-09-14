@@ -1,6 +1,7 @@
-// packages/npm-kit/_/alias/vite.ts
+// packages/npm-kit/_config/alias/vite.ts
 
 import type { AliasOptions } from 'vite';
+
 import path from 'path';
 
 // import { getDirname } from '../libs/get-dirname';
