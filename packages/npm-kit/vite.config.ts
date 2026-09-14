@@ -24,7 +24,6 @@ export default defineConfig({
   },
 
   build: {
-    // sourcemap: true,
     lib: {
       entry: {
         index: path.resolve(__dirname, 'src/index.ts'),
@@ -42,17 +41,7 @@ export default defineConfig({
     },
 
     rollupOptions: {
-      external: [
-        // Node.js
-        'fs',
-        'path',
-        'child_process',
-        'crypto',
-        'os',
-        'url',
-        // npm зависимости
-        'dotenv',
-      ],
+      external: ['fs', 'path', 'child_process', 'crypto', 'os', 'url', 'dotenv'],
       output: {
         preserveModules: true,
         dir: 'dist',
