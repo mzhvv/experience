@@ -2,9 +2,9 @@
 
 import { execSync } from 'child_process';
 
-import { updatePackageVersion } from './../../libs/package/update-package-version'; // <- на ето пока не обращай внимание!!!
+import { updatePackageVersion } from '../../package/update-package-version'; // <- на ето пока не обращай внимание!!!
 
-import { npmLibs } from './../libs';
+import { npmLibs } from '../libs';
 
 export function publishVersionWithToken(token: string): void {
   try {

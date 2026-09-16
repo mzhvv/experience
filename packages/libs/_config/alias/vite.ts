@@ -11,8 +11,8 @@ const __dirname = fileURLToPath(new URL('../..', import.meta.url));
 
 export const aliasVite = {
   '@': path.resolve(__dirname, './src'),
-  '@bin': path.resolve(__dirname, './src/bin'),
-  '@core': path.resolve(__dirname, './src/core'),
-  '@libs': path.resolve(__dirname, './src/libs'),
+  '@env': path.resolve(__dirname, './src/env'),
+  '@npm': path.resolve(__dirname, './src/npm'),
+  '@package': path.resolve(__dirname, './src/package'),
   '@packages': path.resolve(__dirname, './src/_packages'),
 } satisfies AliasOptions;

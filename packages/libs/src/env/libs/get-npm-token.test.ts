@@ -1,4 +1,4 @@
-// packages/npm-kit/src/libs/get-npm-token.test.ts
+// packages/cli/src/env/libs/get-npm-token.test.ts
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 

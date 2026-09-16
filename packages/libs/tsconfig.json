@@ -25,12 +25,12 @@
     /* Alias */
     "paths": {
       "@/*": ["./src/*"],
-      "@bin": ["./src/bin"],
-      "@bin/*": ["./src/bin/*"],
-      "@core": ["./src/core"],
-      "@core/*": ["./src/core/*"],
-      "@libs": ["./src/libs"],
-      "@libs/*": ["./src/libs/*"],
+      "@env": ["./src/env"],
+      "@env/*": ["./src/env/*"],
+      "@npm": ["./src/npm"],
+      "@npm/*": ["./src/npm/*"],
+      "@package": ["./src/package"],
+      "@package/*": ["./src/package/*"],
       "@packages": ["./src/_packages"],
       "@packages/*": ["./src/_packages/*"]
     }

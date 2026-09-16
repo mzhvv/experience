@@ -1,4 +1,4 @@
-// packages/npm-kit/src/libs/get-npm-token.ts
+// packages/cli/src/env/libs/get-npm-token.ts
 
 import { resolve } from 'path';
 import dotenv from 'dotenv';
