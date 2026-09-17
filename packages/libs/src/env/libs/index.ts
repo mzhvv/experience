@@ -1,4 +1,4 @@
-// packages/cli/src/env/libs/index.ts
+// packages/libs/src/env/libs/index.ts
 
 import { getNpmToken } from './get-npm-token';
 

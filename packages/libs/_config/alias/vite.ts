@@ -13,6 +13,5 @@ export const aliasVite = {
   '@': path.resolve(__dirname, './src'),
   '@env': path.resolve(__dirname, './src/env'),
   '@npm': path.resolve(__dirname, './src/npm'),
-  '@package': path.resolve(__dirname, './src/package'),
-  '@packages': path.resolve(__dirname, './src/_packages'),
+  '@packageJson': path.resolve(__dirname, './src/package-json'),
 } satisfies AliasOptions;

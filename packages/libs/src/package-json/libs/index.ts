@@ -1,9 +1,10 @@
-// packages/npm-kit/src/libs/package/index.ts
+// packages/libs/src/package-json/libs/index.ts
 
 import { addScripts } from './add-scripts';
 import { updatePackageVersion } from './update-package-version';
 
-export const packageLibs = {
+export { addScripts, updatePackageVersion };
+export const packageJsonLibs = {
   addScripts,
   updatePackageVersion,
 };

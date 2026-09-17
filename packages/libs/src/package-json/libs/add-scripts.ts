@@ -1,7 +1,6 @@
-// packages/npm-kit/src/libs/add-scripts.ts
+// packages/libs/src/package-json/libs/add-scripts.ts
 
 import type { PackageJson } from 'type-fest';
-
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
 

@@ -26,10 +26,25 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        index: path.resolve(__dirname, 'src/index.ts'),
         ...Object.fromEntries(
           glob
-            .sync('src/bin/*.ts')
+            .sync('src/*/libs/index.ts')
+            .map((file) => [
+              file.replace(/^src\//, '').replace(/\.ts$/, ''),
+              path.resolve(__dirname, file),
+            ])
+        ),
+        ...Object.fromEntries(
+          glob
+            .sync('src/*/core/index.ts')
+            .map((file) => [
+              file.replace(/^src\//, '').replace(/\.ts$/, ''),
+              path.resolve(__dirname, file),
+            ])
+        ),
+        ...Object.fromEntries(
+          glob
+            .sync('src/*/bin/*.ts')
             .map((file) => [
               file.replace(/^src\//, '').replace(/\.ts$/, ''),
               path.resolve(__dirname, file),

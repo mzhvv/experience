@@ -1,7 +1,6 @@
-// packages/cli/src/env/libs/get-npm-token.test.ts
+// packages/libs/src/env/libs/get-npm-token.test.ts
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-
 import dotenv from 'dotenv';
 
 import { getNpmToken } from './get-npm-token';

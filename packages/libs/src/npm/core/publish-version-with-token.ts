@@ -1,15 +1,15 @@
-// packages/cli/src/npm/core/publish-version-with-token.ts
+// packages/libs/src/npm/core/publish-version-with-token.ts
 
 import { execSync } from 'child_process';
 
-import { updatePackageVersion } from '../../package/update-package-version'; // <- на ето пока не обращай внимание!!!
+import { packageJsonLibs } from '@packageJson/libs';
 
 import { npmLibs } from '../libs';
 
 export function publishVersionWithToken(token: string): void {
   try {
     console.log('🚀 npm-kit: publishing...');
-    updatePackageVersion();
+    packageJsonLibs.updatePackageVersion();
 
     console.log('📦 Building...');
     execSync('npm run build', { stdio: 'inherit' });

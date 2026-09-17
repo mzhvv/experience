@@ -29,10 +29,8 @@
       "@env/*": ["./src/env/*"],
       "@npm": ["./src/npm"],
       "@npm/*": ["./src/npm/*"],
-      "@package": ["./src/package"],
-      "@package/*": ["./src/package/*"],
-      "@packages": ["./src/_packages"],
-      "@packages/*": ["./src/_packages/*"]
+      "@packageJson": ["./src/package-json"],
+      "@packageJson/*": ["./src/package-json/*"]
     }
   },
 

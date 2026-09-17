@@ -1,4 +1,4 @@
-// packages/cli/src/npm/libs/index.ts
+// packages/libs/src/npm/libs/index.ts
 
 import type { ExecSyncOptions } from 'child_process';
 import { execSync } from 'child_process';
