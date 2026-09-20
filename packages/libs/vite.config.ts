@@ -16,6 +16,8 @@ export default defineConfig({
       staticImport: true,
       clearPureImport: true,
       exclude: ['_config/**', '_bin/**'],
+      include: ['src/*/libs/**', 'src/*/core/**', 'src/*/bin/**'],
+      entryRoot: 'src',
     }),
   ],
 
@@ -28,7 +30,7 @@ export default defineConfig({
       entry: {
         ...Object.fromEntries(
           glob
-            .sync('src/*/libs/index.ts')
+            .sync('src/*/bin/*.ts')
             .map((file) => [
               file.replace(/^src\//, '').replace(/\.ts$/, ''),
               path.resolve(__dirname, file),
@@ -44,7 +46,7 @@ export default defineConfig({
         ),
         ...Object.fromEntries(
           glob
-            .sync('src/*/bin/*.ts')
+            .sync('src/*/libs/index.ts')
             .map((file) => [
               file.replace(/^src\//, '').replace(/\.ts$/, ''),
               path.resolve(__dirname, file),

@@ -4,17 +4,17 @@
   "type": "module",
   "files": ["dist"],
   "exports": {
-    "./*/libs": {
-      "import": "./dist/*/libs/index.js",
-      "types": "./dist/*/libs/index.d.ts"
+    "./*/bin/*": {
+      "import": "./dist/*/bin/*.js",
+      "types": "./dist/*/bin/*.d.ts"
     },
     "./*/core": {
       "import": "./dist/*/core/index.js",
       "types": "./dist/*/core/index.d.ts"
     },
-    "./*/bin/*": {
-      "import": "./dist/*/bin/*.js",
-      "types": "./dist/*/bin/*.d.ts"
+    "./*/libs": {
+      "import": "./dist/*/libs/index.js",
+      "types": "./dist/*/libs/index.d.ts"
     }
   },
   "scripts": {
