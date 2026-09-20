@@ -1,4 +1,4 @@
-// packages/libs/src/package-json/libs/add-scripts.test.ts
+// packages/libs/src/npm/libs/add-scripts.test.ts
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { writeFileSync, readFileSync, existsSync, unlinkSync } from 'fs';

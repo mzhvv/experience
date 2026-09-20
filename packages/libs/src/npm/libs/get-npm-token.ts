@@ -1,7 +1,7 @@
-// packages/libs/src/env/libs/get-npm-token.ts
+// packages/libs/src/npm/libs/get-npm-token.ts
 
-import { resolve } from 'path';
 import dotenv from 'dotenv';
+import { resolve } from 'path';
 
 export function getNpmToken(envDir?: string): string {
   if (!envDir) {

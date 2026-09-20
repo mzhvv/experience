@@ -1,8 +1,8 @@
-// packages/libs/src/package-json/libs/update-package-version.ts
+// packages/libs/src/npm/libs/update-package-version.ts
 
 import { execSync } from 'child_process';
-import { resolve } from 'path';
 import { readFileSync } from 'fs';
+import { resolve } from 'path';
 
 export function updatePackageVersion(): void {
   const type = process.argv.includes('--minor')
