@@ -32,14 +32,7 @@ export default defineConfig({
       fileName: (_format, entryName) => `${entryName}.js`,
 
       entry: {
-        ...Object.fromEntries(
-          glob
-            .sync('src/*/bin/*.ts')
-            .map((file) => [
-              file.replace(/^src\//, '').replace(/\.ts$/, ''),
-              path.resolve(__dirname, file),
-            ])
-        ),
+        cli: path.resolve(__dirname, 'src/cli/index.ts'),
         ...Object.fromEntries(
           glob
             .sync('src/*/core/index.ts')

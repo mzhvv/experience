@@ -2,12 +2,12 @@
 
 import { execSync } from 'child_process';
 
-import { updatePackageVersion, npmLibs } from '../libs';
+import { updateVersionPackage, npmLibs } from '../libs';
 
 export function publishVersionWithToken(token: string): void {
   try {
     console.log('🚀 npm-kit: publishing...');
-    updatePackageVersion();
+    updateVersionPackage();
 
     console.log('📦 Building...');
     execSync('npm run build', { stdio: 'inherit' });

@@ -2,6 +2,6 @@
 
 // packages/libs/src/npm/bin/add-scripts.ts
 
-import { addScripts } from '../libs';
+import { addScriptsPackage } from '../libs';
 
-addScripts();
+addScriptsPackage();

@@ -4,10 +4,6 @@
   "type": "module",
   "files": ["dist"],
   "exports": {
-    "./*/bin/*": {
-      "import": "./dist/*/bin/*.js",
-      "types": "./dist/*/bin/*.d.ts"
-    },
     "./*/core": {
       "import": "./dist/*/core/index.js",
       "types": "./dist/*/core/index.d.ts"
@@ -16,6 +12,9 @@
       "import": "./dist/*/libs/index.js",
       "types": "./dist/*/libs/index.d.ts"
     }
+  },
+  "bin": {
+    "mzhvv-libs": "dist/cli/index.js"
   },
   "scripts": {
     "dev": "vite",
