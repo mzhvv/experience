@@ -14,7 +14,7 @@
     }
   },
   "bin": {
-    "mzhvv-libs": "dist/cli/index.js"
+    "mzhvv-libs": "dist/__cli/index.js"
   },
   "scripts": {
     "dev": "vite",

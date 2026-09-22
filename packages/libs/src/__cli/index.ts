@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-// packages/libs/src/cli/index.ts
+// packages/libs/src/__cli/index.ts
 
 import { getNpmToken } from '@/npm/libs';
 import { publishVersionWithToken } from '../npm/core';
-import { addScriptsPackage, updateVersionPackage } from '../npm/libs/package';
+import { addScriptsPackage, updateVersionPackage } from '../npm/libs/package-json';
 
 const [, , domain, command, ..._args] = process.argv;
 
-async function main() {
+async function cli() {
   switch (domain) {
     case 'npm':
       await handleNpm(command);
@@ -18,11 +18,11 @@ async function main() {
       break;
     case '--help':
     case undefined:
-      showHelp();
+      // showHelp();
       break;
     default:
       console.error(`❌ Unknown domain: ${domain}`);
-      showHelp();
+      // showHelp();
       process.exit(1);
   }
 }
@@ -52,28 +52,28 @@ async function handlePackage(command: string | undefined) {
   }
 }
 
-function showHelp() {
-  console.log(`
-@mzhvv/libs
+// function showHelp() {
+//   console.log(`
+// @mzhvv/libs
 
-Usage: npx mzhvv-libs <domain> <command> [options]
+// Usage: npx mzhvv-libs <domain> <command> [options]
 
-Domains:
-  npm
-    publish            Publish package with token
-                         --minor   bump minor
-                         --major   bump major
-  package
-    add-scripts        Add npm-kit scripts
-    update-version     Bump version
-                         --minor
-                         --major
+// Domains:
+//   npm
+//     publish            Publish package with token
+//                          --minor   bump minor
+//                          --major   bump major
+//   package
+//     add-scripts        Add npm-kit scripts
+//     update-version     Bump version
+//                          --minor
+//                          --major
 
-Examples:
-  npx libs npm publish --minor
-  npx libs package add-scripts
-  npx libs package update-version --major
-`);
-}
+// Examples:
+//   npx libs npm publish --minor
+//   npx libs package add-scripts
+//   npx libs package update-version --major
+// `);
+// }
 
-main();
+cli();
