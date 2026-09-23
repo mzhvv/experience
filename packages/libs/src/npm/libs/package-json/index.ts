@@ -1,4 +1,4 @@
-// packages/libs/src/npm/libs/package/index.ts
+// packages/libs/src/npm/libs/package-json/index.ts
 
 import { resolve } from 'path';
 import { writeFileSync, readFileSync, existsSync } from 'fs';
@@ -42,15 +42,15 @@ function _readPackageJson() {
 
 // #endregion
 
-// #region addScriptsPackage()
+// #region publishPackageScripts()
 
-function _publishScripts(scripts: PackageJson['scripts']) {
+function _publishPackageScripts(scripts: PackageJson['scripts']) {
   scripts['publish:patch'] = 'npm-kit-publish';
   scripts['publish:minor'] = 'npm-kit-publish --minor';
   scripts['publish:major'] = 'npm-kit-publish --major';
 }
 
-export function addScriptsPackage() {
+function addPackageScripts() {
   const { packageJson, packageJsonPath } = _readPackageJson();
 
   if (!packageJson.scripts) {
@@ -58,7 +58,7 @@ export function addScriptsPackage() {
   }
 
   try {
-    _publishScripts(packageJson.scripts);
+    _publishPackageScripts(packageJson.scripts);
 
     writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n');
     _log.success('npm-kit:* scripts added to package.json');
@@ -69,24 +69,24 @@ export function addScriptsPackage() {
 
 // #endregion
 
-// #region updateVersionPackage()
+// #region bumpPackageVersion()
 
 type VersionType = 'patch' | 'minor' | 'major';
 
-function _parseVersionType(): VersionType {
+function _parsePackageVersionType(): VersionType {
   if (process.argv.includes('--minor')) return 'minor';
   if (process.argv.includes('--major')) return 'major';
   return 'patch';
 }
 
-export function updateVersionPackage(versionType: VersionType = _parseVersionType()) {
+function bumpPackageVersion(versionType: VersionType = _parsePackageVersionType()) {
   const { packageJson } = _readPackageJson();
 
   if (!packageJson.version) {
     _log.fail('No "version" field in package.json');
   }
 
-  _log.job(`Updating version (${versionType})...`);
+  _log.job(`Bumping version (${versionType})...`);
 
   try {
     const output = execSync(`npm version ${versionType} --no-git-tag-version`, {
@@ -94,8 +94,14 @@ export function updateVersionPackage(versionType: VersionType = _parseVersionTyp
     });
     _log.job(`New version: ${output.trim()}`);
   } catch (error) {
-    _log.fail('Failed to update version', error);
+    _log.fail('Failed to bump version', error);
   }
 }
 
 // #endregion
+
+export { addPackageScripts, bumpPackageVersion };
+export const packageMethods = {
+  addScripts: addPackageScripts,
+  bumpVersion: bumpPackageVersion,
+};

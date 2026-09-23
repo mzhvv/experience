@@ -4,7 +4,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { writeFileSync, readFileSync, existsSync, unlinkSync } from 'fs';
 import { resolve } from 'path';
 
-import { addScripts } from './add-scripts';
+import { addPackageScripts } from './index';
 
 // 👇 Мокаем console чтобы не засорять вывод
 const consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -32,7 +32,7 @@ describe('addScripts', () => {
 
   describe('когда package.json существует', () => {
     it('добавляет publish:patch, publish:minor, publish:major', () => {
-      addScripts();
+      addPackageScripts();
 
       const pkg = JSON.parse(readFileSync(testPackageJsonPath, 'utf-8'));
 
@@ -45,7 +45,7 @@ describe('addScripts', () => {
       const pkg = JSON.parse(readFileSync(testPackageJsonPath, 'utf-8'));
       expect(pkg.scripts).toBeUndefined();
 
-      addScripts();
+      addPackageScripts();
 
       const updated = JSON.parse(readFileSync(testPackageJsonPath, 'utf-8'));
       expect(updated.scripts).toBeDefined();
@@ -57,7 +57,7 @@ describe('addScripts', () => {
       pkg.scripts = { existing: 'echo hello' };
       writeFileSync(testPackageJsonPath, JSON.stringify(pkg, null, 2));
 
-      addScripts();
+      addPackageScripts();
 
       const updated = JSON.parse(readFileSync(testPackageJsonPath, 'utf-8'));
       expect(updated.scripts).toHaveProperty('existing', 'echo hello');
@@ -67,7 +67,7 @@ describe('addScripts', () => {
     it('сохраняет остальные поля package.json', () => {
       const pkg = JSON.parse(readFileSync(testPackageJsonPath, 'utf-8'));
 
-      addScripts();
+      addPackageScripts();
 
       const updated = JSON.parse(readFileSync(testPackageJsonPath, 'utf-8'));
       expect(updated.name).toBe(pkg.name);
@@ -75,13 +75,13 @@ describe('addScripts', () => {
     });
 
     it('выводит сообщение об успехе', () => {
-      addScripts();
+      addPackageScripts();
 
       expect(consoleLogSpy).toHaveBeenCalledWith('✅ npm-kit:* scripts added to package.json');
     });
 
     it('сохраняет файл с отступами 2 и переводом строки', () => {
-      addScripts();
+      addPackageScripts();
 
       const content = readFileSync(testPackageJsonPath, 'utf-8');
       expect(content).toContain('\n'); // есть переводы строк
@@ -95,11 +95,11 @@ describe('addScripts', () => {
     });
 
     it('не падает с ошибкой', () => {
-      expect(() => addScripts()).not.toThrow();
+      expect(() => addPackageScripts()).not.toThrow();
     });
 
     it('выводит ошибку', () => {
-      addScripts();
+      addPackageScripts();
 
       expect(consoleErrorSpy).toHaveBeenCalledWith(
         '❌ package.json not found in current directory'
@@ -107,7 +107,7 @@ describe('addScripts', () => {
     });
 
     it('не создаёт package.json', () => {
-      addScripts();
+      addPackageScripts();
 
       expect(existsSync(testPackageJsonPath)).toBe(false);
     });
@@ -119,7 +119,7 @@ describe('addScripts', () => {
     });
 
     it('ловит ошибку и выводит сообщение', () => {
-      expect(() => addScripts()).not.toThrow();
+      expect(() => addPackageScripts()).not.toThrow();
 
       expect(consoleErrorSpy).toHaveBeenCalled();
       expect(consoleErrorSpy.mock.calls[0][0]).toContain('❌ Failed to update package.json');
