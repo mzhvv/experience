@@ -1,8 +1,6 @@
 // packages/npm-kit/tsconfig.json
 
 {
-  "extends": ["./_config/alias/tsconfig.json"],
-
   "compilerOptions": {
     "target": "es2023",
     "module": "esnext",
@@ -22,7 +20,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* alias */
+    "paths": {
+      "@/*": ["./src/*"],
+      "@libs": ["./src/index.ts"]
+    }
   },
 
   "include": ["_config", "_bin", "src"]

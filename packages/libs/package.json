@@ -3,16 +3,9 @@
   "version": "0.0.0",
   "type": "module",
   "files": ["dist"],
-  "exports": {
-    "./*/core": {
-      "import": "./dist/*/core/index.js",
-      "types": "./dist/*/core/index.d.ts"
-    },
-    "./*/libs": {
-      "import": "./dist/*/libs/index.js",
-      "types": "./dist/*/libs/index.d.ts"
-    }
-  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
     "mzhvv-libs": "dist/__cli/index.js"
   },

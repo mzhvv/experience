@@ -1,11 +1,15 @@
 // packages/npm-kit/vitest.config.ts
 
 import { defineConfig } from 'vitest/config';
-
-import { aliasVite } from './_config/alias/vite';
+import path from 'path';
 
 export default defineConfig({
-  resolve: { alias: aliasVite },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@libs': path.resolve(__dirname, './src/index.ts'),
+    },
+  },
 
   test: {
     globals: true,
