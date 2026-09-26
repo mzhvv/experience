@@ -13,7 +13,7 @@ function _fail(message: string, error?: unknown) {
   console.error(`❌ ${message}${details ? `: ${details}` : ''}`);
 }
 
-export const logLibs = {
+export const log = {
   job: _job,
   success: _success,
   fail: _fail,

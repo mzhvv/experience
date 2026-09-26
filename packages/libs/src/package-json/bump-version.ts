@@ -1,7 +1,7 @@
 // packages/libs/src/package-json/bump-version.ts
 
 import { execSync } from 'child_process';
-import { logLibs } from '@/log';
+import { log } from '@/log';
 import { readPackageJson } from './read';
 
 type ParsePackageJsonVersionType = 'patch' | 'minor' | 'major';
@@ -18,19 +18,19 @@ function bumpPackageJsonVersion(
   const { packageJson } = readPackageJson();
 
   if (!packageJson.version) {
-    logLibs.fail('No "version" field in package.json');
+    log.fail('No "version" field in package.json');
     process.exit(1);
   }
 
-  logLibs.job(`Bumping version (${versionType})...`);
+  log.job(`Bumping version (${versionType})...`);
 
   try {
     const output = execSync(`npm version ${versionType} --no-git-tag-version`, {
       encoding: 'utf8',
     });
-    logLibs.job(`New version: ${output.trim()}`);
+    log.job(`New version: ${output.trim()}`);
   } catch (error) {
-    logLibs.fail('Failed to bump version', error);
+    log.fail('Failed to bump version', error);
     process.exit(1);
   }
 }

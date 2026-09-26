@@ -4,14 +4,12 @@ import type { AliasOptions } from 'vite';
 
 import path from 'path';
 
-// import { getDirname } from '../libs/get-dirname';
-// const __dirname = getDirname(import.meta.url, '../..');
-import { fileURLToPath } from 'url';
-const __dirname = fileURLToPath(new URL('../..', import.meta.url));
+// import { fileURLToPath } from 'url';
+// const __dirname = fileURLToPath(new URL('../..', import.meta.url));
+import { getDirname } from '../libs/get-dirname';
+const __dirname = getDirname(import.meta.url, '../..');
 
 export const aliasVite = {
   '@': path.resolve(__dirname, './src'),
-  '@env': path.resolve(__dirname, './src/env'),
-  '@npm': path.resolve(__dirname, './src/npm'),
-  '@packageJson': path.resolve(__dirname, './src/package-json'),
+  '@libs': path.resolve(__dirname, './src/index.ts'),
 } satisfies AliasOptions;

@@ -5,12 +5,12 @@ import { readFileSync, existsSync } from 'fs';
 
 import type { PackageJson } from 'type-fest';
 
-import { logLibs } from '@/log';
+import { log } from '@/log';
 
 function readPackageJson() {
   const packageJsonPath = resolve(process.cwd(), 'package.json');
   if (!existsSync(packageJsonPath)) {
-    logLibs.fail('package.json not found in current directory');
+    log.fail('package.json not found in current directory');
     process.exit(1);
   }
 
@@ -18,7 +18,7 @@ function readPackageJson() {
   try {
     packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
   } catch (error) {
-    logLibs.fail('Failed to parse package.json', error);
+    log.fail('Failed to parse package.json', error);
     process.exit(1);
   }
 
