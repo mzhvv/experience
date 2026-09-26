@@ -1,4 +1,4 @@
-// packages/libs/src/shared/log.ts
+// packages/libs/src/log/index.ts
 
 function _job(message: string) {
   console.log(`   ${message}`);
@@ -13,8 +13,7 @@ function _fail(message: string, error?: unknown) {
   console.error(`❌ ${message}${details ? `: ${details}` : ''}`);
 }
 
-// export { _job as logJob, _success as logSuccess, _fail as logFail };
-export const log = {
+export const logLibs = {
   job: _job,
   success: _success,
   fail: _fail,

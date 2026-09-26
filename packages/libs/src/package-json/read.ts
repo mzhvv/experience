@@ -1,16 +1,16 @@
-// packages/libs/src/shared/read-package-json.ts
+// packages/libs/src/package-json/read.ts
 
 import { resolve } from 'path';
 import { readFileSync, existsSync } from 'fs';
 
 import type { PackageJson } from 'type-fest';
 
-import { log } from '@/shared/log';
+import { logLibs } from '@/log';
 
-export function readPackageJson() {
+function readPackageJson() {
   const packageJsonPath = resolve(process.cwd(), 'package.json');
   if (!existsSync(packageJsonPath)) {
-    log.fail('package.json not found in current directory');
+    logLibs.fail('package.json not found in current directory');
     process.exit(1);
   }
 
@@ -18,9 +18,11 @@ export function readPackageJson() {
   try {
     packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
   } catch (error) {
-    log.fail('Failed to parse package.json', error);
+    logLibs.fail('Failed to parse package.json', error);
     process.exit(1);
   }
 
   return { packageJson, packageJsonPath };
 }
+
+export { readPackageJson };
