@@ -2,7 +2,7 @@
 
 import { execSync } from 'child_process';
 
-import { updateVersionPackage, npmLibs } from '../libs';
+import { npmLibs } from '../libs';
 
 export function publishVersionWithToken(token: string): void {
   try {

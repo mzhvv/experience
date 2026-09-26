@@ -1,4 +1,4 @@
-// packages/libs/src/npm/libs/npm/index.ts
+// packages/libs/src/npm/libs/npm-commands.ts
 
 import type { ExecSyncOptions } from 'child_process';
 import { execSync } from 'child_process';
@@ -39,7 +39,8 @@ function publishNpm() {
 // #endregion
 
 export { setNpmAuthToken, deleteNpmAuthToken, publishNpm };
-export const npmMethods = {
+
+export const npmCommands = {
   authToken: {
     set: setNpmAuthToken,
     delete: deleteNpmAuthToken,

@@ -4,7 +4,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { writeFileSync, readFileSync, existsSync, unlinkSync } from 'fs';
 import { resolve } from 'path';
 
-import { addPackageScripts } from './index';
+import { addPackageScripts } from './add-scripts';
 
 // 👇 Мокаем console чтобы не засорять вывод
 const consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {});

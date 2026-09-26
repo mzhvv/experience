@@ -1,6 +1,4 @@
-// packages/libs/src/logger/index.ts
-
-// #region methods
+// packages/libs/src/shared/log.ts
 
 function _job(message: string) {
   console.log(`   ${message}`);
@@ -15,15 +13,9 @@ function _fail(message: string, error?: unknown) {
   console.error(`❌ ${message}${details ? `: ${details}` : ''}`);
 }
 
-// #endregion
-
-// #region export
-
-// export { _job as loggerJob, _success as loggerSuccess, _fail as loggerFail };
-export const logger = {
+// export { _job as logJob, _success as logSuccess, _fail as logFail };
+export const log = {
   job: _job,
   success: _success,
   fail: _fail,
 };
-
-// #endregion
