@@ -1,30 +1,29 @@
 // packages/libs/src/npm/core/publish-version-with-token.ts
 
 import { execSync } from 'child_process';
-
+import { log, packageJsonLibs } from '@libs';
 import { npmLibs } from '../libs';
 
-export function publishVersionWithToken(token: string): void {
+export function publishVersionWithToken(token: string) {
   try {
-    console.log('🚀 npm-kit: publishing...');
-    updateVersionPackage();
+    log.job('🚀 npm-kit: publishing...');
+    packageJsonLibs.bumpVersion();
 
-    console.log('📦 Building...');
+    log.job('📦 Building...');
     execSync('npm run build', { stdio: 'inherit' });
 
-    console.log('🔑 Setting auth token...');
-    npmLibs.config.authToken.set(token);
+    log.job('🔑 Setting auth token...');
+    npmLibs.commands.authToken.set(token);
 
-    console.log('📤 Publishing...');
-    npmLibs.publish();
+    log.job('📤 Publishing...');
+    npmLibs.commands.publish();
 
-    console.log('✅ Published successfully!');
+    log.success('Published successfully!');
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error('❌ Failed to publish:', message);
+    log.fail('Failed to publish', error);
     process.exit(1);
   } finally {
-    console.log('🧹 Removing auth token...');
-    npmLibs.config.authToken.delete();
+    log.job('🧹 Removing auth token...');
+    npmLibs.commands.authToken.delete();
   }
 }

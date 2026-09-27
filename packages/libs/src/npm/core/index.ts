@@ -1,3 +1,11 @@
 // packages/libs/src/npm/core/index.ts
 
-export { publishVersionWithToken } from './publish-version-with-token';
+import { publishVersionWithToken } from './publish-version-with-token';
+
+export { publishVersionWithToken };
+
+export const npmCore = {
+  publish: {
+    versionWithToken: publishVersionWithToken,
+  },
+};

@@ -30,7 +30,10 @@ export default defineConfig({
 
       entry: {
         index: path.resolve(__dirname, 'src/index.ts'),
-        cli: path.resolve(__dirname, 'src/__cli/index.ts'),
+        '__cli/index': path.resolve(__dirname, 'src/__cli/index.ts'),
+
+        // 'npm/index': path.resolve(__dirname, 'src/npm/index.ts'),
+        //
       },
     },
 

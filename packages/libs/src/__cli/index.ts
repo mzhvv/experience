@@ -2,8 +2,7 @@
 
 // packages/libs/src/__cli/index.ts
 
-import { getNpmToken } from '@/npm/libs';
-import { publishVersionWithToken } from '../npm/core';
+import { npmCore, npmLibs } from '@/npm';
 
 const [, , domain, command, ..._args] = process.argv;
 
@@ -26,7 +25,7 @@ async function cli() {
 async function handleNpm(command: string | undefined) {
   switch (command) {
     case 'publish':
-      publishVersionWithToken(getNpmToken());
+      npmCore.publish.versionWithToken(npmLibs.token.get());
       break;
     default:
       console.error(`❌ Unknown npm command: ${command}`);

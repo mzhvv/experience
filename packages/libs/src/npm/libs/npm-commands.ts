@@ -39,11 +39,3 @@ function publishNpm() {
 // #endregion
 
 export { setNpmAuthToken, deleteNpmAuthToken, publishNpm };
-
-export const npmCommands = {
-  authToken: {
-    set: setNpmAuthToken,
-    delete: deleteNpmAuthToken,
-  },
-  publish: publishNpm,
-};

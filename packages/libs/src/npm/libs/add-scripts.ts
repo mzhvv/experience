@@ -2,7 +2,7 @@
 
 import type { PackageJson } from 'type-fest';
 import { writeFileSync } from 'fs';
-import { log, readPackageJson } from '@/shared';
+import { log, readPackageJson } from '@libs';
 
 function _publishPackageScripts(scripts: PackageJson['scripts']) {
   scripts['publish:patch'] = 'npm-kit-publish';
