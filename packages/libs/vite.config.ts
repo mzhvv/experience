@@ -32,8 +32,26 @@ export default defineConfig({
         index: path.resolve(__dirname, 'src/index.ts'),
         '__cli/index': path.resolve(__dirname, 'src/__cli/index.ts'),
 
-        // 'npm/index': path.resolve(__dirname, 'src/npm/index.ts'),
-        //
+        /* ✅  circular dependency
+
+          'npm/index': path.resolve(__dirname, 'src/npm/index.ts'),
+
+          ⚠️
+
+          при сборке игнорирует src/npm/index.ts
+          но в dist/__cli/index.js прямые импорты - preserveModules: true
+
+          src/npm/index.ts
+            export * from './core';
+            export * from './libs';
+
+          src/__cli/index.ts (игнорирует)
+            import { npmCore, npmLibs } from '@/npm';
+
+          dist/__cli/index.js
+            import { npmCore as o } from "../npm/core/index.js";
+            import { npmLibs as s } from "../npm/libs/index.js";
+        */
       },
     },
 
