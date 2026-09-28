@@ -29,5 +29,11 @@
     }
   },
 
-  "include": ["_config", "_bin", "src"]
+  "include": [
+    "_config",
+    // "_bin",
+    "src",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ]
 }

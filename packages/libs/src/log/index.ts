@@ -13,8 +13,15 @@ function _fail(message: string, error?: unknown) {
   console.error(`❌ ${message}${details ? `: ${details}` : ''}`);
 }
 
+function _dev(...args: unknown[]) {
+  if (import.meta.env.DEV) {
+    console.log('[development]', ...args);
+  }
+}
+
 export const log = {
   job: _job,
   success: _success,
   fail: _fail,
+  dev: _dev,
 };
