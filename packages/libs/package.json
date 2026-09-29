@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:build2": "vite build --mode build2",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "ci:build": "npm run clean && npm run build",

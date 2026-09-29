@@ -1,39 +1,53 @@
 // packages/npm-kit/vite.config.ts
 
-import { defineConfig, type UserConfig } from 'vite';
+import type { AliasOptions, UserConfig } from 'vite';
+import type { ExternalOption } from 'rollup';
+
+import { defineConfig } from 'vite';
 import path from 'path';
+
 import dts from 'vite-plugin-dts';
 
 // #region types
 
-type Builds = 'default' | 'build2';
+type Builds = 'default' | 'modular' | 'bundled';
 
 // #endregion
 
 // #region shared
 
-const alias = {
+const alias: AliasOptions = {
   '@': path.resolve(__dirname, './src'),
   '@libs': path.resolve(__dirname, './src/index.ts'),
 };
 
-const plugins = [
-  dts({
-    entryRoot: 'src',
-    staticImport: true,
-    clearPureImport: true,
-    exclude: ['_config/**', '_bin/**', '**/*.test.ts'],
-  }),
+const externalRollupOptions: ExternalOption = [
+  'fs',
+  'path',
+  'child_process',
+  'crypto',
+  'os',
+  'url',
+  'dotenv',
 ];
 
-const external = ['fs', 'path', 'child_process', 'crypto', 'os', 'url', 'dotenv'];
-
 // #endregion
-
+const DEFAULT_BUILD: Exclude<Builds, 'default'> = 'modular'; // ⚠️
 const builds: Record<Builds, UserConfig> = {
-  default: {
+  get default() {
+    return builds[DEFAULT_BUILD];
+  },
+
+  modular: {
     resolve: { alias },
-    plugins: plugins,
+    plugins: [
+      dts({
+        entryRoot: 'src',
+        staticImport: true,
+        clearPureImport: true,
+        include: ['src/**/*.ts'],
+      }),
+    ],
     build: {
       lib: {
         formats: ['es'],
@@ -44,7 +58,7 @@ const builds: Record<Builds, UserConfig> = {
         },
       },
       rollupOptions: {
-        external,
+        external: externalRollupOptions,
         output: {
           preserveModules: true,
           preserveModulesRoot: 'src',
@@ -53,21 +67,29 @@ const builds: Record<Builds, UserConfig> = {
     },
   },
 
-  build2: {
+  bundled: {
     resolve: { alias },
-    plugins: plugins,
+    plugins: [
+      dts({
+        entryRoot: 'src',
+        staticImport: true,
+        clearPureImport: true,
+        include: ['src/**/*.ts'],
+      }),
+    ],
     build: {
       lib: {
         formats: ['es'],
         fileName: (_format, entryName) => `${entryName}.js`,
         entry: {
+          index: path.resolve(__dirname, 'src/index.ts'),
           '__cli/index': path.resolve(__dirname, 'src/__cli/index.ts'),
         },
       },
       rollupOptions: {
-        external,
+        external: externalRollupOptions,
         output: {
-          dir: 'dist/bundled',
+          dir: 'dist',
           entryFileNames: '[name].js',
         },
       },
@@ -75,15 +97,27 @@ const builds: Record<Builds, UserConfig> = {
   },
 };
 
-export default defineConfig(({ mode }) => {
-  /** type guard: валидность mode */
-  function _builds(_mode: string): _mode is Builds {
-    return _mode in builds;
-  }
+const buildsLibs = {
+  isCustomMode(mode: string): mode is Builds {
+    return mode in builds;
+  },
 
-  if (!_builds(mode)) {
+  customModesList: Object.keys(builds)
+    .filter((k) => k !== 'default')
+    .join(', '),
+};
+
+export default defineConfig(({ mode }) => {
+  const isCustomMode = buildsLibs.isCustomMode(mode); // если "modular" или "bundled"
+  // const isViteMode = mode === 'production'; // если `vite build` то mode === "production"
+
+  if (!isCustomMode) {
+    console.warn(`\n❗ Unknown --mode: default vite mode "${mode}"`);
+
+    console.warn(`❓ Available: vite build --mode [${buildsLibs.customModesList}]\n`);
+
     console.warn(
-      `⚠️ Unknown mode: "${mode}".\n\tAvailable: vite build --mode [${Object.keys(builds).join(', ')}].\n\tUsing: "default".`
+      `Using: ${(!isCustomMode && '"production" → ') || ''}"default" → "${DEFAULT_BUILD}"\n`
     );
 
     return builds.default;
