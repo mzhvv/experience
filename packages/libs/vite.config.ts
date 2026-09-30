@@ -1,45 +1,55 @@
 // packages/npm-kit/vite.config.ts
 
-import type { AliasOptions, UserConfig } from 'vite';
-import type { ExternalOption } from 'rollup';
+import type { UserConfig } from 'vite';
 
 import { defineConfig } from 'vite';
 import path from 'path';
 
 import dts from 'vite-plugin-dts';
 
-// #region types
+// types
 
-type Builds = 'default' | 'modular' | 'bundled';
+type DefaultMode = 'default';
+type ViteMode = 'production';
+type CustomMode = 'modular' | 'bundled';
 
-// #endregion
+type Builds = DefaultMode | ViteMode | CustomMode;
 
-// #region shared
+// const
 
-const alias: AliasOptions = {
-  '@': path.resolve(__dirname, './src'),
-  '@libs': path.resolve(__dirname, './src/index.ts'),
-};
+const DEFAULT_MODE: DefaultMode = 'default';
+const VITE_DEFAULT_MODE: ViteMode = 'production';
+const CUSTOM_DEFAULT_MODE: CustomMode = 'modular';
 
-const externalRollupOptions: ExternalOption = [
-  'fs',
-  'path',
-  'child_process',
-  'crypto',
-  'os',
-  'url',
-  'dotenv',
-];
+// shared
 
-// #endregion
-const DEFAULT_BUILD: Exclude<Builds, 'default'> = 'modular'; // ⚠️
+const sharedUserConfig = {
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@libs': path.resolve(__dirname, './src/index.ts'),
+    },
+  },
+  build: {
+    rollupOptions: {
+      external: ['fs', 'path', 'child_process', 'crypto', 'os', 'url', 'dotenv'],
+    },
+  },
+} satisfies UserConfig;
+
+//
+
 const builds: Record<Builds, UserConfig> = {
   get default() {
-    return builds[DEFAULT_BUILD];
+    return builds[CUSTOM_DEFAULT_MODE];
+  },
+
+  get production() {
+    return this.default;
   },
 
   modular: {
-    resolve: { alias },
+    resolve: { alias: sharedUserConfig.resolve.alias },
     plugins: [
       dts({
         entryRoot: 'src',
@@ -58,7 +68,7 @@ const builds: Record<Builds, UserConfig> = {
         },
       },
       rollupOptions: {
-        external: externalRollupOptions,
+        external: sharedUserConfig.build.rollupOptions.external,
         output: {
           preserveModules: true,
           preserveModulesRoot: 'src',
@@ -68,7 +78,7 @@ const builds: Record<Builds, UserConfig> = {
   },
 
   bundled: {
-    resolve: { alias },
+    resolve: { alias: sharedUserConfig.resolve.alias },
     plugins: [
       dts({
         entryRoot: 'src',
@@ -87,7 +97,7 @@ const builds: Record<Builds, UserConfig> = {
         },
       },
       rollupOptions: {
-        external: externalRollupOptions,
+        external: sharedUserConfig.build.rollupOptions.external,
         output: {
           dir: 'dist',
           entryFileNames: '[name].js',
@@ -98,7 +108,7 @@ const builds: Record<Builds, UserConfig> = {
 };
 
 const buildsLibs = {
-  isCustomMode(mode: string): mode is Builds {
+  isCustomMode(mode: UserConfig['mode']): mode is Builds {
     return mode in builds;
   },
 
@@ -108,20 +118,36 @@ const buildsLibs = {
 };
 
 export default defineConfig(({ mode }) => {
-  const isCustomMode = buildsLibs.isCustomMode(mode); // если "modular" или "bundled"
-  // const isViteMode = mode === 'production'; // если `vite build` то mode === "production"
+  // `vite build mode` - vite error
 
-  if (!isCustomMode) {
-    console.warn(`\n❗ Unknown --mode: default vite mode "${mode}"`);
+  // default
+  if (mode === DEFAULT_MODE) {
+    return builds.default;
+  }
 
-    console.warn(`❓ Available: vite build --mode [${buildsLibs.customModesList}]\n`);
+  // `vite build`
+  if (mode === VITE_DEFAULT_MODE) {
+    return builds.default;
+  }
 
-    console.warn(
-      `Using: ${(!isCustomMode && '"production" → ') || ''}"default" → "${DEFAULT_BUILD}"\n`
-    );
-
+  // `vite build mode --НЕСУЩЕСТВУЮЩИЙ`
+  const UNKNOWN_MODE: boolean = true;
+  if (!buildsLibs.isCustomMode(mode)) {
     return builds.default;
   }
 
   return builds[mode];
 });
+
+// if (!isCustomMode) {
+//   console.warn(`\n❗ Unknown --mode`);
+//   console.warn(
+//     `❓ Available: --mode [${buildsLibs.customModesList}] то vite build по улочанию взвращает ${VITE_DEFAULT_MODE}`
+//   );
+
+//   console.log(
+//     `Using: ${(!isCustomMode && '"production" → ') || ''}"default" → "${CUSTOM_DEFAULT_MODE}"\n`
+//   );
+
+//   return builds.default;
+// }
