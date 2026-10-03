@@ -1,4 +1,4 @@
-// packages/npm-kit/vitest.config.ts
+// packages/libs/vitest.config.ts
 
 import { defineConfig } from 'vitest/config';
 import path from 'path';
@@ -14,11 +14,12 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.ts', '_config/**/*.test.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      include: ['src/**/*.ts'],
+      include: ['src/**/*.ts', '_config/**/*.ts'],
+      exclude: ['**/*.test.ts', '**/*.d.ts', '**/types.ts', '**/index.ts'],
     },
   },
 });

@@ -1,4 +1,4 @@
-// packages/npm-kit/tsconfig.json
+// packages/libs/tsconfig.json
 
 {
   "compilerOptions": {
