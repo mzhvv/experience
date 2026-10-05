@@ -7,7 +7,7 @@ import type { PackageJson } from 'type-fest';
 
 import { log } from '@/log';
 
-function readPackageJson() {
+export function readPackageJson() {
   const packageJsonPath = resolve(process.cwd(), 'package.json');
   if (!existsSync(packageJsonPath)) {
     log.fail('package.json not found in current directory');
@@ -24,5 +24,3 @@ function readPackageJson() {
 
   return { packageJson, packageJsonPath };
 }
-
-export { readPackageJson };

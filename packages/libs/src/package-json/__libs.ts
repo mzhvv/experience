@@ -3,7 +3,7 @@
 import { bumpPackageJsonVersion, parsePackageJsonVersionType } from './bump-version';
 import { readPackageJson } from './read';
 
-export const packageJsonLibs = {
+export const packageJson = {
   read: readPackageJson,
   bumpVersion: bumpPackageJsonVersion,
   parseVersionType: parsePackageJsonVersionType,

@@ -4,15 +4,15 @@ import { execSync } from 'child_process';
 import { log } from '@/log';
 import { readPackageJson } from './read';
 
-type ParsePackageJsonVersionType = 'patch' | 'minor' | 'major';
+export type ParsePackageJsonVersionType = 'patch' | 'minor' | 'major';
 
-function parsePackageJsonVersionType(): ParsePackageJsonVersionType {
+export function parsePackageJsonVersionType(): ParsePackageJsonVersionType {
   if (process.argv.includes('--minor')) return 'minor';
   if (process.argv.includes('--major')) return 'major';
   return 'patch';
 }
 
-function bumpPackageJsonVersion(
+export function bumpPackageJsonVersion(
   versionType: ParsePackageJsonVersionType = parsePackageJsonVersionType()
 ) {
   const { packageJson } = readPackageJson();
@@ -34,6 +34,3 @@ function bumpPackageJsonVersion(
     process.exit(1);
   }
 }
-
-export type { ParsePackageJsonVersionType };
-export { bumpPackageJsonVersion, parsePackageJsonVersionType };
