@@ -14,7 +14,7 @@ from pathlib import Path
 # region settings
 
 SOURCE = Path("/Users/mzhvv/DEV/experience")
-DEST_DIR = Path("/Users/mzhvv/DEV/scripts/backup")
+DEST_DIR = Path("/Users/mzhvv/DEV/backup")
 ARCHIVE_NAME = "experience.zip"
 
 EXCLUDE_DIRS = {"node_modules", "dist"}

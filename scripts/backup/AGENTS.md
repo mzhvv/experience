@@ -9,7 +9,7 @@ Backup-скрипт
 ## Структура
 
 - `/Users/mzhvv/DEV/experience` — исходный проект
-- `/Users/mzhvv/DEV/scripts/backup` — синхронизируется Google Drive Desktop и Яндекс Диск
+- `/Users/mzhvv/DEV/backup` — синхронизируется Google Drive Desktop и Яндекс Диск
 - `experience.zip` — имя архива
 
 ## Задача
