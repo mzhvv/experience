@@ -10,7 +10,9 @@ package-lock.json
 ## Сборки и билды
 
 dist/
+**/dist/
 build/
+**/build/
 
 ## Next.js
 

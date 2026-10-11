@@ -20,14 +20,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-
-    /* alias */
-    "paths": {
-      "@/*": ["./src/*"],
-      "@libs": ["./src/index.ts"]
-    }
+    "noFallthroughCasesInSwitch": true
   },
-
-  "include": ["_config", "_bin", "src", "vite.config.ts", "vitest.config.ts"]
+  "include": ["src"]
 }
