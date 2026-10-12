@@ -4,7 +4,7 @@
 
   "scripts": {
     "format": "prettier --write .",
-    "backup": "python3 ./scripts/backup/backup.py"
+    "backup": "bash ./scripts/backup/run.sh"
   },
 
   "devDependencies": {
