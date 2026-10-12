@@ -1,5 +1,6 @@
-#!/usr/bin/env python3 
-#!PATH scripts/backup/main.py
+#!/usr/bin/env python3
+
+# scripts/backup/main.py
 
 # region imports
 
