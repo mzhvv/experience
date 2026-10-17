@@ -1,13 +1,13 @@
 {
   "name": "experience",
   "private": true,
-
   "scripts": {
     "format": "prettier --write .",
-    "backup": "bash ./scripts/backup/run.sh"
+    "backup": "sh ./scripts/backup/run.sh",
+    "prepare": "husky"
   },
-
   "devDependencies": {
+    "husky": "^9.1.7",
     "prettier": "3.9.5"
   }
 }
