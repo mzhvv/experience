@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-# .husky/pre-commit.disabled
+# .husky/pre-commit
 
 npm run format

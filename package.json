@@ -4,7 +4,9 @@
   "scripts": {
     "prepare": "husky",
     "format": "prettier --write .",
-    "backup": "sh ./scripts/backup/run.sh"
+    "backup": "npm run backup:sh",
+    "backup:sh": "sh ./scripts/backup/run.sh",
+    "backup:py": "python3 ./scripts/backup/main.py"
   },
   "devDependencies": {
     "husky": "^9.1.7",
