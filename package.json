@@ -2,9 +2,9 @@
   "name": "experience",
   "private": true,
   "scripts": {
+    "prepare": "husky",
     "format": "prettier --write .",
-    "backup": "sh ./scripts/backup/run.sh",
-    "prepare": "husky"
+    "backup": "sh ./scripts/backup/run.sh"
   },
   "devDependencies": {
     "husky": "^9.1.7",
