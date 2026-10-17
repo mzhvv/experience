@@ -5,6 +5,7 @@
     "prepare": "husky",
     "format": "prettier --write .",
     "backup": "npm run backup:default",
+
     "backup:default": "sh ./scripts/backup/run.sh python3"
   },
   "devDependencies": {
