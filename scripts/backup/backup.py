@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# scripts/backup/main.py
+# scripts/backup/backup.py
 
 # region imports
 
@@ -94,9 +94,9 @@ def verify_zip(zip_path: Path, expected_files: int) -> None:
         raise RuntimeError(f"Архив повреждён: {e}")
 
 # endregion
-# region main
+# region backup
 
-def main():
+def backup():
     start = time.time()
     tmp_path = None
     try:
@@ -128,6 +128,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    backup()
 
 # endregion

@@ -12,7 +12,7 @@ case "${1:-python3}" in
     SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
     cd "$SCRIPT_DIR" || exit 1
-    python3 ./main.py
+    python3 ./backup.py
     ;;
   *)
     echo "❌ Unknown mode: ${1}" >&2
