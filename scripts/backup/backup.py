@@ -17,7 +17,7 @@ SOURCE = Path("/Users/mzhvv/DEV/experience")
 DEST_DIR = Path("/Users/mzhvv/DEV/backup")
 ARCHIVE_NAME = "experience.zip"
 
-EXCLUDE_DIRS = {"node_modules", "dist"}
+EXCLUDE_DIRS = {"node_modules", "dist", ".next"}
 
 # endregion
 # region zip
