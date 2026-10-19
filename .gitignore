@@ -53,10 +53,8 @@ temp/
 
 ##
 
-.private/
-**/.private/
-
-**/AGENTS.md
-
 .🗑️
-projects/try
+**/.private/
+**/AGENTS.md
+**/CLAUDE.md
+**/README.md
