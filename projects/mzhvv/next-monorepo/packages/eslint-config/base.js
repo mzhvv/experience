@@ -1,11 +1,11 @@
-import { createRequire } from "node:module"
-import babelParser from "@babel/eslint-parser"
-import js from "@eslint/js"
-import eslintConfigPrettier from "eslint-config-prettier"
-import onlyWarn from "eslint-plugin-only-warn"
-import turboPlugin from "eslint-plugin-turbo"
+import { createRequire } from 'node:module';
+import babelParser from '@babel/eslint-parser';
+import js from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import onlyWarn from 'eslint-plugin-only-warn';
+import turboPlugin from 'eslint-plugin-turbo';
 
-const require = createRequire(import.meta.url)
+const require = createRequire(import.meta.url);
 
 /**
  * A shared ESLint configuration for the repository.
@@ -21,7 +21,7 @@ export const config = [
       parserOptions: {
         requireConfigFile: false,
         babelOptions: {
-          presets: [require.resolve("@babel/preset-typescript")],
+          presets: [require.resolve('@babel/preset-typescript')],
         },
       },
     },
@@ -29,7 +29,7 @@ export const config = [
       turbo: turboPlugin,
     },
     rules: {
-      "turbo/no-undeclared-env-vars": "warn",
+      'turbo/no-undeclared-env-vars': 'warn',
     },
   },
   {
@@ -38,6 +38,6 @@ export const config = [
     },
   },
   {
-    ignores: ["dist/**"],
+    ignores: ['dist/**'],
   },
-]
+];
