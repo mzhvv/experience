@@ -1,18 +1,20 @@
-## Зависимости
-
-node_modules/
+# Dependencies
 **/node_modules/
-package-lock.json
 **/package-lock.json
 
-## Сборки и билды
-
-dist/
+# Build outputs
 **/dist/
-build/
 **/build/
 
-## Next.js
-
-.next/
+# Next.js
 **/.next/
+
+# Turbo
+**/.turbo/
+
+# Coverage
+**/coverage/
+
+# pnpm
+**/pnpm-lock.yaml
+**/.pnpm-store/
