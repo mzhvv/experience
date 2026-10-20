@@ -5,7 +5,7 @@ import base from '../../../prettier.config.mjs';
 const config = {
   ...base,
   plugins: ['prettier-plugin-tailwindcss'],
-  tailwindStylesheet: 'app/globals.css',
+  tailwindStylesheet: 'src/app/globals.css',
   tailwindFunctions: ['cn', 'cva'],
 };
 

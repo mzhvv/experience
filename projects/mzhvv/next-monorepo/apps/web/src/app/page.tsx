@@ -3,7 +3,7 @@ export default function Page() {
     <div className="flex min-h-svh p-6">
       <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
         <div>
-          <h1 className="font-medium">mzhvv-web (next-monorepo/apps/web)</h1>
+          <h1 className="font-medium">projects/mzhvv/next-monorepo/apps/web</h1>
         </div>
       </div>
     </div>
