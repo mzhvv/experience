@@ -14,8 +14,8 @@
   "rtl": false,
   "aliases": {
     "components": "@/shared/ui/components",
+    "ui": "@/shared/ui/components",
     "utils": "@/shared/ui/lib/utils",
-    "ui": "@/shared/ui/components/ui",
     "lib": "@/shared/ui/lib",
     "hooks": "@/shared/ui/hooks"
   },

@@ -12,10 +12,10 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@/shared/ui/components",
-    "hooks": "@/shared/ui/hooks",
+    "ui": "@workspace/ui/components",
     "lib": "@/shared/ui/lib",
     "utils": "@workspace/ui/lib/utils",
-    "ui": "@workspace/ui/components"
+    "hooks": "@/shared/ui/hooks"
   },
   "rtl": false,
   "menuColor": "default",
