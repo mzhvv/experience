@@ -2,6 +2,7 @@
   "name": "@experience/prettier-config",
   "type": "module",
   "private": true,
+
   "exports": {
     ".": "./prettier.config.mjs"
   }

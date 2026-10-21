@@ -1,6 +1,5 @@
-// projects/mzhvv/next-app/prettier.config.mjs
+// src/projects/mzhvv-0/next-app/prettier.config.mjs
 
-// import prettierСonfig from '../../../../prettier.config.mjs';
 import prettierСonfig from '@experience/prettier-config';
 
 const config = {

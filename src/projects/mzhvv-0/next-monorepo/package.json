@@ -11,6 +11,8 @@
     "typecheck": "turbo typecheck"
   },
 
+  "workspaces": ["apps/*", "packages/*"],
+
   "devDependencies": {
     "@workspace/eslint-config": "*",
     "@workspace/typescript-config": "*",
@@ -23,7 +25,5 @@
   "packageManager": "npm@11.20.0",
   "engines": {
     "node": ">=20.9.0"
-  },
-
-  "workspaces": ["apps/*", "packages/*"]
+  }
 }

@@ -1,6 +1,5 @@
-// projects/mzhvv/next-monorepo/prettier.config.mjs
+// src/projects/mzhvv-0/next-monorepo/prettier.config.mjs
 
-// import prettierСonfig from '../../../../prettier.config.mjs';
 import prettierСonfig from '@experience/prettier-config';
 
 export default {
