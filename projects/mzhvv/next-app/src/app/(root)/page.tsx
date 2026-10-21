@@ -1,3 +1,3 @@
 export default function RootPage() {
-  return '...';
+  return <div className="p-6">...</div>;
 }
