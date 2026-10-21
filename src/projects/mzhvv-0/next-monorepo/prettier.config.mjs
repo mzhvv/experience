@@ -1,9 +1,10 @@
 // projects/mzhvv/next-monorepo/prettier.config.mjs
 
-import base from '../../../prettier.config.mjs';
+// import prettierСonfig from '../../../../prettier.config.mjs';
+import prettierСonfig from '@experience/prettier-config';
 
 export default {
-  ...base,
+  ...prettierСonfig,
   plugins: ['prettier-plugin-tailwindcss'],
   tailwindStylesheet: 'packages/ui/src/styles/globals.css',
   tailwindFunctions: ['cn', 'cva'],

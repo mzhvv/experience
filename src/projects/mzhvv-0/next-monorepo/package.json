@@ -2,6 +2,7 @@
   "name": "next-monorepo",
   "version": "0.0.1",
   "private": true,
+
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -9,6 +10,7 @@
     "format": "turbo format",
     "typecheck": "turbo typecheck"
   },
+
   "devDependencies": {
     "@workspace/eslint-config": "*",
     "@workspace/typescript-config": "*",
@@ -17,9 +19,11 @@
     "turbo": "^2.11.7",
     "typescript": "^5"
   },
+
   "packageManager": "npm@11.20.0",
   "engines": {
     "node": ">=20.9.0"
   },
+
   "workspaces": ["apps/*", "packages/*"]
 }

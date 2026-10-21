@@ -1,9 +1,10 @@
 // projects/mzhvv/next-app/prettier.config.mjs
 
-import base from '../../../prettier.config.mjs';
+// import prettierСonfig from '../../../../prettier.config.mjs';
+import prettierСonfig from '@experience/prettier-config';
 
 const config = {
-  ...base,
+  ...prettierСonfig,
   plugins: ['prettier-plugin-tailwindcss'],
   tailwindStylesheet: 'src/app/globals.css',
   tailwindFunctions: ['cn', 'cva'],

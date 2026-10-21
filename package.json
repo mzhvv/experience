@@ -1,12 +1,14 @@
 {
   "name": "experience",
   "private": true,
+  "workspaces": ["packages/*"],
   "scripts": {
     "prepare": "husky",
     "format": "prettier --write .",
     "backup": "npm run backup:default",
-    "backup:default": "sh ./scripts/backup/run.sh python3"
+    "backup:default": "sh ./src/scripts/backup/run.sh python3"
   },
+
   "devDependencies": {
     "husky": "^9.1.7",
     "prettier": "3.9.5",

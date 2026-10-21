@@ -1,19 +1,7 @@
 // prettier.config.mjs
 
-export default {
-  semi: true,
-  singleQuote: true,
-  trailingComma: 'es5',
-  tabWidth: 2,
-  printWidth: 100,
+import prettierСonfig from '@experience/prettier-config';
 
-  overrides: [
-    {
-      files: '*.json',
-      options: {
-        parser: 'jsonc',
-        trailingComma: 'none',
-      },
-    },
-  ],
+export default {
+  ...prettierСonfig,
 };
