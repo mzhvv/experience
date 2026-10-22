@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 import uvicorn
 
-app = FastAPI(root_path="/api-fastapi")
+app = FastAPI()
 
 @app.get('/')
 def main(): 
