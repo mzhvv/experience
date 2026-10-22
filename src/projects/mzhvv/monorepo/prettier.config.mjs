@@ -1,4 +1,4 @@
-// src/projects/mzhvv/next-monorepo/prettier.config.mjs
+// src/projects/mzhvv/monorepo/prettier.config.mjs
 
 import prettierСonfig from '@experience/prettier-config';
 
