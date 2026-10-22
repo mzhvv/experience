@@ -3,11 +3,11 @@
 from fastapi import FastAPI
 import uvicorn
 
-app = FastAPI()
+app = FastAPI(root_path="/api-fastapi")
 
 @app.get('/')
 def main(): 
-  return 'fastapi'
+    return 'fastapi'
 
 if __name__ == '__main__':
-  uvicorn.run('main:app', reload=True)
+    uvicorn.run('main:app', reload=True)
