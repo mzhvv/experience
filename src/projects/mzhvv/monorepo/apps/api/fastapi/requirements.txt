@@ -1,4 +1,0 @@
-# src/projects/mzhvv/monorepo/apps/api/fastapi/requirements.txt
-
-fastapi
-uvicorn
