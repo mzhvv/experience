@@ -4,7 +4,20 @@
     "web": {
       "root": "apps/web",
       "framework": "nextjs"
+    },
+    "api": {
+      "root": "apps/api/fastapi",
+      "framework": "python"
     }
   },
-  "rewrites": [{ "source": "/(.*)", "destination": { "service": "web" } }]
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": { "service": "api" }
+    },
+    {
+      "source": "/(.*)",
+      "destination": { "service": "web" }
+    }
+  ]
 }

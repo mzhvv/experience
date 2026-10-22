@@ -9,5 +9,6 @@
   },
 
   // Jest
-  "jest.enable": false
+  "jest.enable": false,
+  "python-envs.defaultEnvManager": "ms-python.python:system"
 }

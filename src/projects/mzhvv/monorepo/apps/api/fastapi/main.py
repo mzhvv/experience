@@ -1,4 +1,4 @@
-# src/projects/mzhvv/monorepo/apps/api-python/main.py
+# src/projects/mzhvv/monorepo/apps/api/fastapi/main.py
 
 from fastapi import FastAPI
 import uvicorn

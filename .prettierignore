@@ -15,6 +15,12 @@
 # Coverage
 **/coverage/
 
+# Python / pip
+**/venv/
+**/.venv/
+**/__pycache__/
+**/requirements.txt
+
 # pnpm
 **/pnpm-lock.yaml
 **/.pnpm-store/
