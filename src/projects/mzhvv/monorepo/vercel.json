@@ -7,7 +7,9 @@
     },
     "api": {
       "root": "apps/api/fastapi",
-      "framework": "python"
+      "framework": "python",
+      "installCommand": "pip install -r requirements.txt",
+      "devCommand": "uvicorn main:app --host 0.0.0.0"
     }
   },
   "rewrites": [
