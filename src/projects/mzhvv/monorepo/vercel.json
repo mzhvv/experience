@@ -8,7 +8,6 @@
     "api-fastapi": {
       "root": "apps/api/fastapi",
       "framework": "python",
-      "runtime": "python3.12",
       "installCommand": "pip install -r requirements.txt",
       "devCommand": "uvicorn main:app --host 0.0.0.0 --port $PORT"
     }
