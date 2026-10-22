@@ -5,7 +5,7 @@
       "root": "apps/web",
       "framework": "nextjs"
     },
-    "api": {
+    "api-fastapi": {
       "root": "apps/api/fastapi",
       "framework": "python",
       "installCommand": "pip install -r requirements.txt",
@@ -14,8 +14,8 @@
   },
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": { "service": "api" }
+      "source": "/api-fastapi/(.*)",
+      "destination": { "service": "api-fastapi" }
     },
     {
       "source": "/(.*)",
