@@ -1,22 +1,23 @@
+// src/projects/mzhvv/monorepo/apps/web/next.config.ts
+
 import type { NextConfig } from 'next';
+
+async function rewrites() {
+  // Если мы НЕ на Vercel (то есть локально), включаем прокси
+  if (!process.env.VERCEL) {
+    return [
+      {
+        source: '/api-fastapi/:path*',
+        destination: 'http://127.0.0.1:8000/api-fastapi/:path*',
+      },
+    ];
+  }
+  return [];
+}
 
 const nextConfig: NextConfig = {
   transpilePackages: ['@workspace/ui'],
-
-  async rewrites() {
-    // Применяем rewrites ТОЛЬКО в режиме разработки (локально)
-    if (process.env.NODE_ENV === 'development') {
-      return [
-        {
-          source: '/api-fastapi/:path*',
-          destination: 'http://127.0.0.1:8000/api-fastapi/:path*',
-        },
-      ];
-    }
-
-    // На Vercel (production) возвращаем пустой массив, чтобы Vercel сам маршрутизировал через vercel.json
-    return [];
-  },
+  rewrites: () => rewrites(),
 };
 
 export default nextConfig;
