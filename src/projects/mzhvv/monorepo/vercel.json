@@ -14,10 +14,7 @@
   "rewrites": [
     {
       "source": "/api-fastapi/(.*)",
-      "destination": {
-        "type": "service",
-        "service": "api-fastapi"
-      }
+      "destination": { "service": "api-fastapi" }
     },
     {
       "source": "/(.*)",
