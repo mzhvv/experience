@@ -5,17 +5,10 @@ import uvicorn
 
 app = FastAPI()
 
-# Для запроса БЕЗ слэша (как ты открываешь в браузере)
 @app.get('/api-fastapi')
 def main_no_slash(): 
     return 'fastapi'
 
-# Для запроса СО слэшем (куда Vercel редиректит)
-@app.get('/api-fastapi/')
-def main_with_slash(): 
-    return 'fastapi'
-
-# Остальные роуты для docs оставляем как были
 @app.get('/api-fastapi/docs', include_in_schema=False)
 def custom_docs():
     from fastapi.openapi.docs import get_swagger_ui_html

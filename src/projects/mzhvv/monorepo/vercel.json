@@ -13,8 +13,11 @@
   },
   "rewrites": [
     {
-      "source": "/api-fastapi/(.*)",
-      "destination": { "service": "api-fastapi" }
+      "source": "/api-fastapi/:path*",
+      "destination": {
+        "service": "api-fastapi",
+        "path": "/:path*"
+      }
     },
     {
       "source": "/(.*)",
