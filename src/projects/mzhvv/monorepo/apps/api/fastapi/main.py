@@ -5,9 +5,18 @@ import uvicorn
 
 app = FastAPI()
 
-@app.get('/')
+@app.get('/api-fastapi')
 def main(): 
     return 'fastapi'
 
+@app.get('/api-fastapi/docs', include_in_schema=False)
+def custom_docs():
+    from fastapi.openapi.docs import get_swagger_ui_html
+    return get_swagger_ui_html(openapi_url="/api-fastapi/openapi.json", title="API Docs")
+
+@app.get('/api-fastapi/openapi.json', include_in_schema=False)
+def custom_openapi():
+    return app.openapi()
+
 if __name__ == '__main__':
-    uvicorn.run('main:app', host='127.0.0.1', port=8000, reload=True, root_path='/api-fastapi')
+    uvicorn.run('main:app', host='127.0.0.1', port=8000, reload=True)
