@@ -9,11 +9,11 @@
     "backup:default": "sh ./src/scripts/backup/run.sh python3"
   },
 
-  "workspaces": ["packages/*"],
-
   "devDependencies": {
     "husky": "^9.1.7",
     "prettier": "3.9.5",
     "prettier-plugin-tailwindcss": "^0.8.1"
-  }
+  },
+
+  "workspaces": ["packages/*"]
 }

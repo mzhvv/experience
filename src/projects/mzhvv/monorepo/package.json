@@ -8,10 +8,11 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "turbo format",
-    "typecheck": "turbo typecheck"
-  },
+    "typecheck": "turbo typecheck",
 
-  "workspaces": ["apps/*", "packages/*"],
+    "web:dev": "npm --workspace=apps/web run dev",
+    "fastapi:dev": "cd apps/api/fastapi && . venv/bin/activate && python main.py"
+  },
 
   "devDependencies": {
     "@workspace/eslint-config": "*",
@@ -25,5 +26,7 @@
   "packageManager": "npm@11.20.0",
   "engines": {
     "node": ">=20.9.0"
-  }
+  },
+
+  "workspaces": ["apps/*", "packages/*", "apps/*/*"]
 }
