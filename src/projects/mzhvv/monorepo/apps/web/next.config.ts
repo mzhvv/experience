@@ -14,8 +14,7 @@ const nextConfig: NextConfig = {
       ];
     }
 
-    // На Vercel (production) возвращаем пустой массив,
-    // чтобы Vercel сам маршрутизировал через vercel.json
+    // На Vercel (production) возвращаем пустой массив, чтобы Vercel сам маршрутизировал через vercel.json
     return [];
   },
 };
