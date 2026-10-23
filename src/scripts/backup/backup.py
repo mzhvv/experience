@@ -17,7 +17,19 @@ SOURCE = Path("/Users/mzhvv/DEV/experience")
 DEST_DIR = Path("/Users/mzhvv/DEV/backup")
 ARCHIVE_NAME = "experience.zip"
 
-EXCLUDE_DIRS = {"node_modules", "dist", ".next"}
+EXCLUDE_DIRS = {
+    "node_modules", 
+    "dist", 
+
+    ".next", 
+    ".turbo",
+
+    ".venv", 
+    "venv", 
+    "__pycache__",
+    
+    ".vercel"
+}
 
 # endregion
 # region zip
