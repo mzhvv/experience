@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get('/api-fastapi')
 def main_no_slash(): 
-    return 'fastapi'
+    return {"src": "projects/mzhvv/monorepo/apps/web"}
 
 @app.get('/api-fastapi/docs', include_in_schema=False)
 def custom_docs():
@@ -19,4 +19,4 @@ def custom_openapi():
     return app.openapi()
 
 if __name__ == '__main__':
-    uvicorn.run('main:app', reload=True) # host='127.0.0.1', port=8000,
+    uvicorn.run('main:app', reload=True)
