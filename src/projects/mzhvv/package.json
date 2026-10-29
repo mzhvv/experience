@@ -1,0 +1,30 @@
+{
+  "name": "monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "npm@11.20.0",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "workspaces": [
+    "src/apps/*",
+    "src/packages/*",
+    "src/services/*",
+    "src/apps/*/*",
+    "src/services/*/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "web:dev": "npm --workspace=apps/web run dev",
+    "api:dev": "cd apps/api && . venv/bin/activate && python main.py"
+  },
+  "devDependencies": {
+    "@workspace/eslint-config": "*",
+    "@workspace/typescript-config": "*",
+    "turbo": "^2.11.7",
+    "typescript": "^5"
+  }
+}

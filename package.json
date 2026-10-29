@@ -1,0 +1,17 @@
+{
+  "name": "experience",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "workspaces": ["src/packages/*"],
+  "scripts": {
+    "prepare": "husky",
+    "format": "format",
+    "backup": "npm run backup:default",
+    "backup:default": "sh ./src/scripts/backup/run.sh python3"
+  },
+  "devDependencies": {
+    "@packages/prettier-config": "*",
+    "husky": "^9.1.7"
+  }
+}

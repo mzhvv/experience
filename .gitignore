@@ -1,0 +1,75 @@
+# Logs
+**/*.log
+**/logs/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/.pnpm-debug.log*
+
+# Dependencies (Node.js)
+**/node_modules/
+**/.pnp
+**/.pnp.*
+**/.yarn/*
+!**/.yarn/patches
+!**/.yarn/plugins
+!**/.yarn/releases
+!**/.yarn/versions
+
+# Dependencies (Python / pip)
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/.venv/
+**/venv/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# Build outputs
+**/.next/
+**/out/
+**/dist/
+**/dist-ssr/
+**/build/
+**/*.local
+**/*.tsbuildinfo
+**/next-env.d.ts
+
+# Turbo
+**/.turbo
+
+# Testing / Coverage
+**/coverage/
+
+# Environment
+**/.env*
+
+# Vercel
+**/.vercel
+
+# Temporary
+**/tmp/
+**/temp/
+**/*.tmp
+
+# Security / secrets
+**/*.pem
+
+# OS
+**/.DS_Store
+**/Thumbs.db
+**/Desktop.ini
+
+# Editor
+**/.vscode/
+!/.vscode/settings.json
+
+# Private / local-only
+**/_private/
+**/README.md
+**/AGENTS.md
+**/CLAUDE.md
+
+# Husky
+.husky/_

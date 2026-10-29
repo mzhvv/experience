@@ -1,0 +1,30 @@
+{
+  "name": "@packages/prettier-config",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "files": ["src/index.js", "src/index.d.ts", "src/config.js", "bin/format.js"],
+  "bin": {
+    "format": "./bin/format.js"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "prettier": "3.9.5",
+    "prettier-plugin-tailwindcss": "^0.8.1"
+  },
+  "peerDependencies": {
+    "prettier": ">=3.0.0",
+    "prettier-plugin-tailwindcss": ">=0.6.0"
+  },
+  "peerDependenciesMeta": {
+    "prettier-plugin-tailwindcss": {
+      "optional": true
+    }
+  }
+}
