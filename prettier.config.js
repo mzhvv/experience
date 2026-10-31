@@ -1,5 +1,3 @@
-// prettier.config.js
-
-import { prettierConfig } from '@packages/prettier-config';
+import { prettierConfig } from '@workspace/prettier-config';
 
 export default prettierConfig;

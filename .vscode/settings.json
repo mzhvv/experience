@@ -1,0 +1,14 @@
+// .vscode/settings.json
+
+{
+  "files.autoSave": "off",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit"
+  },
+
+  // Jest
+  "jest.enable": false,
+  "python-envs.defaultEnvManager": "ms-python.python:system"
+}

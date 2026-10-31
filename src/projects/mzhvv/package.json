@@ -8,9 +8,9 @@
   },
   "workspaces": [
     "src/apps/*",
-    "src/packages/*",
-    "src/services/*",
     "src/apps/*/*",
+    "src/packages/**",
+    "src/services/*",
     "src/services/*/*"
   ],
   "scripts": {
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@workspace/eslint-config": "*",
     "@workspace/typescript-config": "*",
+    "@workspace/ui": "*",
     "turbo": "^2.11.7",
     "typescript": "^5"
   }

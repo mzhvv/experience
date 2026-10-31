@@ -1,6 +1,4 @@
-// src/projects/mzhvv/monorepo/apps/web/prettier.config.js
-
-import { prettierConfig, prettierPluginTailwind } from '@packages/prettier-config';
+import { prettierConfig, prettierPluginTailwind } from '@workspace/prettier-config';
 
 export default {
   ...prettierConfig,
