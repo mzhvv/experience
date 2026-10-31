@@ -19,7 +19,7 @@
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
     "web:dev": "npm --workspace=mzhvv-web run dev",
-    "api:dev": ". venv/bin/activate && npm --workspace=mzhvv-api run dev",
+    "api:dev": "npm --workspace=mzhvv-api run dev",
     "api-2:dev": ". venv/bin/activate && cd src/services/api-2 && python src/main.py"
   },
   "devDependencies": {
