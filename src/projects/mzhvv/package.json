@@ -1,5 +1,5 @@
 {
-  "name": "monorepo",
+  "name": "mzhvv-monorepo",
   "version": "0.0.1",
   "private": true,
   "packageManager": "npm@11.20.0",
@@ -18,8 +18,9 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "web:dev": "npm --workspace=apps/web run dev",
-    "api:dev": "cd apps/api && . venv/bin/activate && python main.py"
+    "web:dev": "npm --workspace=mzhvv-web run dev",
+    "api:dev": ". venv/bin/activate && npm --workspace=mzhvv-api run dev",
+    "api-2:dev": ". venv/bin/activate && cd src/services/api-2 && python src/main.py"
   },
   "devDependencies": {
     "@workspace/eslint-config": "*",
