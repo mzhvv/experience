@@ -2,23 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "services": {
     "web": {
-      "root": "apps/web",
+      "root": "src/apps/web",
       "framework": "nextjs"
-    },
-    "api": {
-      "root": "apps/api",
-      "framework": "fastapi",
-      "installCommand": "pip install -r requirements.txt"
     }
   },
   "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": {
-        "service": "api",
-        "path": "/:path*"
-      }
-    },
     {
       "source": "/(.*)",
       "destination": { "service": "web" }
