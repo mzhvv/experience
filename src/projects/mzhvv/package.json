@@ -1,0 +1,34 @@
+{
+  "name": "mzhvv-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "npm@11.20.0",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "workspaces": [
+    "src/apps/*",
+    "src/apps/*/*",
+    "src/packages/**",
+    "src/services/*",
+    "src/services/*/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "format": "turbo format",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "web:dev": "npm --workspace=mzhvv-web run dev",
+    "api:dev": "npm --workspace=mzhvv-api run dev",
+    "api-2:dev": ". venv/bin/activate && cd src/services/api-2 && python src/main.py"
+  },
+  "devDependencies": {
+    "@workspace/eslint-config": "*",
+    "@workspace/prettier-config": "file:../../../packages/prettier-config",
+    "@workspace/typescript-config": "*",
+    "@workspace/ui": "*",
+    "turbo": "^2.11.7",
+    "typescript": "^5"
+  }
+}
