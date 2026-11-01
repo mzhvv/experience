@@ -22,5 +22,5 @@
       "version": "11.20.0"
     }
   },
-  "workspaces": ["apps/*", "apps-f/*", "packages/*"]
+  "workspaces": ["src/apps/*", "src/apps-f/*", "src/packages/*"]
 }
