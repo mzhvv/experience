@@ -5,9 +5,9 @@ services:
       dockerfile: Dockerfile
       additional_contexts:
         packages: ../../../src/packages
-        prettier-config: ../../../packages/prettier-config
+        prettier-config: ../../../src/packages/prettier-config
 
     ports:
-      - '3000:3000'
+      - "3000:3000"
 
     restart: unless-stopped
