@@ -6,4 +6,4 @@ services:
       additional_contexts:
         packages: ../../../src/packages
     ports:
-      - "3000:3000"
+      - '3000:3000'
