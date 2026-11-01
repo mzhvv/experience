@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import './globals.css';
 
-import { cn } from '@ui/lib/utils';
+import { cn } from '@workspace/shadcn-ui/lib/utils';
 import Providers from './providers';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });

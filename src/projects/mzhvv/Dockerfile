@@ -1,75 +1,113 @@
-# ЭТАП 1: Установка зависимостей
+
+# ============================================
+# STAGE 1: Dependencies
+# ============================================
 FROM node:22-alpine AS deps
 
 WORKDIR /app
 
-# Совместимость Alpine
 RUN apk add --no-cache libc6-compat
 
-# Копируем package.json
+# Root package manifest
 COPY package.json ./
 
-# Копируем локальные пакеты ДО установки зависимостей
-# Необходимо для корректной работы file: зависимостей
+# Local workspace packages
 COPY --from=packages . ./src/packages/
+COPY --from=prettier-config . ./packages/prettier-config/
 
-# Устанавливаем зависимости
+# Restore original relative paths expected by package.json:
+#
+# file:../../../src/packages/shadcn-ui
+# file:../../../packages/prettier-config
+#
+# /app/../../../src/packages     -> /src/packages
+# /app/../../../packages         -> /packages
+
+RUN mkdir -p /src /packages && \
+    ln -sfn /app/src/packages /src/packages && \
+    ln -sfn /app/packages /packages
+
+# Verify local packages exist
+RUN test -f /app/src/packages/shadcn-ui/package.json && \
+    test -f /app/packages/prettier-config/package.json
+
+# Install dependencies
 RUN npm install --no-package-lock
 
 
-# ЭТАП 2: Сборка приложения
+# ============================================
+# STAGE 2: Build
+# ============================================
 FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-# Переносим установленные зависимости
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Copy dependencies
 COPY --from=deps /app/node_modules ./node_modules
 
-# Копируем исходный код приложения
+# Copy application source
 COPY . .
 
-# Копируем локальные пакеты
+# Copy local workspace packages
 COPY --from=packages . ./src/packages/
+COPY --from=prettier-config . ./packages/prettier-config/
 
-# Создаём public, если директории нет
+# Restore symlinks
+RUN mkdir -p /src /packages && \
+    ln -sfn /app/src/packages /src/packages && \
+    ln -sfn /app/packages /packages
+
+# Ensure public directory exists
 RUN mkdir -p public
 
-# Собираем Next.js в standalone-режиме
+# Diagnostic information
+RUN echo "========== SHADCN UI PACKAGE ==========" && \
+    ls -la /app/src/packages/shadcn-ui && \
+    echo "========== COMPONENTS ==========" && \
+    ls -la /app/src/packages/shadcn-ui/components && \
+    echo "========== LIB ==========" && \
+    ls -la /app/src/packages/shadcn-ui/lib && \
+    echo "========== NODE MODULES ==========" && \
+    ls -la /app/node_modules/@workspace
+
+# Build Next.js in standalone mode
 RUN DOCKER_BUILD=1 npm run build
 
 
-# ЭТАП 3: Production Runner
+# ============================================
+# STAGE 3: Production Runner
+# ============================================
 FROM node:22-alpine AS runner
 
 WORKDIR /app
 
-# Production environment
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# Создаём непривилегированного пользователя
-RUN addgroup -S -g 1001 nodejs \
-    && adduser -S -u 1001 -G nodejs nextjs
+# Non-root user
+RUN addgroup -S -g 1001 nodejs && \
+    adduser -S -u 1001 -G nodejs nextjs
 
-# Копируем public
+# Public assets
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
-# Копируем standalone server
+# Next.js standalone output
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 
-# Копируем статические файлы Next.js
+# Static assets
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Запускаем от непривилегированного пользователя
+# Run as non-root
 USER nextjs
 
-# Порт приложения
 EXPOSE 3000
 
-# Запуск Next.js standalone server
 CMD ["node", "server.js"]
+
 
 # ---
 

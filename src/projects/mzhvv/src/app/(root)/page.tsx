@@ -1,4 +1,4 @@
-import { Button } from '@ui/components/button';
+import { Button } from '@workspace/shadcn-ui/components/button';
 
 export default function RootPage() {
   return (
