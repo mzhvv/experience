@@ -1,0 +1,14 @@
+@import '@workspace/ui/globals.css';
+
+@layer base {
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
+}
