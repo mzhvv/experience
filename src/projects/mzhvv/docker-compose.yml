@@ -8,6 +8,6 @@ services:
         prettier-config: ../../../packages/prettier-config
 
     ports:
-      - "3000:3000"
+      - '3000:3000'
 
     restart: unless-stopped
