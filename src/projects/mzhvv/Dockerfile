@@ -1,50 +1,72 @@
-# Этап 1: Установка зависимостей (кэшируемый)
+# ЭТАП 1: Установка зависимостей
 FROM node:22-alpine AS deps
 WORKDIR /app
 
-# Копируем только package.json
+# Копируем манифест
 COPY package.json ./
-
 # Копируем локальные пакеты ДО установки (чтобы npm нашел их по file: путям)
 COPY --from=packages . ./src/packages/
 
-# Устанавливаем базовые зависимости из package.json
+# Устанавливаем зависимости
 RUN npm install --no-package-lock
 
-# ДОБАВЛЯЕМ недостающие пакеты для сборки (фиксируем версии, как локально)
-# ВАЖНО: Next.js (Turbopack) ищет зависимости строго в корневой папке /app/node_modules
-# В Docker он не видит симлинки из пакета (в отличие от локальной машины),
-# поэтому мы принудительно устанавливаем их на верхний уровень контейнера.
-RUN npm install \
-    # @workspace/shadcn-ui
-    @base-ui/react@^1.9.0 \
-    class-variance-authority@^0.7.1 \
-    cn@^0.5.1 \
-    lucide-react@^1.66.0 \
-    next-themes@^0.4.6 \
-    tw-animate-css@^1.4.0 \
-    shadcn@^4.23.0 \
-    zod@^4.6.6 \
-    @tailwindcss/postcss@^4 \
-    tailwindcss@^4 \
-    
-    --no-package-lock
-
-# Этап 2: Сборка
+# ЭТАП 2: Сборка приложения
 FROM node:22-alpine AS builder
 WORKDIR /app
 
-# Копируем node_modules из первого этапа
+# Переносим node_modules из этапа deps
 COPY --from=deps /app/node_modules ./node_modules
 
-# Копируем исходники
+# Копируем исходники и локальные пакеты
 COPY . .
-
-# Копируем пакеты (нужны для резолва путей в Next.js)
 COPY --from=packages . ./src/packages/
 
-# Собираем
-RUN npm run build
+# Собираем Next.js (генерирует .next/standalone)
+RUN DOCKER_BUILD=1 npm run build
 
+# ЭТАП 3: Финальный легковесный образ для запуска
+FROM node:22-alpine AS runner
+WORKDIR /app
+
+# Устанавливаем production-окружение
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
+# Создаем непривилегированного пользователя для безопасности
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Копируем только самое необходимое из этапа сборки
+# 1. Публичные статические файлы (если папки нет, создай её)
+COPY --from=builder /app/public ./public
+# 2. Минимальный standalone-сервер (содержит server.js и нужный минимум node_modules)
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+# 3. Статические ассеты Next.js (CSS, JS, картинки)
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Переключаемся на безопасного пользователя
+USER nextjs
+
+# Настраиваем порт и запускаем standalone-сервер
 EXPOSE 3000
-CMD ["npm", "start"]
+ENV PORT 3000
+ENV HOSTNAME 0.0.0.0
+CMD ["node", "server.js"]
+
+# --- СТАРЫЙ ВАРИАНТ (Тяжелый образ ~2.8 ГБ, запуск через npm start)
+
+# FROM node:22-alpine AS deps
+# WORKDIR /app
+# COPY package.json ./
+# COPY --from=packages . ./src/packages/
+# RUN npm install --no-package-lock
+#
+# FROM node:22-alpine AS builder
+# WORKDIR /app
+# COPY --from=deps /app/node_modules ./node_modules
+# COPY . .
+# COPY --from=packages . ./src/packages/
+# RUN npm run build
+#
+# EXPOSE 3000
+# CMD ["npm", "start"]
