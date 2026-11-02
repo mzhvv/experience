@@ -1,14 +1,14 @@
 # .prettierignore
 
 # Dependencies
-**/node_modules/
 **/package-lock.json
 **/pnpm-lock.yaml
 **/.pnpm-store/
+**/node_modules/
 
 # Build outputs
-**/dist/
 **/build/
+**/dist/
 **/.next/
 **/out/
 
@@ -25,12 +25,12 @@
 **/.husky/_/
 
 # Generated / minified
-**/*.min.js
-**/*.min.css
-**/next-env.d.ts
 **/CHANGELOG.md
+**/*.min.css
+**/*.min.js
+**/next-env.d.ts
 
 # Python (Prettier не парсит .py, но для явности)
-**/venv/
 **/.venv/
 **/__pycache__/
+**/venv/

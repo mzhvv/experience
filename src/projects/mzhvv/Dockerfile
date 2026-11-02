@@ -45,7 +45,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
+ENV PORT=3001
 ENV HOSTNAME=0.0.0.0
 
 RUN addgroup -S -g 1001 nodejs && \
@@ -59,7 +59,7 @@ COPY --from=builder --chown=nextjs:nodejs /repo/src/projects/mzhvv/public ./src/
 COPY --from=builder --chown=nextjs:nodejs /repo/src/projects/mzhvv/.next/static ./src/projects/mzhvv/.next/static
 
 USER nextjs
-EXPOSE 3000
+EXPOSE 3001
 
 # Запускаем сервер из его реального пути внутри контейнера
 CMD ["node", "src/projects/mzhvv/server.js"]

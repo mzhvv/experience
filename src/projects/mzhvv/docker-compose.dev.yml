@@ -1,0 +1,36 @@
+# src/projects/mzhvv/docker-compose.dev.yml
+
+services:
+  web:
+    build:
+      context: ../../..
+      dockerfile: src/projects/mzhvv/Dockerfile.dev
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /repo/src/projects/mzhvv
+          ignore:
+            - .next/
+            - node_modules/
+            - package.json
+        - action: sync
+          path: ../../packages/shadcn-ui
+          target: /repo/src/packages/shadcn-ui
+          ignore:
+            - node_modules/
+            - package.json
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: ../../packages/shadcn-ui/package.json
+        - action: rebuild
+          path: ../../../package.json
+        - action: rebuild
+          path: ../../../pnpm-lock.yaml
+        - action: rebuild
+          path: ../../../pnpm-workspace.yaml
+        - action: rebuild
+          path: ../../../.npmrc

@@ -1,12 +1,12 @@
 # .gitignore
 
 # Logs
+**/.pnpm-debug.log*
 **/*.log
 **/logs/
 **/npm-debug.log*
 **/yarn-debug.log*
 **/yarn-error.log*
-**/.pnpm-debug.log*
 
 # Dependencies (Node.js)
 **/node_modules/
@@ -22,18 +22,18 @@
 **/__pycache__/
 **/*.py[cod]
 **/*$py.class
+**/.mypy_cache/
+**/.pytest_cache/
+**/.ruff_cache/
 **/.venv/
 **/venv/
-**/.pytest_cache/
-**/.mypy_cache/
-**/.ruff_cache/
 
 # Build outputs
+**/build/
+**/dist-ssr/
+**/dist/
 **/.next/
 **/out/
-**/dist/
-**/dist-ssr/
-**/build/
 **/*.tsbuildinfo
 **/next-env.d.ts
 
@@ -59,20 +59,20 @@
 
 # OS
 **/.DS_Store
-**/Thumbs.db
 **/Desktop.ini
+**/Thumbs.db
 
 # Editor
 **/.vscode/*
 !**/.vscode/settings.json
 
 # Private / local-only
-**/README.md
 **/AGENTS.md
 **/CLAUDE.md
-**/NOTE.md
-**/_private/
 **/archive/
+**/_private/
+**/NOTE.md
+**/README.md
 
 # Husky
 .husky/_
