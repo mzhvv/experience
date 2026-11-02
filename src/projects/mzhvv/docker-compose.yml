@@ -1,7 +1,7 @@
 # src/projects/mzhvv/docker-compose.yml
 
 services:
-  mzhvv:
+  web:
     build:
       context: ../../..
       dockerfile: src/projects/mzhvv/Dockerfile
