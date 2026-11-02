@@ -1,3 +1,5 @@
+# .gitignore
+
 # Logs
 **/*.log
 **/logs/
@@ -32,7 +34,6 @@
 **/dist/
 **/dist-ssr/
 **/build/
-**/*.local
 **/*.tsbuildinfo
 **/next-env.d.ts
 

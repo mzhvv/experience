@@ -20,7 +20,6 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-      // "@ui/*": ["../../../src/packages/shadcn-ui/src/*"]
     }
   },
   "include": [
