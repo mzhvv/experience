@@ -1,12 +1,12 @@
 # src/projects/mzhvv/docker-compose.yml
 
 services:
-  web:
+  mzhvv:
     build:
       context: ../../..
       dockerfile: src/projects/mzhvv/Dockerfile
       additional_contexts:
         packages: ../../../src/packages/shadcn-ui
     ports:
-      - '3000:3000'
+      - "3000:3000"
     restart: unless-stopped
