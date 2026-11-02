@@ -1,86 +1,46 @@
+# src/projects/mzhvv/Dockerfile
 
-# ============================================
-# STAGE 1: Dependencies
-# ============================================
+# --- S1: Dependencies
 FROM node:22-alpine AS deps
-
-WORKDIR /app
+WORKDIR /repo
 
 RUN apk add --no-cache libc6-compat
+RUN corepack enable && corepack prepare pnpm@12.16.1 --activate
 
-# Root package manifest
-COPY package.json ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY src/projects/mzhvv/package.json ./src/projects/mzhvv/
+COPY src/packages/shadcn-ui/package.json ./src/packages/shadcn-ui/
+COPY src/packages/prettier-config/package.json ./src/packages/prettier-config/
+COPY src/packages/eslint-config/package.json ./src/packages/eslint-config/
+COPY src/packages/typescript-config/package.json ./src/packages/typescript-config/
 
-# Local workspace packages
-COPY --from=packages . ./src/packages/
-COPY --from=prettier-config . ./packages/prettier-config/
+COPY --from=packages . ./src/packages/shadcn-ui/
 
-# Restore original relative paths expected by package.json:
-#
-# file:../../../src/packages/shadcn-ui
-# file:../../../packages/prettier-config
-#
-# /app/../../../src/packages     -> /src/packages
-# /app/../../../packages         -> /packages
-
-RUN mkdir -p /src /packages && \
-    ln -sfn /app/src/packages /src/packages && \
-    ln -sfn /app/packages /packages
-
-# Verify local packages exist
-RUN test -f /app/src/packages/shadcn-ui/package.json && \
-    test -f /app/packages/prettier-config/package.json
-
-# Install dependencies
-RUN npm install --no-package-lock
+RUN pnpm install --frozen-lockfile
 
 
-# ============================================
-# STAGE 2: Build
-# ============================================
+# --- S2: Build
 FROM node:22-alpine AS builder
-
-WORKDIR /app
+WORKDIR /repo
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Copy dependencies
-COPY --from=deps /app/node_modules ./node_modules
+RUN corepack enable && corepack prepare pnpm@12.16.1 --activate
 
-# Copy application source
-COPY . .
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
-# Copy local workspace packages
-COPY --from=packages . ./src/packages/
-COPY --from=prettier-config . ./packages/prettier-config/
+COPY --from=deps /repo/node_modules ./node_modules
+COPY --from=deps /repo/src/packages ./src/packages
 
-# Restore symlinks
-RUN mkdir -p /src /packages && \
-    ln -sfn /app/src/packages /src/packages && \
-    ln -sfn /app/packages /packages
+COPY src/projects/mzhvv ./src/projects/mzhvv
 
-# Ensure public directory exists
+WORKDIR /repo/src/projects/mzhvv
 RUN mkdir -p public
-
-# Diagnostic information
-RUN echo "========== SHADCN UI PACKAGE ==========" && \
-    ls -la /app/src/packages/shadcn-ui && \
-    echo "========== COMPONENTS ==========" && \
-    ls -la /app/src/packages/shadcn-ui/components && \
-    echo "========== LIB ==========" && \
-    ls -la /app/src/packages/shadcn-ui/lib && \
-    echo "========== NODE MODULES ==========" && \
-    ls -la /app/node_modules/@workspace
-
-# Build Next.js in standalone mode
-RUN DOCKER_BUILD=1 npm run build
+RUN DOCKER_BUILD=1 pnpm build
 
 
-# ============================================
-# STAGE 3: Production Runner
-# ============================================
+# --- S3: Production Runner
 FROM node:22-alpine AS runner
-
 WORKDIR /app
 
 ENV NODE_ENV=production
@@ -88,98 +48,18 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# Non-root user
 RUN addgroup -S -g 1001 nodejs && \
     adduser -S -u 1001 -G nodejs nextjs
 
-# Public assets
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+# Копируем standalone целиком (он сохраняет структуру монорепо внутри)
+COPY --from=builder --chown=nextjs:nodejs /repo/src/projects/mzhvv/.next/standalone ./
 
-# Next.js standalone output
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+# Public и static кладём внутрь структуры, где реально лежит server.js
+COPY --from=builder --chown=nextjs:nodejs /repo/src/projects/mzhvv/public ./src/projects/mzhvv/public
+COPY --from=builder --chown=nextjs:nodejs /repo/src/projects/mzhvv/.next/static ./src/projects/mzhvv/.next/static
 
-# Static assets
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# Run as non-root
 USER nextjs
-
 EXPOSE 3000
 
-CMD ["node", "server.js"]
-
-
-# ---
-
-# # ЭТАП 1: Установка зависимостей
-# FROM node:22-alpine AS deps
-# WORKDIR /app
-
-# # Копируем манифест
-# COPY package.json ./
-# # Копируем локальные пакеты ДО установки (чтобы npm нашел их по file: путям)
-# COPY --from=packages . ./src/packages/
-
-# # Устанавливаем зависимости
-# RUN npm install --no-package-lock
-
-# # ЭТАП 2: Сборка приложения
-# FROM node:22-alpine AS builder
-# WORKDIR /app
-
-# # Переносим node_modules из этапа deps
-# COPY --from=deps /app/node_modules ./node_modules
-
-# # Копируем исходники и локальные пакеты
-# COPY . .
-# COPY --from=packages . ./src/packages/
-
-# # Собираем Next.js (генерирует .next/standalone)
-# RUN DOCKER_BUILD=1 npm run build
-
-# # ЭТАП 3: Финальный легковесный образ для запуска
-# FROM node:22-alpine AS runner
-# WORKDIR /app
-
-# # Устанавливаем production-окружение
-# ENV NODE_ENV production
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-# # Создаем непривилегированного пользователя для безопасности
-# RUN addgroup --system --gid 1001 nodejs
-# RUN adduser --system --uid 1001 nextjs
-
-# # Копируем только самое необходимое из этапа сборки
-# # 1. Публичные статические файлы (если папки нет, создай её)
-# COPY --from=builder /app/public ./public
-# # 2. Минимальный standalone-сервер (содержит server.js и нужный минимум node_modules)
-# COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-# # 3. Статические ассеты Next.js (CSS, JS, картинки)
-# COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# # Переключаемся на безопасного пользователя
-# USER nextjs
-
-# # Настраиваем порт и запускаем standalone-сервер
-# EXPOSE 3000
-# ENV PORT 3000
-# ENV HOSTNAME 0.0.0.0
-# CMD ["node", "server.js"]
-
-# --- СТАРЫЙ ВАРИАНТ (Тяжелый образ ~2.8 ГБ, запуск через npm start)
-
-# FROM node:22-alpine AS deps
-# WORKDIR /app
-# COPY package.json ./
-# COPY --from=packages . ./src/packages/
-# RUN npm install --no-package-lock
-#
-# FROM node:22-alpine AS builder
-# WORKDIR /app
-# COPY --from=deps /app/node_modules ./node_modules
-# COPY . .
-# COPY --from=packages . ./src/packages/
-# RUN npm run build
-#
-# EXPOSE 3000
-# CMD ["npm", "start"]
+# Запускаем сервер из его реального пути внутри контейнера
+CMD ["node", "src/projects/mzhvv/server.js"]

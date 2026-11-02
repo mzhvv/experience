@@ -1,13 +1,12 @@
+# src/projects/mzhvv/docker-compose.yml
+
 services:
   web:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../../..
+      dockerfile: src/projects/mzhvv/Dockerfile
       additional_contexts:
-        packages: ../../../src/packages
-        prettier-config: ../../../src/packages/prettier-config
-
+        packages: ../../../src/packages/shadcn-ui
     ports:
-      - '3000:3000'
-
+      - "3000:3000"
     restart: unless-stopped
