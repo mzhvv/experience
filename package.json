@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "workspaces": ["src/packages/**"],
+  "packageManager": "pnpm@12.16.1",
   "scripts": {
     "prepare": "husky",
     "format": "format",
@@ -11,8 +11,9 @@
     "backup:default": "sh ./src/scripts/backup/run.sh python3"
   },
   "devDependencies": {
-    "@workspace/prettier-config": "*",
+    "@workspace/prettier-config": "workspace:*",
     "husky": "^9.1.7",
-    "turbo": "^2.11.10"
+    "turbo": "^2.11.10",
+    "prettier": "^3.9.5"
   }
 }

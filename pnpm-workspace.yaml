@@ -1,0 +1,8 @@
+# pnpm-workspace.yaml
+
+packages:
+  - 'src/packages/*'
+  - 'src/projects/*'
+
+allowBuilds:
+  esbuild: true

@@ -11,6 +11,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const configPath = join(__dirname, '..', 'src', 'config.js');
 const ignorePath = join(__dirname, '..', '..', '..', '..', '.prettierignore');
 
-execSync(`npx prettier --config "${configPath}" --ignore-path "${ignorePath}" --write .`, {
+execSync(`pnpm prettier --config "${configPath}" --ignore-path "${ignorePath}" --write .`, {
   stdio: 'inherit',
 });

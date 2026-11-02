@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@workspace/shadcn-ui": "*",
+    "@workspace/shadcn-ui": "workspace:*",
     "next": "16.4.3",
     "react": "19.3.1",
     "react-dom": "19.3.1",
@@ -29,7 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@workspace/prettier-config": "*",
+    "@workspace/prettier-config": "workspace:*",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "typescript": "^5",
