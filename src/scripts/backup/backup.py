@@ -6,8 +6,8 @@
 
 import os
 import sys
-import zipfile
 import time
+import zipfile
 from pathlib import Path
 
 # endregion
@@ -18,21 +18,19 @@ DEST_DIR = Path("/Users/mzhvv/DEV/backup")
 ARCHIVE_NAME = "experience.zip"
 
 EXCLUDE_DIRS = {
-    "node_modules", 
-    "dist", 
-
-    ".next", 
+    "node_modules",
+    "dist",
+    ".next",
     ".turbo",
-
-    ".venv", 
-    "venv", 
+    ".venv",
+    "venv",
     "__pycache__",
-    
-    ".vercel"
+    ".vercel",
 }
 
 # endregion
 # region zip
+
 
 def create_zip(source: Path, dest_dir: Path, archive_name: str) -> Path:
     if not source.exists():
@@ -62,12 +60,14 @@ def create_zip(source: Path, dest_dir: Path, archive_name: str) -> Path:
     print(f"      ✅ Готово: {files_count} файлов, {size_mb:.1f} MB")
     return tmp_path, files_count
 
+
 # endregion
 # region verify
 
+
 def verify_zip(zip_path: Path, expected_files: int) -> None:
     """Проверяет, что архив валидный и не содержит исключённых папок."""
-    print(f"[3/4] Проверяю архив...")
+    print("[3/4] Проверяю архив...")
 
     if not zip_path.exists():
         raise RuntimeError(f"Архив не создан: {zip_path}")
@@ -105,8 +105,10 @@ def verify_zip(zip_path: Path, expected_files: int) -> None:
     except zipfile.BadZipFile as e:
         raise RuntimeError(f"Архив повреждён: {e}")
 
+
 # endregion
 # region backup
+
 
 def backup():
     start = time.time()
@@ -119,7 +121,7 @@ def backup():
         verify_zip(tmp_path, files_count)
 
         # 3. Заменяем
-        print(f"[4/4] Заменяю старый архив...")
+        print("[4/4] Заменяю старый архив...")
         final_path = DEST_DIR / ARCHIVE_NAME
         tmp_path.replace(final_path)
 

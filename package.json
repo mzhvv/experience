@@ -7,7 +7,7 @@
   "scripts": {
     "prepare": "husky",
     "format": "format",
-    "backup": "npm run backup:default",
+    "backup": "pnpm run backup:default",
     "backup:default": "sh ./src/scripts/backup/run.sh python3"
   },
   "devDependencies": {

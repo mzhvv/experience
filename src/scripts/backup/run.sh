@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-# scripts/backup/run.sh
-
 case "${1:-python3}" in
   python3)
     if ! command -v python3 >/dev/null 2>&1; then
