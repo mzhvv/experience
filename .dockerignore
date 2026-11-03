@@ -33,10 +33,11 @@ tmp
 # Документация и архив
 **/AGENTS.md
 **/CLAUDE.md
+**/README.md
 **/archive
 **/_private
-**/NOTE.md
-**/README.md
+.docs-experience
+
 
 # Docker-специфичное
 docker-compose*

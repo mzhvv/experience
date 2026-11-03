@@ -69,10 +69,10 @@
 # Private / local-only
 **/AGENTS.md
 **/CLAUDE.md
-**/archive/
-**/_private/
 **/README.md
-.docs-experience/
+**/archive
+**/_private
+.docs-experience
 
 # Husky
 .husky/_
