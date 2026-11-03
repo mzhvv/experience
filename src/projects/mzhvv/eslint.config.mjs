@@ -1,3 +1,8 @@
+// import { nextJsConfig } from '@workspace/eslint-config/next-js';
+
+// /** @type {import("eslint").Linter.Config[]} */
+// export default nextJsConfig;
+
 import { defineConfig, globalIgnores } from 'eslint/config';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';

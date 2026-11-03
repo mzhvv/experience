@@ -14,10 +14,7 @@ COPY src/packages/prettier-config/package.json ./src/packages/prettier-config/
 COPY src/packages/eslint-config/package.json ./src/packages/eslint-config/
 COPY src/packages/typescript-config/package.json ./src/packages/typescript-config/
 
-COPY --from=packages . ./src/packages/shadcn-ui/
-
 RUN pnpm install --frozen-lockfile
-
 
 # --- S2: Build
 FROM node:22-alpine AS builder
@@ -30,7 +27,7 @@ RUN corepack enable && corepack prepare pnpm@12.16.1 --activate
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
 COPY --from=deps /repo/node_modules ./node_modules
-COPY --from=deps /repo/src/packages ./src/packages
+COPY src/packages/ ./src/packages/
 
 COPY src/projects/mzhvv ./src/projects/mzhvv
 

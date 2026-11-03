@@ -6,7 +6,7 @@ services:
       context: ../../..
       dockerfile: src/projects/mzhvv/Dockerfile.dev
     ports:
-      - '3000:3000'
+      - "3000:3000"
     develop:
       watch:
         - action: sync
@@ -16,16 +16,17 @@ services:
             - .next/
             - node_modules/
             - package.json
-        - action: sync
-          path: ../../packages/shadcn-ui
-          target: /repo/src/packages/shadcn-ui
-          ignore:
-            - node_modules/
-            - package.json
         - action: rebuild
           path: package.json
         - action: rebuild
-          path: ../../packages/shadcn-ui/package.json
+          path: ../../packages
+          include:
+            - '**/package.json'
+        - action: sync
+          path: ../../packages
+          target: /repo/src/packages
+          ignore:
+            - '**/node_modules/'
         - action: rebuild
           path: ../../../package.json
         - action: rebuild
