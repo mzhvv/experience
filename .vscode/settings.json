@@ -26,6 +26,5 @@
   "ruff.importStrategy": "fromEnvironment",
 
   // Санкции 😂
-  "json.schemaDownload.enable": false,
-  "python-envs.defaultEnvManager": "ms-python.python:system"
+  "json.schemaDownload.enable": false
 }
