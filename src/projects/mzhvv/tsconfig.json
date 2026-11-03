@@ -1,6 +1,7 @@
 {
   "extends": "@workspace/typescript-config/nextjs.json",
   "compilerOptions": {
+    /* @workspace/typescript-config/base.json */
     // "declaration": true,
     // "declarationMap": true,
     // "esModuleInterop": true,
@@ -16,7 +17,7 @@
     // "strict": true,
     // "target": "ES2022",
 
-    /* nextjs.json - наследует(расширяется от) base.json */
+    /* @workspace/typescript-config/nextjs.json - наследует(расширяется от) base.json */
     // "allowJs": true,
     // "jsx": "preserve",
     // "module": "ESNext",
