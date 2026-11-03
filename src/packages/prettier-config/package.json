@@ -7,9 +7,17 @@
     ".": {
       "types": "./src/index.d.ts",
       "default": "./src/index.js"
+    },
+    "./config": {
+      "types": "./src/config.d.ts",
+      "default": "./src/config.js"
+    },
+    "./plugin-tailwindcss": {
+      "types": "./src/plugin-tailwindcss.d.ts",
+      "default": "./src/plugin-tailwindcss.js"
     }
   },
-  "files": ["src/index.js", "src/index.d.ts", "src/config.js", "bin/format.js"],
+  "files": ["src", "bin/format.js"],
   "bin": {
     "format": "./bin/format.js"
   },

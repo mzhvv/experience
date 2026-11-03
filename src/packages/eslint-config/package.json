@@ -4,10 +4,24 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./base": "./base.js",
-    "./next-js": "./next.js",
-    "./react-internal": "./react-internal.js"
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./base": {
+      "types": "./src/base.d.ts",
+      "default": "./src/base.js"
+    },
+    "./next-js": {
+      "types": "./src/next.d.ts",
+      "default": "./src/next.js"
+    },
+    "./react-internal": {
+      "types": "./src/react-internal.d.ts",
+      "default": "./src/react-internal.js"
+    }
   },
+  "files": ["src"],
   "devDependencies": {
     "@babel/core": "^8.0.7",
     "@babel/eslint-parser": "^8.0.7",
