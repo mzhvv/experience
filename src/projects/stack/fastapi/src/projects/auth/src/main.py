@@ -1,3 +1,5 @@
+# src/projects/stack/fastapi/src/projects/auth/src/main.py
+
 from fastapi import FastAPI
 
 app = FastAPI()
