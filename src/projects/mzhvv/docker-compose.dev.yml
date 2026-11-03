@@ -1,14 +1,20 @@
 # src/projects/mzhvv/docker-compose.dev.yml
 
+# Изолирует dev-контейнер и image от production-окружения.
+name: mzhvv-dev
+
 services:
   web:
     build:
+      # Контекст — корень монорепозитория с workspace-пакетами и lock-файлом.
       context: ../../..
       dockerfile: src/projects/mzhvv/Dockerfile.dev
     ports:
-      - '3000:3000'
+      # Dev-сервер с hot reload доступен на localhost:3000.
+      - "3000:3000"
     develop:
       watch:
+        # Синхронизируем код приложения; node_modules и .next остаются в контейнере.
         - action: sync
           path: .
           target: /repo/src/projects/mzhvv
@@ -16,17 +22,27 @@ services:
             - .next/
             - node_modules/
             - package.json
-        - action: rebuild
-          path: package.json
-        - action: rebuild
-          path: ../../packages
-          include:
-            - '**/package.json'
+
+        # Синхронизируем исходники workspace-пакетов, кроме зависимостей и манифестов.
         - action: sync
           path: ../../packages
           target: /repo/src/packages
           ignore:
-            - '**/node_modules/'
+            - "**/node_modules/"
+            - "**/.next/"
+            - "**/package.json"
+
+        # Пересобираем image при изменении зависимостей приложения.
+        - action: rebuild
+          path: package.json
+
+        # Пересобираем image при изменении манифеста любого workspace-пакета.
+        - action: rebuild
+          path: ../../packages
+          include:
+            - "**/package.json"
+
+        # Пересобираем image и устанавливаем зависимости при изменении workspace-конфигурации.
         - action: rebuild
           path: ../../../package.json
         - action: rebuild

@@ -1,10 +1,16 @@
 # src/projects/mzhvv/docker-compose.yml
 
+# Изолирует production-контейнер и image от dev-окружения.
+name: mzhvv-prod
+
 services:
   web:
     build:
+      # Корень монорепозитория нужен Dockerfile для доступа к workspace-пакетам.
       context: ../../..
       dockerfile: src/projects/mzhvv/Dockerfile
     ports:
-      - '3001:3001'
+      # Production доступен на localhost:3001.
+      - "3001:3001"
+    # Поднимает production-контейнер после перезапуска Docker.
     restart: unless-stopped
