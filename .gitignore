@@ -76,3 +76,7 @@
 
 # Husky
 .husky/_
+
+#
+**/.gitignore
+!/.gitignore

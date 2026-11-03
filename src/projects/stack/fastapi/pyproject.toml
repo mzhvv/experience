@@ -1,0 +1,12 @@
+# src/projects/stack/fastapi/pyproject.toml
+
+[project]
+name = "stack-fastapi"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.uv.workspace]
+members = ["src/projects/*"]
+
+[tool.uv]
+package = false
