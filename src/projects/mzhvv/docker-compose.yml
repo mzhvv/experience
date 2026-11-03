@@ -11,6 +11,6 @@ services:
       dockerfile: src/projects/mzhvv/Dockerfile
     ports:
       # Production доступен на localhost:3001.
-      - "3001:3001"
+      - '3001:3001'
     # Поднимает production-контейнер после перезапуска Docker.
     restart: unless-stopped

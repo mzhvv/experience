@@ -11,7 +11,7 @@ services:
       dockerfile: src/projects/mzhvv/Dockerfile.dev
     ports:
       # Dev-сервер с hot reload доступен на localhost:3000.
-      - "3000:3000"
+      - '3000:3000'
     develop:
       watch:
         # Синхронизируем код приложения; node_modules и .next остаются в контейнере.
@@ -28,9 +28,9 @@ services:
           path: ../../packages
           target: /repo/src/packages
           ignore:
-            - "**/node_modules/"
-            - "**/.next/"
-            - "**/package.json"
+            - '**/node_modules/'
+            - '**/.next/'
+            - '**/package.json'
 
         # Пересобираем image при изменении зависимостей приложения.
         - action: rebuild
@@ -40,7 +40,7 @@ services:
         - action: rebuild
           path: ../../packages
           include:
-            - "**/package.json"
+            - '**/package.json'
 
         # Пересобираем image и устанавливаем зависимости при изменении workspace-конфигурации.
         - action: rebuild
