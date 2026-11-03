@@ -71,8 +71,8 @@
 **/CLAUDE.md
 **/archive/
 **/_private/
-**/NOTE.md
 **/README.md
+.docs-experience/
 
 # Husky
 .husky/_
