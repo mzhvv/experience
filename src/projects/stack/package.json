@@ -1,0 +1,25 @@
+{
+  "name": "stack",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["host", "apps/react", "apps/vue"],
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail --names host,react,vue \"npm:dev:host\" \"npm:dev:react\" \"npm:dev:vue\"",
+    "dev:host": "npm run dev --workspace=@macrofrontend/host",
+    "dev:react": "npm run dev --workspace=@macrofrontend/react-app",
+    "dev:vue": "npm run dev --workspace=@macrofrontend/vue-app",
+    "build": "npm run build --workspace=@macrofrontend/host",
+    "start": "npm run start --workspace=@macrofrontend/host",
+    "typecheck": "npm run typecheck:host && npm run typecheck:react && npm run typecheck:vue",
+    "typecheck:host": "npm run typecheck --workspace=@macrofrontend/host",
+    "typecheck:react": "npm run typecheck --workspace=@macrofrontend/react-app",
+    "typecheck:vue": "npm run typecheck --workspace=@macrofrontend/vue-app",
+    "build:host": "npm run build --workspace=@macrofrontend/host",
+    "build:react": "npm run build --workspace=@macrofrontend/react-app",
+    "build:vue": "npm run build --workspace=@macrofrontend/vue-app",
+    "build:all": "npm run build:host && npm run build:react && npm run build:vue"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

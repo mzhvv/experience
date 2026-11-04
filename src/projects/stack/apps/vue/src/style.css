@@ -1,0 +1,148 @@
+:root {
+  color-scheme: dark;
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  color: #f0f2f6;
+  background: #0c0e12;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 85% 0, #1c3025 0, transparent 38%),
+    #0c0e12;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  width: min(100%, 950px);
+  margin: 0 auto;
+  padding: clamp(24px, 6vw, 58px);
+}
+
+.app-header,
+.workspace-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.eyebrow,
+.section-label {
+  color: #8f98a6;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.15px;
+}
+
+h1,
+h2 {
+  font-family: "Segoe UI", sans-serif;
+}
+
+h1 {
+  margin: 12px 0 7px;
+  font-size: clamp(26px, 4vw, 35px);
+  letter-spacing: -1px;
+}
+
+.app-header p,
+.description {
+  color: #8c93a2;
+  line-height: 1.7;
+}
+
+.app-header p {
+  margin: 0;
+}
+
+.badge {
+  flex: none;
+  padding: 8px 11px;
+  border: 1px solid #3a5744;
+  border-radius: 7px;
+  background: #1d3125;
+  color: #a2e3b2;
+  font-size: 11px;
+}
+
+.workspace {
+  margin-top: 36px;
+  padding: clamp(18px, 4vw, 28px);
+  border: 1px solid #242933;
+  border-radius: 11px;
+  background: #12151b;
+}
+
+.workspace-heading {
+  align-items: center;
+}
+
+.workspace-heading h2 {
+  margin: 8px 0 0;
+  font-size: 19px;
+}
+
+.task-count {
+  color: #959daa;
+  font-size: 11px;
+}
+
+.description {
+  max-width: 650px;
+  margin: 22px 0;
+  font-size: 13px;
+}
+
+.counter {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 18px;
+  padding: 9px;
+  border: 1px solid #2a3038;
+  border-radius: 9px;
+  background: #0e1115;
+}
+
+.counter-button {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid #3a5542;
+  border-radius: 7px;
+  background: #1d3024;
+  color: #a4e5b3;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.counter-button:hover {
+  background: #294733;
+}
+
+.counter-value {
+  min-width: 36px;
+  color: #e4f2e7;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .app-header {
+    flex-direction: column;
+  }
+}
