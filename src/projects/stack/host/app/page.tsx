@@ -16,6 +16,14 @@ const applications = [
     description: 'Самостоятельный Vue-проект со своим Vite dev-сервером, сборкой и зависимостями.',
     className: 'vue',
   },
+  {
+    href: '/angular',
+    name: 'Angular',
+    mark: 'A',
+    description:
+      'Самостоятельный Angular-проект со своим dev-сервером, сборкой и зависимостями.',
+    className: 'angular',
+  },
 ];
 
 export default function HomePage() {
@@ -26,8 +34,8 @@ export default function HomePage() {
           <div className="eyebrow">HOST / DASHBOARD</div>
           <h1>Ваши приложения</h1>
           <p className="page-description">
-            Next.js отвечает за оболочку и навигацию. React и Vue — отдельные приложения в этом
-            monorepo.
+            Next.js отвечает за оболочку и навигацию. React, Vue и Angular — отдельные приложения в
+            этом monorepo.
           </p>
         </div>
         <span className="host-badge">

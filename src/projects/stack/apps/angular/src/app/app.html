@@ -1,0 +1,46 @@
+<main class="app">
+  <header class="app-header">
+    <div>
+      <div class="eyebrow">INDEPENDENT APPLICATION / ANGULAR</div>
+      <h1>Angular workspace</h1>
+      <p>Самостоятельное Angular-приложение в monorepo.</p>
+    </div>
+    <span class="badge">Angular 22 · CLI</span>
+  </header>
+
+  <section class="workspace" aria-labelledby="counter-heading">
+    <div class="workspace-heading">
+      <div>
+        <span class="section-label">ANGULAR APPLICATION</span>
+        <h2 id="counter-heading">Счётчик Angular</h2>
+      </div>
+      <span class="task-count">Реактивное состояние</span>
+    </div>
+
+    <p class="description">
+      Приложение запускается и собирается независимо от host, а в его оболочке отображается через
+      iframe.
+    </p>
+
+    <div class="counter">
+      <button
+        aria-label="Уменьшить значение"
+        class="counter-button"
+        [disabled]="count() === 0"
+        type="button"
+        (click)="decrement()"
+      >
+        −
+      </button>
+      <output aria-live="polite" class="counter-value">{{ count() }}</output>
+      <button
+        aria-label="Увеличить значение"
+        class="counter-button"
+        type="button"
+        (click)="increment()"
+      >
+        +
+      </button>
+    </div>
+  </section>
+</main>

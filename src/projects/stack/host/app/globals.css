@@ -129,6 +129,9 @@ a {
 .nav-icon.vue {
   color: #9ce4ae;
 }
+.nav-icon.angular {
+  color: #f0ad92;
+}
 .nav-indicator {
   position: absolute;
   right: 10px;
@@ -213,7 +216,7 @@ a {
 }
 .app-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 16px;
 }
 .app-card {
@@ -253,6 +256,11 @@ a {
   border-color: #3a5744;
   background: #1d3125;
   color: #8ee3a5;
+}
+.app-mark.angular {
+  border-color: #553b34;
+  background: #30221f;
+  color: #f0ad92;
 }
 .app-card-copy h2 {
   margin: 6px 0;
@@ -328,6 +336,11 @@ a {
   border-color: #3a5744;
   background: #1d3125;
   color: #a2e3b2;
+}
+.tech-badge.angular-badge {
+  border-color: #553b34;
+  background: #30221f;
+  color: #f0ad92;
 }
 .workspace {
   padding: 27px;
@@ -550,7 +563,7 @@ a {
     display: none;
   }
   .sidebar nav {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 4px;
     margin-top: 16px;
   }

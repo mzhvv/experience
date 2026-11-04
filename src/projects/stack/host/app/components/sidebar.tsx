@@ -7,6 +7,7 @@ const applications = [
   { href: '/', label: 'Обзор', icon: '⌂' },
   { href: '/react', label: 'React', icon: 'R' },
   { href: '/vue', label: 'Vue', icon: 'V' },
+  { href: '/angular', label: 'Angular', icon: 'A' },
 ];
 
 export function Sidebar() {
