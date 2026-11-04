@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const applications = [
-  { href: "/", label: "Обзор", icon: "⌂" },
-  { href: "/react", label: "React", icon: "R" },
-  { href: "/vue", label: "Vue", icon: "V" },
+  { href: '/', label: 'Обзор', icon: '⌂' },
+  { href: '/react', label: 'React', icon: 'R' },
+  { href: '/vue', label: 'Vue', icon: 'V' },
 ];
 
 export function Sidebar() {
@@ -29,8 +29,8 @@ export function Sidebar() {
 
           return (
             <Link
-              aria-current={isActive ? "page" : undefined}
-              className={`nav-link${isActive ? " active" : ""}`}
+              aria-current={isActive ? 'page' : undefined}
+              className={`nav-link${isActive ? ' active' : ''}`}
               href={application.href}
               key={application.href}
             >

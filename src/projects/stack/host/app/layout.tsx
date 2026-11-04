@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Sidebar } from "@/app/components/sidebar";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Sidebar } from '@/app/components/sidebar';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Macrofrontend Host",
-  description: "Next.js shell hosting React and Vue applications",
+  title: 'Macrofrontend Host',
+  description: 'Next.js shell hosting React and Vue applications',
 };
 
 export default function RootLayout({

@@ -44,11 +44,11 @@ Import this repository into Vercel three times, creating one Vercel project per
 application. For each project, set the **Root Directory** to the path below
 (relative to the repository root):
 
-| Vercel project | Root Directory | Framework |
-| --- | --- | --- |
-| Host | `src/projects/macrofrontend/host` | Next.js |
-| React | `src/projects/macrofrontend/apps/react` | Vite |
-| Vue | `src/projects/macrofrontend/apps/vue` | Vite |
+| Vercel project | Root Directory                          | Framework |
+| -------------- | --------------------------------------- | --------- |
+| Host           | `src/projects/macrofrontend/host`       | Next.js   |
+| React          | `src/projects/macrofrontend/apps/react` | Vite      |
+| Vue            | `src/projects/macrofrontend/apps/vue`   | Vite      |
 
 Each project has its own `vercel.json` and npm lockfile, so Vercel can install
 and build it independently of the repository's pnpm workspace. You can also

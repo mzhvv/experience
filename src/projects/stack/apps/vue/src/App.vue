@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const count = ref(0);
 </script>
@@ -25,8 +25,8 @@ const count = ref(0);
       </div>
 
       <p class="description">
-        Это отдельный Vue 3 проект со своими зависимостями и сервером. Next.js
-        отображает его в своей оболочке, не собирая Vue в свой bundle.
+        Это отдельный Vue 3 проект со своими зависимостями и сервером. Next.js отображает его в
+        своей оболочке, не собирая Vue в свой bundle.
       </p>
 
       <div class="counter">

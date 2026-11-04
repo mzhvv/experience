@@ -1,6 +1,6 @@
 :root {
   color-scheme: dark;
-  font-family: "DM Sans", "Segoe UI", sans-serif;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
   color: #f0f2f6;
   background: #0c0e12;
   font-synthesis: none;
@@ -15,9 +15,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background:
-    radial-gradient(ellipse at 85% 0, #1c3025 0, transparent 38%),
-    #0c0e12;
+  background: radial-gradient(ellipse at 85% 0, #1c3025 0, transparent 38%), #0c0e12;
 }
 
 button {
@@ -48,7 +46,7 @@ button {
 
 h1,
 h2 {
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 h1 {

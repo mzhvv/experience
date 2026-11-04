@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent } from 'react';
 
 type Task = {
   id: number;
@@ -7,14 +7,14 @@ type Task = {
 };
 
 const initialTasks: Task[] = [
-  { id: 1, title: "Подключить приложение к host", done: true },
-  { id: 2, title: "Настроить навигацию", done: true },
-  { id: 3, title: "Добавить свою бизнес-логику", done: false },
+  { id: 1, title: 'Подключить приложение к host', done: true },
+  { id: 2, title: 'Настроить навигацию', done: true },
+  { id: 3, title: 'Добавить свою бизнес-логику', done: false },
 ];
 
 export default function App() {
   const [tasks, setTasks] = useState(initialTasks);
-  const [newTask, setNewTask] = useState("");
+  const [newTask, setNewTask] = useState('');
   const completedTasks = tasks.filter((task) => task.done).length;
 
   function addTask(event: FormEvent<HTMLFormElement>) {
@@ -23,18 +23,13 @@ export default function App() {
 
     if (!title) return;
 
-    setTasks((currentTasks) => [
-      ...currentTasks,
-      { id: Date.now(), title, done: false },
-    ]);
-    setNewTask("");
+    setTasks((currentTasks) => [...currentTasks, { id: Date.now(), title, done: false }]);
+    setNewTask('');
   }
 
   function toggleTask(taskId: number) {
     setTasks((currentTasks) =>
-      currentTasks.map((task) =>
-        task.id === taskId ? { ...task, done: !task.done } : task,
-      ),
+      currentTasks.map((task) => (task.id === taskId ? { ...task, done: !task.done } : task))
     );
   }
 
@@ -73,18 +68,12 @@ export default function App() {
           {tasks.map((task) => (
             <li className="task-row" key={task.id}>
               <label className="task-label">
-                <input
-                  checked={task.done}
-                  onChange={() => toggleTask(task.id)}
-                  type="checkbox"
-                />
+                <input checked={task.done} onChange={() => toggleTask(task.id)} type="checkbox" />
                 <span className="custom-checkbox" />
-                <span className={task.done ? "task-done" : ""}>
-                  {task.title}
-                </span>
+                <span className={task.done ? 'task-done' : ''}>{task.title}</span>
               </label>
-              <span className={`task-status ${task.done ? "done" : ""}`}>
-                {task.done ? "Готово" : "В работе"}
+              <span className={`task-status ${task.done ? 'done' : ''}`}>
+                {task.done ? 'Готово' : 'В работе'}
               </span>
             </li>
           ))}
@@ -97,7 +86,9 @@ export default function App() {
             placeholder="Добавить задачу..."
             value={newTask}
           />
-          <button type="submit">Добавить <span aria-hidden="true">+</span></button>
+          <button type="submit">
+            Добавить <span aria-hidden="true">+</span>
+          </button>
         </form>
       </section>
     </main>

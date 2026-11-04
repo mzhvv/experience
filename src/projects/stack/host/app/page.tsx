@@ -1,21 +1,20 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const applications = [
   {
-    href: "/react",
-    name: "React",
-    mark: "R",
+    href: '/react',
+    name: 'React',
+    mark: 'R',
     description:
-      "Самостоятельный React-проект со своим Vite dev-сервером, сборкой и зависимостями.",
-    className: "react",
+      'Самостоятельный React-проект со своим Vite dev-сервером, сборкой и зависимостями.',
+    className: 'react',
   },
   {
-    href: "/vue",
-    name: "Vue",
-    mark: "V",
-    description:
-      "Самостоятельный Vue-проект со своим Vite dev-сервером, сборкой и зависимостями.",
-    className: "vue",
+    href: '/vue',
+    name: 'Vue',
+    mark: 'V',
+    description: 'Самостоятельный Vue-проект со своим Vite dev-сервером, сборкой и зависимостями.',
+    className: 'vue',
   },
 ];
 
@@ -27,8 +26,8 @@ export default function HomePage() {
           <div className="eyebrow">HOST / DASHBOARD</div>
           <h1>Ваши приложения</h1>
           <p className="page-description">
-            Next.js отвечает за оболочку и навигацию. React и Vue — отдельные
-            приложения в этом monorepo.
+            Next.js отвечает за оболочку и навигацию. React и Vue — отдельные приложения в этом
+            monorepo.
           </p>
         </div>
         <span className="host-badge">
@@ -44,9 +43,7 @@ export default function HomePage() {
             href={application.href}
             key={application.name}
           >
-            <div className={`app-mark ${application.className}`}>
-              {application.mark}
-            </div>
+            <div className={`app-mark ${application.className}`}>{application.mark}</div>
             <div className="app-card-copy">
               <span className="app-type">MICRO APPLICATION</span>
               <h2>{application.name}</h2>
@@ -64,8 +61,8 @@ export default function HomePage() {
         <div>
           <h2>Одна оболочка — разные технологии</h2>
           <p>
-            Host встраивает самостоятельные приложения в изолированные iframe.
-            У каждого свой сервер разработки, зависимости, сборка и выпуск.
+            Host встраивает самостоятельные приложения в изолированные iframe. У каждого свой сервер
+            разработки, зависимости, сборка и выпуск.
           </p>
         </div>
       </section>
