@@ -20,8 +20,7 @@ const applications = [
     href: '/angular',
     name: 'Angular',
     mark: 'A',
-    description:
-      'Самостоятельный Angular-проект со своим dev-сервером, сборкой и зависимостями.',
+    description: 'Самостоятельный Angular-проект со своим dev-сервером, сборкой и зависимостями.',
     className: 'angular',
   },
 ];
