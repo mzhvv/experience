@@ -2,7 +2,7 @@
   "name": "stack",
   "version": "0.1.0",
   "private": true,
-  "workspaces": ["host", "apps/react", "apps/vue"],
+  "workspaces": ["host", "apps/react/apps/*", "apps/vue"],
   "scripts": {
     "dev": "concurrently --kill-others-on-fail --names host,react,vue \"npm:dev:host\" \"npm:dev:react\" \"npm:dev:vue\"",
     "dev:host": "npm run dev --workspace=@macrofrontend/host",
