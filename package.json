@@ -8,7 +8,11 @@
     "prepare": "husky",
     "format": "format",
     "backup": "pnpm run backup:default",
-    "backup:default": "sh ./src/scripts/backup/run.sh python3"
+    "backup:default": "sh ./src/scripts/backup/run.sh python3",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@workspace/prettier-config": "workspace:*",

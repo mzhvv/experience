@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const applications = [
   {
-    href: '/react',
+    href: '/stack/react',
     name: 'React',
     mark: 'R',
     description:
@@ -10,14 +10,14 @@ const applications = [
     className: 'react',
   },
   {
-    href: '/vue',
+    href: '/stack/vue',
     name: 'Vue',
     mark: 'V',
     description: 'Самостоятельный Vue-проект со своим Vite dev-сервером, сборкой и зависимостями.',
     className: 'vue',
   },
   {
-    href: '/angular',
+    href: '/stack/angular',
     name: 'Angular',
     mark: 'A',
     description: 'Самостоятельный Angular-проект со своим dev-сервером, сборкой и зависимостями.',

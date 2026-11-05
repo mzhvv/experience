@@ -2,10 +2,17 @@
 
 packages:
   - 'src/packages/*'
-  - 'src/projects/*'
+  - 'src/projects/mzhvv'
+  - 'src/projects/stack/host'
+  - 'src/projects/stack/apps/react/apps/*'
+  - 'src/projects/stack/apps/vue'
+  - 'src/projects/stack/apps/angular'
 
 allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
   msw: false
+  '@parcel/watcher': true
+  lmdb: true
+  msgpackr-extract: true
