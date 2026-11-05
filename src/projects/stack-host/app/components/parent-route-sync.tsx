@@ -35,7 +35,12 @@ export function ParentRouteSync() {
 
     const message: StackHostMessage = {
       type: 'stack-host:navigate',
-      pathname,
+      pathname:
+        pathname === '/stack-host'
+          ? '/'
+          : pathname.startsWith('/stack-host/')
+            ? pathname.slice('/stack-host'.length)
+            : pathname,
     };
     window.parent.postMessage(message, '*');
   }, [pathname]);

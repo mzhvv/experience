@@ -1,6 +1,121 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm run build:vercel"
+  "services": {
+    "mzhvv": {
+      "root": ".",
+      "framework": "nextjs",
+      "installCommand": "pnpm install --frozen-lockfile",
+      "buildCommand": "pnpm run build:vercel"
+    },
+    "stack-host": {
+      "root": "../stack-host",
+      "framework": "nextjs",
+      "installCommand": "pnpm install --frozen-lockfile",
+      "buildCommand": "NEXT_PUBLIC_REACT_APP_URL=/stack-apps/react NEXT_PUBLIC_REACT_STUB2_APP_URL=/stack-apps/react-stub2 NEXT_PUBLIC_VUE_APP_URL=/stack-apps/vue NEXT_PUBLIC_ANGULAR_APP_URL=/stack-apps/angular pnpm exec next build"
+    },
+    "stack-react": {
+      "root": "../stack/react/stub",
+      "framework": "vite",
+      "installCommand": "pnpm install --frozen-lockfile",
+      "buildCommand": "pnpm run build",
+      "outputDirectory": "dist"
+    },
+    "stack-react-stub2": {
+      "root": "../stack/react/stub2",
+      "framework": "vite",
+      "installCommand": "pnpm install --frozen-lockfile",
+      "buildCommand": "pnpm run build",
+      "outputDirectory": "dist"
+    },
+    "stack-vue": {
+      "root": "../stack/vue/stub",
+      "framework": "vite",
+      "installCommand": "pnpm install --frozen-lockfile",
+      "buildCommand": "pnpm run build",
+      "outputDirectory": "dist"
+    },
+    "stack-angular": {
+      "root": "../stack/angular/stub",
+      "framework": "angular",
+      "installCommand": "pnpm install --frozen-lockfile",
+      "buildCommand": "pnpm exec ng build --base-href /stack-apps/angular/",
+      "outputDirectory": "dist/angular/browser"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/stack-host",
+      "destination": {
+        "service": "stack-host"
+      }
+    },
+    {
+      "source": "/stack-host/:path*",
+      "destination": {
+        "service": "stack-host"
+      }
+    },
+    {
+      "source": "/stack-apps/react",
+      "destination": {
+        "service": "stack-react",
+        "path": "/"
+      }
+    },
+    {
+      "source": "/stack-apps/react/:path*",
+      "destination": {
+        "service": "stack-react",
+        "path": "/:path*"
+      }
+    },
+    {
+      "source": "/stack-apps/react-stub2",
+      "destination": {
+        "service": "stack-react-stub2",
+        "path": "/"
+      }
+    },
+    {
+      "source": "/stack-apps/react-stub2/:path*",
+      "destination": {
+        "service": "stack-react-stub2",
+        "path": "/:path*"
+      }
+    },
+    {
+      "source": "/stack-apps/vue",
+      "destination": {
+        "service": "stack-vue",
+        "path": "/"
+      }
+    },
+    {
+      "source": "/stack-apps/vue/:path*",
+      "destination": {
+        "service": "stack-vue",
+        "path": "/:path*"
+      }
+    },
+    {
+      "source": "/stack-apps/angular",
+      "destination": {
+        "service": "stack-angular",
+        "path": "/"
+      }
+    },
+    {
+      "source": "/stack-apps/angular/:path*",
+      "destination": {
+        "service": "stack-angular",
+        "path": "/:path*"
+      }
+    },
+    {
+      "source": "/:path*",
+      "destination": {
+        "service": "mzhvv"
+      }
+    }
+  ]
 }
