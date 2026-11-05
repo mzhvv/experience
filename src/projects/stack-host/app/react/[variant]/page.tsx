@@ -1,24 +1,16 @@
 import { notFound } from 'next/navigation';
-import { MicrofrontendFrame, resolveMicrofrontendUrl } from '@/app/components/microfrontend-frame';
+import { MicrofrontendFrame } from '@/app/components/microfrontend-frame';
 
 const reactProjects = {
   stub: {
     title: 'React stub',
     description: 'Самостоятельный React-проект, встроенный в host.',
-    src: resolveMicrofrontendUrl(
-      process.env.NEXT_PUBLIC_REACT_APP_URL,
-      'NEXT_PUBLIC_REACT_APP_URL',
-      'http://localhost:5173'
-    ),
+    src: process.env.NEXT_PUBLIC_REACT_APP_URL ?? 'http://localhost:5173',
   },
   stub2: {
     title: 'React stub2',
     description: 'Второй самостоятельный React-проект, встроенный в host.',
-    src: resolveMicrofrontendUrl(
-      process.env.NEXT_PUBLIC_REACT_STUB2_APP_URL,
-      'NEXT_PUBLIC_REACT_STUB2_APP_URL',
-      'http://localhost:5176'
-    ),
+    src: process.env.NEXT_PUBLIC_REACT_STUB2_APP_URL ?? 'http://localhost:5176',
   },
 };
 

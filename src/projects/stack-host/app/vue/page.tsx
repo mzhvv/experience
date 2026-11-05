@@ -1,4 +1,4 @@
-import { MicrofrontendFrame, resolveMicrofrontendUrl } from '@/app/components/microfrontend-frame';
+import { MicrofrontendFrame } from '@/app/components/microfrontend-frame';
 
 export default function VuePage() {
   return (
@@ -13,11 +13,7 @@ export default function VuePage() {
       </header>
 
       <MicrofrontendFrame
-        src={resolveMicrofrontendUrl(
-          process.env.NEXT_PUBLIC_VUE_APP_URL,
-          'NEXT_PUBLIC_VUE_APP_URL',
-          'http://localhost:5174'
-        )}
+        src={process.env.NEXT_PUBLIC_VUE_APP_URL ?? 'http://localhost:5174'}
         title="Самостоятельное Vue-приложение"
       />
     </div>
