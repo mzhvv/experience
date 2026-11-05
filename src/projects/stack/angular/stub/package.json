@@ -1,6 +1,6 @@
 {
-  "name": "@macrofrontend/angular-app",
-  "version": "0.0.0",
+  "name": "stack-angular-stub",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration production",

@@ -3,7 +3,7 @@
 packages:
   - 'src/packages/*'
   - 'src/projects/mzhvv'
-  - 'src/projects/stack/*'
+  - 'src/projects/stack/*/stub'
   - 'src/projects/stack-host'
 
 allowBuilds:

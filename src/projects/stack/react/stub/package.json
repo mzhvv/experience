@@ -1,5 +1,5 @@
 {
-  "name": "@macrofrontend/react-app",
+  "name": "stack-react-stub",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
-    "start": "vite preview",
+    "start": "vite preview ",
     "preview": "vite preview"
   },
   "dependencies": {

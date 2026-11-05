@@ -1,7 +1,8 @@
 {
-  "name": "@macrofrontend/stack-host",
+  "name": "stack-host",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "concurrently --kill-others-on-fail --names host,react,vue,angular \"pnpm run dev:server\" \"pnpm run dev:react\" \"pnpm run dev:vue\" \"pnpm run dev:angular\"",
     "build": "pnpm run build:server && pnpm run build:react && pnpm run build:vue && pnpm run build:angular",
@@ -10,15 +11,15 @@
     "build:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next build",
     "start:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next start --hostname 0.0.0.0 --port 3001",
 
-    "dev:react": "pnpm --filter @macrofrontend/react-app run dev --host 0.0.0.0 --port 5173 --strictPort",
-    "build:react": "pnpm --filter @macrofrontend/react-app run build",
-    "start:react": "pnpm --filter @macrofrontend/react-app run start --host 0.0.0.0 --port 5173 --strictPort",
-    "dev:vue": "pnpm --filter @macrofrontend/vue-app run dev --host 0.0.0.0 --port 5174 --strictPort",
-    "build:vue": "pnpm --filter @macrofrontend/vue-app run build",
-    "start:vue": "pnpm --filter @macrofrontend/vue-app run start --host 0.0.0.0 --port 5174 --strictPort",
-    "dev:angular": "pnpm --filter @macrofrontend/angular-app run dev --host 0.0.0.0 --port 5175",
-    "build:angular": "pnpm --filter @macrofrontend/angular-app run build",
-    "start:angular": "pnpm --filter @macrofrontend/angular-app run start --host 0.0.0.0 --port 5175",
+    "dev:react": "pnpm --filter stack-react-stub run dev --host 0.0.0.0 --port 5173 --strictPort",
+    "build:react": "pnpm --filter stack-react-stub run build",
+    "start:react": "pnpm --filter stack-react-stub run start --host 0.0.0.0 --port 5173 --strictPort",
+    "dev:vue": "pnpm --filter stack-vue-stub run dev --host 0.0.0.0 --port 5174 --strictPort",
+    "build:vue": "pnpm --filter stack-vue-stub run build",
+    "start:vue": "pnpm --filter stack-vue-stub run start --host 0.0.0.0 --port 5174 --strictPort",
+    "dev:angular": "pnpm --filter stack-angular-stub run dev --host 0.0.0.0 --port 5175",
+    "build:angular": "pnpm --filter stack-angular-stub run build",
+    "start:angular": "pnpm --filter stack-angular-stub run start --host 0.0.0.0 --port 5175",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

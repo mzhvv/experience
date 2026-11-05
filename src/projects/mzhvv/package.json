@@ -4,10 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run dev:server\" \"pnpm --filter @macrofrontend/stack-host run dev\"",
+    "dev": "concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run dev:server\" \"pnpm --filter stack-host run dev\"",
     "dev:server": "next dev --hostname 0.0.0.0 --port 3000",
-    "build": "pnpm --filter @macrofrontend/stack-host run build && next build",
-    "start": "pnpm run build && concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run start:server\" \"pnpm --filter @macrofrontend/stack-host run start\"",
+    "build": "pnpm --filter stack-host run build && next build",
+    "start": "pnpm run build && concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run start:server\" \"pnpm --filter stack-host run start\"",
     "start:server": "next start --hostname 0.0.0.0 --port 3000",
     "lint": "eslint",
     "format": "format",
