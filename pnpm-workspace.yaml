@@ -1,5 +1,3 @@
-# pnpm-workspace.yaml
-
 packages:
   - 'src/packages/*'
   - 'src/projects/mzhvv'
@@ -7,10 +5,17 @@ packages:
   - 'src/projects/stack-host'
 
 allowBuilds:
-  esbuild: true
-  sharp: true
-  unrs-resolver: true
-  msw: false
+  # Нативный файловый watcher на C++; ускоряет HMR и watch-режим в Vite/Webpack.
   '@parcel/watcher': true
+  # Сборщик и бандлер; postinstall-скрипт скачивает нативный бинарник Go.
+  esbuild: true
+  # Встраиваемая key-value БД (C++); используется в Gatsby, Parcel и некоторых инструментах сборки.
   lmdb: true
+  # Нативное расширение msgpack для ускоренной сериализации; опциональное, но заметно быстрее JS-реализации.
   msgpackr-extract: true
+  # Mock Service Worker; postinstall-скрипт копирует service-worker в public/, при отключении файл копируется вручную через `npx msw init`.
+  msw: false
+  # Нативная библиотека обработки изображений (libvips); нужна для оптимизации картинок в Next.js.
+  sharp: true
+  # Нативный резолвер модулей; используется в eslint-import-resolver и некоторых плагинах Vite.
+  unrs-resolver: true

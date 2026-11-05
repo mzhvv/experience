@@ -25,6 +25,5 @@
   "ruff.configuration": "ruff.toml",
   "ruff.importStrategy": "fromEnvironment",
 
-  // Санкции 😂
   "json.schemaDownload.enable": false
 }

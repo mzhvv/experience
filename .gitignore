@@ -1,5 +1,3 @@
-# .gitignore
-
 # Logs
 **/.pnpm-debug.log*
 **/*.log
