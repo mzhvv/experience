@@ -1,7 +1,4 @@
-import {
-  MicrofrontendFrame,
-  resolveMicrofrontendUrl,
-} from '@/app/components/microfrontend-frame';
+import { MicrofrontendFrame, resolveMicrofrontendUrl } from '@/app/components/microfrontend-frame';
 
 export default function VuePage() {
   return (

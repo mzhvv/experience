@@ -1,8 +1,5 @@
 import { notFound } from 'next/navigation';
-import {
-  MicrofrontendFrame,
-  resolveMicrofrontendUrl,
-} from '@/app/components/microfrontend-frame';
+import { MicrofrontendFrame, resolveMicrofrontendUrl } from '@/app/components/microfrontend-frame';
 
 const reactProjects = {
   stub: {
