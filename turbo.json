@@ -5,6 +5,9 @@
       "dependsOn": ["^build"],
       "outputs": ["**/.next/**", "!**/.next/cache/**", "**/dist/**"]
     },
+    "mzhvv#build": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true

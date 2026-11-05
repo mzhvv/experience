@@ -9,9 +9,9 @@
     "format": "format",
     "backup": "pnpm run backup:default",
     "backup:default": "sh ./src/scripts/backup/run.sh python3",
-    "dev": "turbo run dev --filter=mzhvv --filter=@macrofrontend/stack-host",
-    "build": "turbo run build --filter=mzhvv --filter=@macrofrontend/stack-host",
-    "start": "turbo run start --filter=mzhvv --filter=@macrofrontend/stack-host",
+    "dev": "turbo run dev --filter=mzhvv",
+    "build": "turbo run build --filter=mzhvv",
+    "start": "turbo run start --filter=mzhvv",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test"
   },

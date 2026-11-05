@@ -1,5 +1,7 @@
-import { redirect } from 'next/navigation';
-
 export default function RootPage() {
-  redirect('/stack');
+  return (
+    <div>
+      <h1>mzhvv</h1>
+    </div>
+  );
 }

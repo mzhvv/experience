@@ -11,9 +11,9 @@ export default async function StackPage({ params }: StackPageProps) {
   return (
     <iframe
       allow="fullscreen"
+      className="block h-full w-full border-0"
       src={hostUrl.toString()}
       title="Stack application host"
-      style={{ display: 'block', width: '100%', height: '100dvh', border: 0 }}
     />
   );
 }
