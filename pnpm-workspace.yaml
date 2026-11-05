@@ -3,8 +3,8 @@
 packages:
   - 'src/packages/*'
   - 'src/projects/mzhvv'
-  - 'src/projects/stack-host'
   - 'src/projects/stack/*'
+  - 'src/projects/stack-host'
 
 allowBuilds:
   esbuild: true
