@@ -1,19 +1,19 @@
 {
-  "name": "stack-host",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail --names host,react,vue,angular \"pnpm run dev:server\" \"pnpm run dev:react\" \"pnpm run dev:vue\" \"pnpm run dev:angular\"",
-    "build": "pnpm run build:server && pnpm run build:react && pnpm run build:vue && pnpm run build:angular",
-    "start": "concurrently --kill-others-on-fail --names host,react,vue,angular \"pnpm run start:server\" \"pnpm run start:react\" \"pnpm run start:vue\" \"pnpm run start:angular\"",
-    "dev:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next dev --hostname 0.0.0.0 --port 3001",
-    "build:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next build",
-    "start:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next start --hostname 0.0.0.0 --port 3001",
+    "dev": "concurrently --kill-others-on-fail --names host,react,react2,vue,angular \"pnpm run dev:server\" \"pnpm run dev:react\" \"pnpm run dev:react:stub2\" \"pnpm run dev:vue\" \"pnpm run dev:angular\"",
+    "build": "pnpm run build:server && pnpm run build:react && pnpm run build:react:stub2 && pnpm run build:vue && pnpm run build:angular",
+    "start": "concurrently --kill-others-on-fail --names host,react,react2,vue,angular \"pnpm run start:server\" \"pnpm run start:react\" \"pnpm run start:react:stub2\" \"pnpm run start:vue\" \"pnpm run start:angular\"",
+
+    "dev:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_REACT_STUB2_APP_URL=http://localhost:5176 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next dev --hostname 0.0.0.0 --port 3001",
+    "build:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_REACT_STUB2_APP_URL=http://localhost:5176 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next build",
+    "start:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_REACT_STUB2_APP_URL=http://localhost:5176 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next start --hostname 0.0.0.0 --port 3001",
 
     "dev:react": "pnpm --filter stack-react-stub run dev --host 0.0.0.0 --port 5173 --strictPort",
     "build:react": "pnpm --filter stack-react-stub run build",
     "start:react": "pnpm --filter stack-react-stub run start --host 0.0.0.0 --port 5173 --strictPort",
+    "dev:react:stub2": "pnpm --filter stack-react-stub2 run dev --host 0.0.0.0 --port 5176 --strictPort",
+    "build:react:stub2": "pnpm --filter stack-react-stub2 run build",
+    "start:react:stub2": "pnpm --filter stack-react-stub2 run start --host 0.0.0.0 --port 5176 --strictPort",
     "dev:vue": "pnpm --filter stack-vue-stub run dev --host 0.0.0.0 --port 5174 --strictPort",
     "build:vue": "pnpm --filter stack-vue-stub run build",
     "start:vue": "pnpm --filter stack-vue-stub run start --host 0.0.0.0 --port 5174 --strictPort",
@@ -22,6 +22,11 @@
     "start:angular": "pnpm --filter stack-angular-stub run start --host 0.0.0.0 --port 5175",
     "typecheck": "tsc --noEmit"
   },
+
+  "name": "stack-host",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
   "dependencies": {
     "next": "^15.2.4",
     "react": "^19.0.0",

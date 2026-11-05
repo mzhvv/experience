@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation';
 
 const applications = [
   { href: '/', label: 'Обзор', icon: '⌂' },
-  { href: '/react', label: 'React', icon: 'R' },
+  { href: '/react/stub', label: 'React / stub', icon: 'R' },
+  { href: '/react/stub2', label: 'React / stub2', icon: 'R' },
   { href: '/vue', label: 'Vue', icon: 'V' },
   { href: '/angular', label: 'Angular', icon: 'A' },
 ];
@@ -26,7 +27,9 @@ export function Sidebar() {
       <div className="nav-heading">ПРИЛОЖЕНИЯ</div>
       <nav aria-label="Приложения">
         {applications.map((application) => {
-          const isActive = pathname === application.href;
+          const isActive =
+            pathname === application.href ||
+            (application.href.startsWith('/react/') && pathname.startsWith(`${application.href}/`));
 
           return (
             <Link

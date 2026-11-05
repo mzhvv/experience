@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ParentRouteSync } from '@/app/components/parent-route-sync';
 import { Sidebar } from '@/app/components/sidebar';
 import './globals.css';
 
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
+        <ParentRouteSync />
         <div className="shell">
           <Sidebar />
           <main className="main-content">{children}</main>

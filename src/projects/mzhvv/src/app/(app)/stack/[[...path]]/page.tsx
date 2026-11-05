@@ -1,3 +1,5 @@
+import { StackHostFrame } from '@/shared/libs/host/stack-host-frame';
+
 type StackPageProps = {
   params: Promise<{ path?: string[] }>;
 };
@@ -8,12 +10,5 @@ export default async function StackPage({ params }: StackPageProps) {
   const hostPath = path.map((segment) => encodeURIComponent(segment)).join('/');
   hostUrl.pathname = `${hostUrl.pathname.replace(/\/+$/, '')}/${hostPath}`;
 
-  return (
-    <iframe
-      allow="fullscreen"
-      className="block h-full w-full border-0"
-      src={hostUrl.toString()}
-      title="Stack application host"
-    />
-  );
+  return <StackHostFrame src={hostUrl.toString()} />;
 }

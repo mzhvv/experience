@@ -1,7 +1,14 @@
+import Link from 'next/link';
+import { buttonVariants } from '@workspace/shadcn-ui';
+
 export default function RootPage() {
   return (
-    <div>
-      <h1>mzhvv</h1>
-    </div>
+    <main className="p-2">
+      <div className="p-2">
+        <Link href="/stack" className={buttonVariants({ size: 'lg' })}>
+          stack
+        </Link>
+      </div>
+    </main>
   );
 }
