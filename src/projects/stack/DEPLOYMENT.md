@@ -19,6 +19,16 @@ Open `http://localhost:3000/` for the main page and `http://localhost:3000/stack
 for the Stack dashboard. React, Vue, and Angular run on ports `5173`, `5174`, and
 `5175`.
 
+To run the production builds locally:
+
+```sh
+npm run build
+npm run start
+```
+
+The root `start` command serves `mzhvv` on port `3000` and starts the built
+React, Vue, and Angular applications on ports `5173`, `5174`, and `5175`.
+
 ## Build, type-check, and test
 
 ```sh
