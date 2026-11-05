@@ -5,16 +5,14 @@ const applications = [
     href: '/react/stub',
     name: 'React / stub',
     mark: 'R',
-    description:
-      'Первый самостоятельный React-проект со своим dev-сервером и зависимостями.',
+    description: 'Первый самостоятельный React-проект со своим dev-сервером и зависимостями.',
     className: 'react',
   },
   {
     href: '/react/stub2',
     name: 'React / stub2',
     mark: 'R',
-    description:
-      'Второй независимый React-проект со своим dev-сервером, сборкой и зависимостями.',
+    description: 'Второй независимый React-проект со своим dev-сервером, сборкой и зависимостями.',
     className: 'react',
   },
   {

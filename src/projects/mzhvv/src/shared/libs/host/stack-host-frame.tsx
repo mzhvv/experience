@@ -40,10 +40,7 @@ export function StackHostFrame({ src }: { src: string }) {
       }
 
       const message = event.data;
-      if (
-        message?.type !== 'stack-host:navigate' ||
-        !isHostPathname(message.pathname)
-      ) {
+      if (message?.type !== 'stack-host:navigate' || !isHostPathname(message.pathname)) {
         return;
       }
 
