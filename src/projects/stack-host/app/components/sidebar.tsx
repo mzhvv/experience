@@ -4,11 +4,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const applications = [
-  { href: '/', label: 'Главная', icon: 'M' },
-  { href: '/stack', label: 'Обзор', icon: '⌂' },
-  { href: '/stack/react', label: 'React', icon: 'R' },
-  { href: '/stack/vue', label: 'Vue', icon: 'V' },
-  { href: '/stack/angular', label: 'Angular', icon: 'A' },
+  { href: '/', label: 'Обзор', icon: '⌂' },
+  { href: '/react', label: 'React', icon: 'R' },
+  { href: '/vue', label: 'Vue', icon: 'V' },
+  { href: '/angular', label: 'Angular', icon: 'A' },
 ];
 
 export function Sidebar() {

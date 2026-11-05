@@ -3,10 +3,8 @@
 packages:
   - 'src/packages/*'
   - 'src/projects/mzhvv'
-  - 'src/projects/stack/host'
-  - 'src/projects/stack/apps/react/apps/*'
-  - 'src/projects/stack/apps/vue'
-  - 'src/projects/stack/apps/angular'
+  - 'src/projects/stack-host'
+  - 'src/projects/stack/*'
 
 allowBuilds:
   esbuild: true

@@ -27,8 +27,7 @@
 
     /* current */
     "paths": {
-      "@/*": ["./src/*"],
-      "@stack-host/*": ["../stack/host/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [

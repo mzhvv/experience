@@ -10,7 +10,9 @@ services:
       context: ../../..
       dockerfile: src/projects/mzhvv/Dockerfile
     ports:
-      # Production доступен на localhost:3001.
-      - '3001:3001'
+      # Production доступен на localhost:3000.
+      - '3000:3000'
+    environment:
+      STACK_HOST_URL: ${STACK_HOST_URL:-http://host.docker.internal:3001}
     # Поднимает production-контейнер после перезапуска Docker.
     restart: unless-stopped

@@ -5,8 +5,7 @@ import { fileURLToPath } from 'node:url';
 const hostDirectory = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
-  assetPrefix: '/stack',
-  outputFileTracingRoot: join(hostDirectory, '../../../..'),
+  outputFileTracingRoot: join(hostDirectory, '../../..'),
 };
 
 export default nextConfig;

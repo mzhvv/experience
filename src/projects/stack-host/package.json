@@ -1,11 +1,23 @@
 {
-  "name": "@macrofrontend/host",
+  "name": "@macrofrontend/stack-host",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3001",
-    "build": "next build",
-    "start": "next start --port 3001",
+    "dev": "concurrently --kill-others-on-fail --names host,react,vue,angular \"pnpm run dev:server\" \"pnpm run dev:react\" \"pnpm run dev:vue\" \"pnpm run dev:angular\"",
+    "build": "pnpm run build:server && pnpm run build:react && pnpm run build:vue && pnpm run build:angular",
+    "start": "concurrently --kill-others-on-fail --names host,react,vue,angular \"pnpm run start:server\" \"pnpm run start:react\" \"pnpm run start:vue\" \"pnpm run start:angular\"",
+    "dev:server": "next dev --port 3001",
+    "build:server": "next build",
+    "start:server": "next start --port 3001",
+    "dev:react": "pnpm --filter @macrofrontend/react-app run dev",
+    "build:react": "pnpm --filter @macrofrontend/react-app run build",
+    "start:react": "pnpm --filter @macrofrontend/react-app run start",
+    "dev:vue": "pnpm --filter @macrofrontend/vue-app run dev",
+    "build:vue": "pnpm --filter @macrofrontend/vue-app run build",
+    "start:vue": "pnpm --filter @macrofrontend/vue-app run start",
+    "dev:angular": "pnpm --filter @macrofrontend/angular-app run dev",
+    "build:angular": "pnpm --filter @macrofrontend/angular-app run build",
+    "start:angular": "pnpm --filter @macrofrontend/angular-app run start",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -14,6 +26,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "concurrently": "^9.2.5",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

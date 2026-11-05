@@ -54,7 +54,7 @@ WORKDIR /app
 # Настройки production-сервера Next.js.
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3001
+ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
 # Запускаем приложение без root-прав.
@@ -70,7 +70,7 @@ COPY --from=builder --chown=nextjs:nodejs /repo/src/projects/mzhvv/.next/static 
 
 USER nextjs
 # EXPOSE документирует порт; публикация порта задаётся в Compose.
-EXPOSE 3001
+EXPOSE 3000
 
 # Точка входа standalone-сборки.
 CMD ["node", "src/projects/mzhvv/server.js"]
