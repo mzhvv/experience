@@ -7,13 +7,15 @@ type StackPageProps = {
 export default async function StackPage({ params }: StackPageProps) {
   const { path = [] } = await params;
   const hostPath = path.map((segment) => encodeURIComponent(segment)).join('/');
-  const hostUrl = process.env.VERCEL
-    ? `/stack-host${hostPath ? `/${hostPath}` : ''}`
-    : new URL(process.env.STACK_HOST_URL ?? 'http://localhost:3001');
+  const hostOrigin =
+    process.env.STACK_HOST_URL ?? (process.env.VERCEL ? undefined : 'http://localhost:3001');
 
-  if (hostUrl instanceof URL) {
-    hostUrl.pathname = `${hostUrl.pathname.replace(/\/+$/, '')}/${hostPath}`;
+  if (!hostOrigin) {
+    throw new Error('STACK_HOST_URL must be set to the deployed Stack host URL on Vercel.');
   }
+
+  const hostUrl = new URL(hostOrigin);
+  hostUrl.pathname = `${hostUrl.pathname.replace(/\/+$/, '')}/${hostPath}`;
 
   return <StackHostFrame src={hostUrl.toString()} />;
 }

@@ -1,4 +1,7 @@
-import { MicrofrontendFrame } from '@/app/components/microfrontend-frame';
+import {
+  MicrofrontendFrame,
+  resolveMicrofrontendUrl,
+} from '@/app/components/microfrontend-frame';
 
 export default function AngularPage() {
   return (
@@ -13,7 +16,11 @@ export default function AngularPage() {
       </header>
 
       <MicrofrontendFrame
-        src={process.env.NEXT_PUBLIC_ANGULAR_APP_URL ?? 'http://localhost:5175'}
+        src={resolveMicrofrontendUrl(
+          process.env.NEXT_PUBLIC_ANGULAR_APP_URL,
+          'NEXT_PUBLIC_ANGULAR_APP_URL',
+          'http://localhost:5175'
+        )}
         title="Самостоятельное Angular-приложение"
       />
     </div>
