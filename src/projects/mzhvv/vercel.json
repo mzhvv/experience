@@ -20,7 +20,7 @@
       "buildCommand": "pnpm run build",
       "outputDirectory": "dist"
     },
-    "stack-react-stub2": {
+    "stack-react-second": {
       "root": "../stack/react/stub2",
       "framework": "vite",
       "installCommand": "pnpm install --frozen-lockfile",
@@ -72,14 +72,14 @@
     {
       "source": "/stack-apps/react-stub2",
       "destination": {
-        "service": "stack-react-stub2",
+        "service": "stack-react-second",
         "path": "/"
       }
     },
     {
       "source": "/stack-apps/react-stub2/:path*",
       "destination": {
-        "service": "stack-react-stub2",
+        "service": "stack-react-second",
         "path": "/:path*"
       }
     },
