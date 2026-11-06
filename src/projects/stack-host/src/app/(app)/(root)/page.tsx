@@ -32,9 +32,7 @@ export default function HomePage() {
     <div className="mx-auto flex min-h-svh w-full max-w-[1440px] flex-col gap-8 p-6 sm:p-8 lg:p-10">
       <header className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <div className="mb-2 text-sm font-medium text-muted-foreground">
-            HOST / DASHBOARD
-          </div>
+          <div className="mb-2 text-sm font-medium text-muted-foreground">HOST / DASHBOARD</div>
           <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             Ваши приложения
           </h1>
@@ -68,11 +66,11 @@ export default function HomePage() {
               </span>
             </div>
             <div className="mt-auto pt-8">
-              <span className="text-xs font-medium text-muted-foreground">
-                MICRO APPLICATION
-              </span>
+              <span className="text-xs font-medium text-muted-foreground">MICRO APPLICATION</span>
               <h2 className="mt-2 text-base font-semibold">{application.name}</h2>
-              <p className="mt-2 text-sm leading-5 text-muted-foreground">{application.description}</p>
+              <p className="mt-2 text-sm leading-5 text-muted-foreground">
+                {application.description}
+              </p>
             </div>
           </Link>
         ))}

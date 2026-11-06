@@ -54,8 +54,8 @@ export function Sidebar() {
               <span
                 className={`grid size-6 shrink-0 place-items-center rounded text-xs font-medium ${
                   isActive
-                  ? 'bg-background text-foreground'
-                  : 'bg-muted text-muted-foreground group-hover:text-foreground'
+                    ? 'bg-background text-foreground'
+                    : 'bg-muted text-muted-foreground group-hover:text-foreground'
                 }`}
               >
                 {application.icon}
