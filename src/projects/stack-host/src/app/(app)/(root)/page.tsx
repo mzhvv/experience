@@ -1,28 +1,29 @@
 import Link from 'next/link';
+import { ArrowUpRight, Blocks, Layers3 } from 'lucide-react';
 
 const applications = [
   {
     href: '/react/stub',
     name: 'React / stub',
-    mark: 'R',
+    mark: Blocks,
     description: 'Первый самостоятельный React-проект со своим dev-сервером и зависимостями.',
   },
   {
     href: '/react/stub2',
     name: 'React / stub2',
-    mark: 'R',
+    mark: Blocks,
     description: 'Второй независимый React-проект со своим dev-сервером, сборкой и зависимостями.',
   },
   {
     href: '/vue',
     name: 'Vue',
-    mark: 'V',
+    mark: Layers3,
     description: 'Самостоятельный Vue-проект со своим Vite dev-сервером, сборкой и зависимостями.',
   },
   {
     href: '/angular',
     name: 'Angular',
-    mark: 'A',
+    mark: Layers3,
     description: 'Самостоятельный Angular-проект со своим dev-сервером, сборкой и зависимостями.',
   },
 ];
@@ -32,7 +33,7 @@ export default function HomePage() {
     <div className="mx-auto flex min-h-svh w-full max-w-[1440px] flex-col gap-8 p-6 sm:p-8 lg:p-10">
       <header className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <div className="mb-2 text-sm font-medium text-muted-foreground">HOST / DASHBOARD</div>
+          <div className="mb-2 text-sm font-medium text-muted-foreground">STACK / ОБЗОР</div>
           <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             Ваши приложения
           </h1>
@@ -59,11 +60,9 @@ export default function HomePage() {
           >
             <div className="flex items-start justify-between">
               <div className="grid size-10 place-items-center rounded-lg bg-muted text-base font-medium text-foreground">
-                {application.mark}
+                <application.mark className="size-5" />
               </div>
-              <span className="text-lg text-muted-foreground transition-colors group-hover:text-foreground">
-                ↗
-              </span>
+              <ArrowUpRight className="size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
             </div>
             <div className="mt-auto pt-8">
               <span className="text-xs font-medium text-muted-foreground">MICRO APPLICATION</span>
@@ -78,7 +77,7 @@ export default function HomePage() {
 
       <section className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 sm:p-6">
         <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-muted text-lg text-muted-foreground">
-          ⌘
+          <Layers3 className="size-5" />
         </div>
         <div>
           <h2 className="font-semibold text-card-foreground">Одна оболочка — разные технологии</h2>

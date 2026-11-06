@@ -1,17 +1,21 @@
-import Link from 'next/link';
-import { buttonVariants } from '@workspace/shadcn-ui';
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from '@workspace/shadcn-ui/components/sidebar';
+import { AppSidebar } from './app-sidebar';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-svh overflow-hidden">
-      <aside className="h-full shrink-0 border-r p-2">
-        <div className="p-2">
-          <Link href={'/'} className={buttonVariants({ variant: 'secondary', size: 'icon-lg' })}>
-            m
-          </Link>
-        </div>
-      </aside>
-      <main className="h-full min-w-0 flex-1">{children}</main>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset className="min-h-svh">
+        <header className="sticky top-0 z-10 flex h-14 shrink-0 items-center gap-3 border-b bg-background/95 px-4 backdrop-blur supports-backdrop-filter:bg-background/80">
+          <SidebarTrigger />
+          <span className="text-sm font-medium text-muted-foreground">mzhvv / personal</span>
+        </header>
+        <div className="min-w-0 flex-1">{children}</div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

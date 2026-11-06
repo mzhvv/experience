@@ -18,6 +18,10 @@
       "types": "./src/components/*.tsx",
       "default": "./src/components/*.tsx"
     },
+    "./blocks/*": {
+      "types": "./src/blocks/*.tsx",
+      "default": "./src/blocks/*.tsx"
+    },
     "./hooks/*": {
       "types": "./src/hooks/*.ts",
       "default": "./src/hooks/*.ts"
