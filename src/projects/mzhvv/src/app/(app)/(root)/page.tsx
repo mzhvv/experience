@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, Layers3 } from 'lucide-react';
-import { buttonVariants } from '@workspace/shadcn-ui';
+import { buttonVariants } from '@workspace/shadcn-ui/components/button';
 
 export default function RootPage() {
   return (
