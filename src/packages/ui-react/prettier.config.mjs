@@ -5,5 +5,3 @@ export default {
   ...prettierPluginTailwind,
   tailwindStylesheet: 'src/_styles/current.css',
 };
-
-
