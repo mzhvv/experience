@@ -21,7 +21,7 @@ export default function MainLayout({
       suppressHydrationWarning
       className={cn('dark antialiased', fontMono.variable, 'font-sans', geist.variable)}
     >
-      <body className="workspace-shell min-h-svh bg-background font-sans text-foreground">
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>

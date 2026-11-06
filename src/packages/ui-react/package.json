@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./workspace.css": "./src/_styles/workspace.css",
     "./components/*": {
       "types": "./src/components/*.tsx",
       "default": "./src/components/*.tsx"
