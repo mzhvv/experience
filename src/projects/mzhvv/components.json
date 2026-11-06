@@ -13,8 +13,8 @@
   "iconLibrary": "lucide",
   "rtl": false,
   "aliases": {
-    "components": "@workspace/shadcn-ui/components",
-    "ui": "@workspace/shadcn-ui/blocks",
+    "components": "@workspace/shadcn-ui/blocks",
+    "ui": "@workspace/shadcn-ui/components",
     "hooks": "@workspace/shadcn-ui/hooks",
     "lib": "@workspace/shadcn-ui/lib",
     "utils": "@workspace/shadcn-ui/lib/utils"
