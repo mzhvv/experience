@@ -16,8 +16,8 @@ import {
 } from '@workspace/shadcn-ui/components/sidebar';
 
 const navigation = [
-  { href: '/', label: 'Главная', icon: House },
-  { href: '/stack', label: 'Stack', icon: Layers3 },
+  { href: '/', label: 'Обзор', icon: House, iconClassName: 'text-neutral-400' },
+  { href: '/stack', label: 'Stack', icon: Layers3, iconClassName: 'text-indigo-400' },
 ];
 
 export function AppSidebar() {
@@ -25,16 +25,23 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader>
+      <SidebarHeader className="p-3 pb-5">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton render={<Link href="/" />} size="lg" tooltip="mzhvv — личный сайт">
-              <span className="grid size-8 shrink-0 place-items-center rounded-md bg-sidebar-primary text-sm font-semibold text-sidebar-primary-foreground">
+            <SidebarMenuButton
+              render={<Link href="/" />}
+              size="lg"
+              tooltip="mzhvv — личный сайт"
+              className="h-14 rounded-2xl hover:bg-white/[0.04]"
+            >
+              <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-indigo-400 to-violet-600 text-sm font-semibold text-white shadow-lg shadow-indigo-950/30">
                 M
               </span>
-              <span className="flex min-w-0 flex-col gap-0.5 leading-none">
-                <span className="truncate font-semibold">mzhvv</span>
-                <span className="truncate text-xs text-muted-foreground">Личный сайт</span>
+              <span className="flex min-w-0 flex-col gap-1 leading-none">
+                <span className="truncate text-sm font-semibold tracking-tight text-neutral-100">
+                  mzhvv
+                </span>
+                <span className="truncate text-xs text-neutral-500">Personal workspace</span>
               </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -42,17 +49,20 @@ export function AppSidebar() {
       </SidebarHeader>
 
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Навигация</SidebarGroupLabel>
-          <SidebarMenu>
-            {navigation.map(({ href, label, icon: Icon }) => (
+        <SidebarGroup className="px-3">
+          <SidebarGroupLabel className="px-3 text-[0.625rem] font-semibold tracking-[0.16em] text-neutral-500 uppercase">
+            Навигация
+          </SidebarGroupLabel>
+          <SidebarMenu className="gap-1">
+            {navigation.map(({ href, label, icon: Icon, iconClassName }) => (
               <SidebarMenuItem key={href}>
                 <SidebarMenuButton
                   isActive={href === '/' ? pathname === '/' : pathname.startsWith('/stack')}
                   render={<Link href={href} />}
                   tooltip={label}
+                  className="h-10 rounded-xl px-3 text-neutral-400 hover:bg-white/[0.055] hover:text-neutral-100 data-active:bg-white/[0.09] data-active:text-white"
                 >
-                  <Icon />
+                  <Icon className={iconClassName} />
                   <span>{label}</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -61,14 +71,15 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter>
+      <SidebarFooter className="p-3">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
               render={<a href="https://github.com/mzhvv" target="_blank" rel="noreferrer" />}
               tooltip="GitHub"
+              className="h-10 rounded-xl border border-white/[0.07] bg-white/[0.025] px-3 text-neutral-400 hover:bg-white/[0.06] hover:text-neutral-100"
             >
-              <ArrowUpRight />
+              <ArrowUpRight className="text-indigo-400" />
               <span>GitHub</span>
             </SidebarMenuButton>
           </SidebarMenuItem>

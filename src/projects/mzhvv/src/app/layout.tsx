@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
 import './current.css';
@@ -12,6 +13,11 @@ const fontMono = Geist_Mono({
   variable: '--font-mono',
 });
 
+export const metadata: Metadata = {
+  title: 'mzhvv — проекты и эксперименты',
+  description: 'Личный сайт mzhvv: проекты, технологии и интерактивные эксперименты.',
+};
+
 export default function MainLayout({
   children,
 }: Readonly<{
@@ -19,11 +25,11 @@ export default function MainLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="ru"
       suppressHydrationWarning
-      className={cn('antialiased', fontMono.variable, 'font-sans', geist.variable)}
+      className={cn('dark antialiased', fontMono.variable, 'font-sans', geist.variable)}
     >
-      <body>
+      <body className="workspace-shell min-h-svh bg-background font-sans text-foreground">
         <Providers>{children}</Providers>
       </body>
     </html>

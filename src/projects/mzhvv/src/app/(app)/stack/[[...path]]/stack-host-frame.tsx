@@ -71,7 +71,7 @@ export function StackHostFrame({ src }: { src: string }) {
     <iframe
       ref={frameRef}
       allow="fullscreen"
-      className="block h-full w-full border-0"
+      className="block h-svh w-full border-0 bg-background"
       src={src}
       title="Stack application host"
     />

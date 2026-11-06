@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "exports": {
+    "./workspace.css": "./src/_styles/workspace.css",
     "./components/*": {
       "types": "./src/components/*.tsx",
       "default": "./src/components/*.tsx"
@@ -17,6 +18,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
+    "@workspace/shadcn-ui": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.0",
     "lucide-react": "^1.59.0",
@@ -32,7 +34,6 @@
     "@types/react-dom": "^19",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/prettier-config": "workspace:*",
-    "@workspace/shadcn-ui": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "eslint": "^10",
     "prettier": "3.9.5",

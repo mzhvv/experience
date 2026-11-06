@@ -1,14 +1,20 @@
 @import '@workspace/shadcn-ui/globals.css';
+@import '@workspace/ui-react/workspace.css';
+
+@source '../../../../packages/ui-react/src/**/*.{ts,tsx}';
 
 @layer base {
+  html,
+  body {
+    min-height: 100%;
+  }
+
   button:not(:disabled),
   [role='button']:not(:disabled) {
     cursor: pointer;
   }
-}
 
-@layer components {
-}
-
-@layer utilities {
+  ::selection {
+    background: rgb(129 140 248 / 0.3);
+  }
 }

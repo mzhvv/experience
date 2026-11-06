@@ -304,6 +304,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.9.0
         version: 1.9.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@workspace/shadcn-ui':
+        specifier: workspace:*
+        version: link:../shadcn-ui
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -350,9 +353,6 @@ importers:
       '@workspace/prettier-config':
         specifier: workspace:*
         version: link:../prettier-config
-      '@workspace/shadcn-ui':
-        specifier: workspace:*
-        version: link:../shadcn-ui
       '@workspace/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -383,6 +383,9 @@ importers:
       '@workspace/shadcn-ui':
         specifier: workspace:*
         version: link:../../packages/shadcn-ui
+      '@workspace/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -435,9 +438,6 @@ importers:
       '@workspace/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
-      '@workspace/ui-react':
-        specifier: workspace:*
-        version: link:../../packages/ui-react
       eslint:
         specifier: ^9
         version: 9.39.5(jiti@2.7.0)(supports-color@7.2.0)
@@ -468,6 +468,9 @@ importers:
       '@workspace/shadcn-ui':
         specifier: workspace:*
         version: link:../../packages/shadcn-ui
+      '@workspace/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
