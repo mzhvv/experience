@@ -4,23 +4,28 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run dev:server\" \"pnpm --filter stack-host run dev\"",
-    "dev:server": "next dev --hostname 0.0.0.0 --port 3000",
-    "build": "pnpm --filter stack-host run build && next build",
-    "build:vercel": "next build",
-    "start": "pnpm run build && concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run start:server\" \"pnpm --filter stack-host run start\"",
     "start:server": "next start --hostname 0.0.0.0 --port 3000",
     "lint": "eslint",
     "format": "format",
     "typecheck": "pnpm run typecheck:app && turbo run typecheck --filter=!mzhvv",
     "typecheck:app": "tsc --noEmit",
-    "test": "turbo run test --filter=!mzhvv"
+    "test": "turbo run test --filter=!mzhvv",
+
+    "dev:server": "next dev --hostname 0.0.0.0 --port 3000",
+
+    "dev": "concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run dev:server\" \"pnpm --filter stack-host run dev\"",
+    "build": "pnpm --filter stack-host run build && next build",
+    "start": "pnpm run build && concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run start:server\" \"pnpm --filter stack-host run start\"",
+
+    "start:docker": "concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run start:server\" \"pnpm --filter stack-host run start:docker\""
   },
+
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@workspace/shadcn-ui": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.1",
+    "concurrently": "^9.2.5",
     "lucide-react": "^1.66.0",
     "next": "16.4.3",
     "next-themes": "^0.4.6",
@@ -30,7 +35,6 @@
     "zod": "^4.6.6"
   },
   "devDependencies": {
-    "concurrently": "^9.2.5",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

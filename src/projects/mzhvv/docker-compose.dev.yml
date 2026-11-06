@@ -1,0 +1,66 @@
+# src/projects/mzhvv/docker-compose.dev.yml
+
+# Изолирует dev-контейнер и image от production-окружения.
+name: mzhvv-dev
+
+services:
+  web:
+    build:
+      # Контекст — корень монорепозитория с workspace-пакетами и lock-файлом.
+      context: ../../..
+      dockerfile: src/projects/mzhvv/Dockerfile.dev
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+      - '5173:5173'
+      - '5174:5174'
+      - '5175:5175'
+      - '5176:5176'
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /repo/src/projects/mzhvv
+          ignore:
+            - .next/
+            - node_modules/
+            - package.json
+        - action: sync
+          path: ../../packages
+          target: /repo/src/packages
+          ignore:
+            - '**/node_modules/'
+            - '**/.next/'
+            - '**/package.json'
+        - action: sync
+          path: ../stack-host
+          target: /repo/src/projects/stack-host
+          ignore:
+            - '**/node_modules/'
+            - '**/.next/'
+        - action: sync
+          path: ../stack
+          target: /repo/src/projects/stack
+          ignore:
+            - '**/node_modules/'
+            - '**/.next/'
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: ../../packages
+          include:
+            - '**/package.json'
+        - action: rebuild
+          path: ../stack-host/package.json
+        - action: rebuild
+          path: ../stack
+          include:
+            - '**/package.json'
+        - action: rebuild
+          path: ../../../package.json
+        - action: rebuild
+          path: ../../../pnpm-lock.yaml
+        - action: rebuild
+          path: ../../../pnpm-workspace.yaml
+        - action: rebuild
+          path: ../../../.npmrc

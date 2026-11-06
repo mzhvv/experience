@@ -3,6 +3,7 @@
     "dev": "concurrently --kill-others-on-fail --names host,react,react2,vue,angular \"pnpm run dev:server\" \"pnpm run dev:react\" \"pnpm run dev:react:stub2\" \"pnpm run dev:vue\" \"pnpm run dev:angular\"",
     "build": "pnpm run build:server && pnpm run build:react && pnpm run build:react:stub2 && pnpm run build:vue && pnpm run build:angular",
     "start": "concurrently --kill-others-on-fail --names host,react,react2,vue,angular \"pnpm run start:server\" \"pnpm run start:react\" \"pnpm run start:react:stub2\" \"pnpm run start:vue\" \"pnpm run start:angular\"",
+    "start:docker": "concurrently --kill-others-on-fail --names host,react,react2,vue,angular \"pnpm run start:server\" \"pnpm run start:react\" \"pnpm run start:react:stub2\" \"pnpm run start:vue\" \"pnpm run start:angular:static\"",
 
     "dev:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_REACT_STUB2_APP_URL=http://localhost:5176 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next dev --hostname 0.0.0.0 --port 3001",
     "build:server": "NEXT_PUBLIC_REACT_APP_URL=http://localhost:5173 NEXT_PUBLIC_REACT_STUB2_APP_URL=http://localhost:5176 NEXT_PUBLIC_VUE_APP_URL=http://localhost:5174 NEXT_PUBLIC_ANGULAR_APP_URL=http://localhost:5175 next build",
@@ -20,6 +21,7 @@
     "dev:angular": "pnpm --filter stack-angular-stub run dev --host 0.0.0.0 --port 5175",
     "build:angular": "pnpm --filter stack-angular-stub run build",
     "start:angular": "pnpm --filter stack-angular-stub run start --host 0.0.0.0 --port 5175",
+    "start:angular:static": "node scripts/serve-static.mjs ../stack/angular/stub/dist/angular/browser 5175",
     "typecheck": "tsc --noEmit"
   },
 
@@ -28,15 +30,15 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "concurrently": "^9.2.5",
     "next": "^15.2.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "concurrently": "^9.2.5",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "typescript": "^5.8.2"
+    "@types/react-dom": "^19.0.4"
   }
 }

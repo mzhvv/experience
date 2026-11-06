@@ -1,0 +1,20 @@
+# src/projects/mzhvv/docker-compose.yml
+
+# Изолирует production-контейнер и image от dev-окружения.
+name: mzhvv-prod
+
+services:
+  web:
+    build:
+      context: ../../..
+      dockerfile: src/projects/mzhvv/Dockerfile
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+      - '5173:5173'
+      - '5174:5174'
+      - '5175:5175'
+      - '5176:5176'
+    environment:
+      STACK_HOST_URL: http://localhost:3001
+    restart: unless-stopped
