@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 
-import './globals.css';
+import './current.css';
 
 import { cn } from '@workspace/shadcn-ui/lib/utils';
 import Providers from './providers';

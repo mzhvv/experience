@@ -6,7 +6,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@workspace/shadcn-ui/components/sidebar';
-import './globals.css';
+import './current.css';
 
 export const metadata: Metadata = {
   title: 'Macrofrontend Host',

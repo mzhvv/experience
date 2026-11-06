@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, Layers3 } from 'lucide-react';
 import { buttonVariants } from '@workspace/shadcn-ui/components/button';
+import { Button } from '@workspace/ui-react/components/button';
 
 export default function RootPage() {
   return (
@@ -31,6 +32,7 @@ export default function RootPage() {
             GitHub
             <ArrowUpRight data-icon="inline-end" />
           </a>
+          <Button />
         </div>
       </section>
 

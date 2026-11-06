@@ -435,6 +435,9 @@ importers:
       '@workspace/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
+      '@workspace/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       eslint:
         specifier: ^9
         version: 9.39.5(jiti@2.7.0)(supports-color@7.2.0)
