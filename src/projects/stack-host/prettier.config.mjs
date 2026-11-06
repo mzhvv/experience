@@ -3,7 +3,7 @@ import { prettierConfig, prettierPluginTailwind } from '@workspace/prettier-conf
 const config = {
   ...prettierConfig,
   ...prettierPluginTailwind,
-  tailwindStylesheet: 'src/app/globals.css',
+  tailwindStylesheet: 'src/app/current.css',
 };
 
 export default config;

@@ -1,8 +1,5 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-
 import './current.css';
-
+import { Geist, Geist_Mono } from 'next/font/google';
 import { cn } from '@workspace/shadcn-ui/lib/utils';
 import Providers from './providers';
 
@@ -12,11 +9,6 @@ const fontMono = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
 });
-
-export const metadata: Metadata = {
-  title: 'mzhvv — проекты и эксперименты',
-  description: 'Личный сайт mzhvv: проекты, технологии и интерактивные эксперименты.',
-};
 
 export default function MainLayout({
   children,
