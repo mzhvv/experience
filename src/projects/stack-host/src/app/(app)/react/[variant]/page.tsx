@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { MicrofrontendFrame } from '@/app/components/microfrontend-frame';
+import { MicrofrontendFrame } from '@/shared/components/microfrontend-frame';
 
 const reactProjects = {
   stub: {
@@ -31,14 +31,20 @@ export default async function ReactProjectPage({ params }: ReactPageProps) {
   }
 
   return (
-    <div className="page-wrap microfrontend-page">
-      <header className="page-header">
+    <div className="mx-auto flex min-h-svh w-full max-w-[1440px] flex-col gap-6 p-6 sm:p-8 lg:p-10">
+      <header className="flex flex-wrap items-end justify-between gap-5">
         <div>
-          <div className="eyebrow">MICRO APPLICATION / REACT</div>
-          <h1>{project.title}</h1>
-          <p className="page-description">{project.description}</p>
+          <div className="mb-2 text-sm font-medium text-muted-foreground">
+            MICRO APPLICATION / REACT
+          </div>
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            {project.title}
+          </h1>
+          <p className="mt-3 text-sm text-muted-foreground">{project.description}</p>
         </div>
-        <span className="tech-badge react-badge">● React 19</span>
+        <span className="rounded-full border border-border bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">
+          React 19
+        </span>
       </header>
       <MicrofrontendFrame src={project.src} title={project.title} />
     </div>

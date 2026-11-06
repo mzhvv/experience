@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { ParentRouteSync } from '@/app/components/parent-route-sync';
-import { Sidebar } from '@/app/components/sidebar';
+import { ParentRouteSync } from '@/shared/components/parent-route-sync';
+import { Sidebar } from '@/shared/components/sidebar';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -15,11 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>
+      <body className="dark min-h-svh bg-background text-foreground antialiased">
         <ParentRouteSync />
-        <div className="shell">
+        <div className="flex min-h-svh">
           <Sidebar />
-          <main className="main-content">{children}</main>
+          <main className="min-w-0 flex-1 overflow-y-auto">{children}</main>
         </div>
       </body>
     </html>
