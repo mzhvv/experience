@@ -14,7 +14,7 @@
   "rtl": false,
   "aliases": {
     "components": "@workspace/shadcn-ui/components",
-    "ui": "@workspace/shadcn-ui/components",
+    "ui": "@workspace/shadcn-ui/blocks",
     "hooks": "@workspace/shadcn-ui/hooks",
     "lib": "@workspace/shadcn-ui/lib",
     "utils": "@workspace/shadcn-ui/lib/utils"

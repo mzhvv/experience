@@ -12,7 +12,7 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@workspace/ui/components",
-    "ui": "@workspace/ui/components",
+    "ui": "@workspace/ui/blocks",
     "utils": "@workspace/ui/lib/utils",
     "lib": "@workspace/ui/lib",
     "hooks": "@workspace/ui/hooks"
