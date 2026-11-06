@@ -1,6 +1,6 @@
-import { buttonVariants } from '@workspace/shadcn-ui/components/button';
-import { cn } from 'cn';
 import { ArrowUpRight } from 'lucide-react';
+import { cn } from 'cn';
+import { buttonVariants } from '@workspace/shadcn-ui/components/button';
 
 export default function RootPage() {
   return (
