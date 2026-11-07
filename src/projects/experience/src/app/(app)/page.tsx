@@ -1,3 +1,46 @@
+import Link from 'next/link';
+import { cn } from '@workspace/shadcn-ui/lib/utils';
+import { buttonVariants } from '@workspace/shadcn-ui/components/button';
+import { EXPERIENCE, EXPERIENCE_PAGES } from '@/shared/constants/navigation';
+
+export default function ExperiencePage() {
+  return (
+    <main className="space-y-1.5 p-1.5 font-mono *:p-1.5">
+      <section>
+        <h1>
+          {(() => {
+            const { href, label } = EXPERIENCE;
+            return (
+              <Link href={href} className="text-xs">
+                {label}
+              </Link>
+            );
+          })()}
+        </h1>
+      </section>
+      <section>
+        <nav>
+          <ul className="flex items-center gap-1.5">
+            {EXPERIENCE_PAGES.map(({ href, label }) => {
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className={cn(buttonVariants({ variant: 'secondary', size: 'xs' }))}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </section>
+    </main>
+  );
+}
+
+/*
 import { ArrowRight, ArrowUpRight, Blocks, Layers3 } from 'lucide-react';
 import { EXPERIENCE_APPS } from '@workspace/experience-routes';
 import { AppLink } from '@/shared/components/app-link';
@@ -153,3 +196,4 @@ export default function HomePage() {
     </div>
   );
 }
+*/
