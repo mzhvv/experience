@@ -215,6 +215,30 @@ importers:
         specifier: ^17.13.0
         version: 17.14.0
 
+  src/packages/experience-routes:
+    devDependencies:
+      '@types/node':
+        specifier: ^20
+        version: 20.19.43
+      '@workspace/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@workspace/prettier-config':
+        specifier: workspace:*
+        version: link:../prettier-config
+      '@workspace/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      eslint:
+        specifier: ^10
+        version: 10.14.0(jiti@2.7.0)(supports-color@8.1.1)
+      prettier:
+        specifier: 3.9.5
+        version: 3.9.5
+      typescript:
+        specifier: ^5
+        version: 5.9.3
+
   src/packages/prettier-config:
     devDependencies:
       prettier:
@@ -380,6 +404,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.9.0
         version: 1.9.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@workspace/experience-routes':
+        specifier: workspace:*
+        version: link:../../packages/experience-routes
       '@workspace/shadcn-ui':
         specifier: workspace:*
         version: link:../../packages/shadcn-ui
@@ -465,6 +492,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.9.0
         version: 1.9.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@workspace/experience-routes':
+        specifier: workspace:*
+        version: link:../../packages/experience-routes
       '@workspace/shadcn-ui':
         specifier: workspace:*
         version: link:../../packages/shadcn-ui

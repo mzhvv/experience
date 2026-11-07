@@ -2,27 +2,11 @@
 
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-
-type HostNavigationMessage = {
-  type: 'mzhvv:navigate';
-  pathname: string;
-};
-
-type StackHostMessage = {
-  type: 'stack-host:navigate';
-  pathname: string;
-};
-
-function isHostPathname(value: unknown): value is string {
-  return (
-    typeof value === 'string' &&
-    (value === '/' ||
-      value === '/react/stub' ||
-      value === '/react/stub2' ||
-      value === '/vue' ||
-      value === '/angular')
-  );
-}
+import {
+  isExperiencePathname,
+  type ExperienceNavigateMessage,
+  type HostNavigateMessage,
+} from '@workspace/experience-routes';
 
 export function ParentRouteSync() {
   const pathname = usePathname();
@@ -33,8 +17,8 @@ export function ParentRouteSync() {
       return;
     }
 
-    const message: StackHostMessage = {
-      type: 'stack-host:navigate',
+    const message: ExperienceNavigateMessage = {
+      type: 'experience:navigate',
       pathname,
     };
     window.parent.postMessage(message, '*');
@@ -45,13 +29,13 @@ export function ParentRouteSync() {
       return;
     }
 
-    function handleMessage(event: MessageEvent<HostNavigationMessage>) {
+    function handleMessage(event: MessageEvent<HostNavigateMessage>) {
       if (event.source !== window.parent) {
         return;
       }
 
       const message = event.data;
-      if (message?.type !== 'mzhvv:navigate' || !isHostPathname(message.pathname)) {
+      if (message?.type !== 'mzhvv:navigate' || !isExperiencePathname(message.pathname)) {
         return;
       }
 

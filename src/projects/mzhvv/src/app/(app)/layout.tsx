@@ -13,7 +13,7 @@ const RootSidebar = () => {
       </div>
       <nav>
         <ul className="space-y-2 p-2">
-          {[{ href: '/stack', title: 's' }].map((l) => {
+          {[{ href: '/experience', title: 'e' }].map((l) => {
             return (
               <li key={l.href}>
                 <Link

@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Blocks, House, Layers3 } from 'lucide-react';
+import { Blocks, House, Layers3, type LucideIcon } from 'lucide-react';
+import { EXPERIENCE_APPS, EXPERIENCE_HOME_PATHNAME } from '@workspace/experience-routes';
 import {
   Sidebar,
   SidebarContent,
@@ -15,13 +16,17 @@ import {
   SidebarMenuItem,
 } from '@workspace/shadcn-ui/components/sidebar';
 
+const appIcons: Record<string, { icon: LucideIcon; iconClassName: string }> = {
+  [EXPERIENCE_HOME_PATHNAME]: { icon: House, iconClassName: 'text-neutral-400' },
+  '/react-19': { icon: Blocks, iconClassName: 'text-sky-400' },
+  '/vue-3': { icon: Layers3, iconClassName: 'text-emerald-400' },
+  '/angular-22': { icon: Layers3, iconClassName: 'text-rose-400' },
+};
+
 const applications = [
-  { href: '/', label: 'Обзор', icon: House, iconClassName: 'text-neutral-400' },
-  { href: '/react/stub', label: 'React 01', icon: Blocks, iconClassName: 'text-sky-400' },
-  { href: '/react/stub2', label: 'React 02', icon: Blocks, iconClassName: 'text-violet-400' },
-  { href: '/vue', label: 'Vue', icon: Layers3, iconClassName: 'text-emerald-400' },
-  { href: '/angular', label: 'Angular', icon: Layers3, iconClassName: 'text-rose-400' },
-];
+  { href: EXPERIENCE_HOME_PATHNAME, label: 'Обзор' },
+  ...EXPERIENCE_APPS.map(({ pathname, label }) => ({ href: pathname, label })),
+].map((app) => ({ ...app, ...appIcons[app.href]! }));
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -58,9 +63,7 @@ export function AppSidebar() {
           </SidebarGroupLabel>
           <SidebarMenu className="gap-1">
             {applications.map(({ href, label, icon: Icon, iconClassName }) => {
-              const isActive =
-                pathname === href ||
-                (href.startsWith('/react/') && pathname.startsWith(`${href}/`));
+              const isActive = pathname === href;
 
               return (
                 <SidebarMenuItem key={href}>

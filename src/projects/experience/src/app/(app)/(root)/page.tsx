@@ -1,13 +1,22 @@
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, Blocks, Layers3 } from 'lucide-react';
+import { EXPERIENCE_APPS } from '@workspace/experience-routes';
 import { ApplicationCard } from '@workspace/ui-react/components/application-card';
 import { PageHeader } from '@workspace/ui-react/components/page-header';
 import { StatusBadge } from '@workspace/ui-react/components/status-badge';
 
-const applications = [
+const appPresentations: Record<
+  string,
   {
-    href: '/react/stub',
-    name: 'React 01',
+    eyebrow: string;
+    version: string;
+    mark: typeof Blocks;
+    description: string;
+    iconClassName: string;
+    hoverClassName: string;
+  }
+> = {
+  '/react-19': {
     eyebrow: 'React · Stub',
     version: 'React 19',
     mark: Blocks,
@@ -15,19 +24,7 @@ const applications = [
     iconClassName: 'border-sky-400/15 bg-sky-400/[0.08] text-sky-300',
     hoverClassName: 'hover:border-sky-400/25',
   },
-  {
-    href: '/react/stub2',
-    name: 'React 02',
-    eyebrow: 'React · Stub 2',
-    version: 'React 19',
-    mark: Blocks,
-    description: 'Второй самостоятельный React-проект в той же изолированной архитектуре.',
-    iconClassName: 'border-violet-400/15 bg-violet-400/[0.08] text-violet-300',
-    hoverClassName: 'hover:border-violet-400/25',
-  },
-  {
-    href: '/vue',
-    name: 'Vue',
+  '/vue-3': {
     eyebrow: 'Vue · Workspace',
     version: 'Vue 3',
     mark: Layers3,
@@ -35,9 +32,7 @@ const applications = [
     iconClassName: 'border-emerald-400/15 bg-emerald-400/[0.08] text-emerald-300',
     hoverClassName: 'hover:border-emerald-400/25',
   },
-  {
-    href: '/angular',
-    name: 'Angular',
+  '/angular-22': {
     eyebrow: 'Angular · Workspace',
     version: 'Angular',
     mark: Layers3,
@@ -45,7 +40,12 @@ const applications = [
     iconClassName: 'border-rose-400/15 bg-rose-400/[0.08] text-rose-300',
     hoverClassName: 'hover:border-rose-400/25',
   },
-];
+};
+
+const applications = EXPERIENCE_APPS.map((app) => ({
+  ...app,
+  ...appPresentations[app.pathname]!,
+}));
 
 const architecture = [
   { name: 'Next.js', detail: 'Host', icon: Layers3 },
@@ -81,13 +81,13 @@ export default function HomePage() {
         {applications.map((application, index) => (
           <Link
             className="group block h-full rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#090b10]"
-            href={application.href}
-            key={application.name}
+            href={application.pathname}
+            key={application.pathname}
           >
             <ApplicationCard
               icon={<application.mark className="size-5" />}
               eyebrow={application.eyebrow}
-              title={application.name}
+              title={application.label}
               description={application.description}
               iconClassName={application.iconClassName}
               className={`border-white/[0.08] bg-white/[0.035] text-neutral-100 shadow-none backdrop-blur-none hover:bg-white/[0.055] hover:shadow-none ${application.hoverClassName}`}

@@ -8,8 +8,8 @@ export const AppsTerminl2 = async () => {
 
   const text = resStack.ok ? (
     <span>
-      <Link className={buttonVariants({ variant: 'link', size: 'xs' })} href={'/stack'}>
-        /stack
+      <Link className={buttonVariants({ variant: 'link', size: 'xs' })} href={'/experience'}>
+        /experience
       </Link>
       <Link
         className={buttonVariants({ variant: 'link', size: 'xs' })}
@@ -26,17 +26,17 @@ export const AppsTerminl2 = async () => {
     <div className="inline-flex items-center gap-2">
       <Link
         className={cn(buttonVariants({ variant: 'link', size: 'xs' }), 'h-4 p-0')}
-        href={'/stack'}
+        href={'/experience'}
       >
-        /stack
+        /experience
       </Link>
       <span className="text-green-700">{'- ready! ->'}</span>
 
       <Link
         className={cn(buttonVariants({ variant: 'link', size: 'xs' }), 'h-4 p-0')}
-        href={'/stack'}
+        href={'/experience'}
       >
-        http://localhost:3000/stack
+        http://localhost:3000/experience
       </Link>
     </div>
   );

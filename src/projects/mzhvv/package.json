@@ -13,15 +13,16 @@
 
     "dev:server": "next dev --hostname 0.0.0.0 --port 3000",
 
-    "dev": "concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run dev:server\" \"pnpm --filter stack-host run dev\"",
-    "build": "pnpm --filter stack-host run build && next build",
-    "start": "pnpm run build && concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run start:server\" \"pnpm --filter stack-host run start\"",
+    "dev": "concurrently --kill-others-on-fail --names mzhvv,experience \"pnpm run dev:server\" \"pnpm --filter experience run dev\"",
+    "build": "pnpm --filter experience run build && next build",
+    "start": "pnpm run build && concurrently --kill-others-on-fail --names mzhvv,experience \"pnpm run start:server\" \"pnpm --filter experience run start\"",
 
-    "start:docker": "concurrently --kill-others-on-fail --names mzhvv,stack-host \"pnpm run start:server\" \"pnpm --filter stack-host run start:docker\""
+    "start:docker": "concurrently --kill-others-on-fail --names mzhvv,experience \"pnpm run start:server\" \"pnpm --filter experience run start:docker\""
   },
 
   "dependencies": {
     "@base-ui/react": "^1.9.0",
+    "@workspace/experience-routes": "workspace:*",
     "@workspace/shadcn-ui": "workspace:*",
     "@workspace/ui-react": "workspace:*",
     "class-variance-authority": "^0.7.1",

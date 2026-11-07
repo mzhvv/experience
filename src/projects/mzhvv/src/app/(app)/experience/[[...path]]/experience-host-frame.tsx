@@ -1,57 +1,47 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import {
+  EXPERIENCE_HOME_PATHNAME,
+  isExperiencePathname,
+  type ExperienceNavigateMessage,
+  type HostNavigateMessage,
+} from '@workspace/experience-routes';
 
-type StackHostMessage = {
-  type: 'stack-host:navigate';
-  pathname: string;
-};
-
-type HostNavigationMessage = {
-  type: 'mzhvv:navigate';
-  pathname: string;
-};
-
-function isHostPathname(value: unknown): value is string {
-  return (
-    typeof value === 'string' &&
-    (value === '/' ||
-      value === '/react/stub' ||
-      value === '/react/stub2' ||
-      value === '/vue' ||
-      value === '/angular')
-  );
-}
+const EXPERIENCE_BASE_PATH = '/experience';
 
 function getHostPathname(pathname: string) {
-  const stackPath = pathname.match(/^\/stack(?:\/(.*))?$/)?.[1];
-  return stackPath ? `/${stackPath}` : '/';
+  const experiencePath = pathname.match(/^\/experience(?:\/(.*))?$/)?.[1];
+  return experiencePath ? `/${experiencePath}` : EXPERIENCE_HOME_PATHNAME;
 }
 
-export function StackHostFrame({ src }: { src: string }) {
+export function ExperienceHostFrame({ src }: { src: string }) {
   const frameRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const hostOrigin = new URL(src, window.location.href).origin;
 
-    function handleMessage(event: MessageEvent<StackHostMessage>) {
+    function handleMessage(event: MessageEvent<ExperienceNavigateMessage>) {
       if (event.source !== frameRef.current?.contentWindow) {
         return;
       }
 
       const message = event.data;
-      if (message?.type !== 'stack-host:navigate' || !isHostPathname(message.pathname)) {
+      if (message?.type !== 'experience:navigate' || !isExperiencePathname(message.pathname)) {
         return;
       }
 
-      const nextPathname = message.pathname === '/' ? '/stack' : `/stack${message.pathname}`;
+      const nextPathname =
+        message.pathname === EXPERIENCE_HOME_PATHNAME
+          ? EXPERIENCE_BASE_PATH
+          : `${EXPERIENCE_BASE_PATH}${message.pathname}`;
       if (window.location.pathname !== nextPathname) {
         window.history.pushState(null, '', nextPathname);
       }
     }
 
     function handlePopState() {
-      const message: HostNavigationMessage = {
+      const message: HostNavigateMessage = {
         type: 'mzhvv:navigate',
         pathname: getHostPathname(window.location.pathname),
       };
@@ -73,7 +63,7 @@ export function StackHostFrame({ src }: { src: string }) {
       allow="fullscreen"
       className="block h-svh w-full border-0 bg-background"
       src={src}
-      title="Stack application host"
+      title="Experience application host"
     />
   );
 }

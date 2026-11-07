@@ -71,6 +71,7 @@
 **/archive
 **/_private
 .docs-experience
+**/t
 
 # Husky
 .husky/_
