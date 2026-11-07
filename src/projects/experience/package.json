@@ -25,7 +25,7 @@
     "typecheck": "tsc --noEmit"
   },
 
-  "name": "stack-host",
+  "name": "experience",
   "version": "0.1.0",
   "private": true,
   "type": "module",

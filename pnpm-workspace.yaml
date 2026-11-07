@@ -1,8 +1,8 @@
 packages:
   - 'src/packages/*'
   - 'src/projects/mzhvv'
-  - 'src/projects/stack/*/stub*'
-  - 'src/projects/stack-host'
+  - 'src/projects/experience'
+  - 'src/projects/stack/*/**'
 
 allowBuilds:
   # Нативный файловый watcher на C++; ускоряет HMR и watch-режим в Vite/Webpack.
