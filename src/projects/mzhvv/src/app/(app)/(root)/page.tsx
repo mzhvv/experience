@@ -1,21 +1,19 @@
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from 'cn';
 import { buttonVariants } from '@workspace/shadcn-ui/components/button';
+import { Terminal } from './terminal/terminal';
 
 export default function RootPage() {
   return (
-    <main className="space-y-2 p-2">
-      <section className="space-x-2 p-2">
+    <main className="space-y-2 p-2 font-mono">
+      <section className="p-2">
         <a
           href="https://github.com/mzhvv/experience"
           title="github repository"
           aria-label="github repository"
           target="_blanc"
           rel="noopener noreferrer"
-          className={cn(
-            buttonVariants({ variant: 'link', size: 'lg' }),
-            'gap-0.5 px-0 font-mono text-base'
-          )}
+          className={cn(buttonVariants({ variant: 'link', size: 'lg' }), 'gap-0.5 text-base')}
         >
           experience
           <ArrowUpRight className="inline-block" />
@@ -29,7 +27,7 @@ export default function RootPage() {
           rel="noopener noreferrer"
           className={cn(
             buttonVariants({ variant: 'link', size: 'lg' }),
-            'gap-0.5 px-0 font-mono text-base text-secondary decoration-secondary'
+            'gap-0.5 text-base text-secondary decoration-secondary'
           )}
         >
           mzhvv
@@ -37,9 +35,7 @@ export default function RootPage() {
         </a>
       </section>
 
-      {/* <section className="p-2">
-        <span className="font-mono">...</span>
-      </section> */}
+      <Terminal />
     </main>
   );
 }

@@ -3,11 +3,11 @@ import { buttonVariants } from '@workspace/shadcn-ui/components/button';
 
 const RootSidebar = () => {
   return (
-    <header className="space-y-2 border-r p-2">
+    <header className="space-y-2 border-r p-2 font-mono">
       <div className="p-2">
         <h1>
           <Link href={'/'} className={buttonVariants({ variant: 'ghost', size: 'icon-lg' })}>
-            <span className="font-mono">m</span>
+            m
           </Link>
         </h1>
       </div>
@@ -20,7 +20,7 @@ const RootSidebar = () => {
                   href={l.href}
                   className={buttonVariants({ variant: 'secondary', size: 'icon-lg' })}
                 >
-                  <span className="font-mono">{l.title}</span>
+                  {l.title}
                 </Link>
               </li>
             );
