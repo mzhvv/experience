@@ -23,6 +23,25 @@ export function isExperiencePathname(value: unknown): value is string {
   );
 }
 
+/** Базовый путь, по которому host (mzhvv) монтирует experience во фрейме. */
+export const EXPERIENCE_HOST_BASE_PATH = '/experience';
+
+export function toHostPathname(pathname: string) {
+  return pathname === EXPERIENCE_HOME_PATHNAME
+    ? EXPERIENCE_HOST_BASE_PATH
+    : `${EXPERIENCE_HOST_BASE_PATH}${pathname}`;
+}
+
+export function fromHostPathname(hostPathname: string) {
+  if (hostPathname === EXPERIENCE_HOST_BASE_PATH) {
+    return EXPERIENCE_HOME_PATHNAME;
+  }
+  if (hostPathname.startsWith(`${EXPERIENCE_HOST_BASE_PATH}/`)) {
+    return hostPathname.slice(EXPERIENCE_HOST_BASE_PATH.length);
+  }
+  return EXPERIENCE_HOME_PATHNAME;
+}
+
 /** iframe -> host: маршрут внутри experience изменился. */
 export type ExperienceNavigateMessage = {
   type: 'experience:navigate';

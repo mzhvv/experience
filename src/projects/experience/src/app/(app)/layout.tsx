@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { buttonVariants } from '@workspace/shadcn-ui/components/button';
 import { EXPERIENCE_APPS } from '@workspace/experience-routes';
+import { AppLink } from '@/shared/components/app-link';
 import { ParentRouteSync } from '@/shared/components/parent-route-sync';
 
 const RootSidebar = () => {
@@ -8,9 +8,9 @@ const RootSidebar = () => {
     <header className="space-y-2 border-r p-2 font-mono">
       <div className="p-2">
         <h1>
-          <Link href={'/'} className={buttonVariants({ variant: 'ghost', size: 'icon-lg' })}>
+          <AppLink pathname={'/'} className={buttonVariants({ variant: 'ghost', size: 'icon-lg' })}>
             e
-          </Link>
+          </AppLink>
         </h1>
       </div>
       <nav>
@@ -18,12 +18,12 @@ const RootSidebar = () => {
           {EXPERIENCE_APPS.map(({ pathname, shortLabel }) => {
             return (
               <li key={pathname}>
-                <Link
-                  href={pathname}
+                <AppLink
+                  pathname={pathname}
                   className={buttonVariants({ variant: 'secondary', size: 'icon-lg' })}
                 >
                   {shortLabel}
-                </Link>
+                </AppLink>
               </li>
             );
           })}

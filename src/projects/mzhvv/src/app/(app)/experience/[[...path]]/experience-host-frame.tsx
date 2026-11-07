@@ -2,18 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 import {
-  EXPERIENCE_HOME_PATHNAME,
+  fromHostPathname,
   isExperiencePathname,
+  toHostPathname,
   type ExperienceNavigateMessage,
   type HostNavigateMessage,
 } from '@workspace/experience-routes';
-
-const EXPERIENCE_BASE_PATH = '/experience';
-
-function getHostPathname(pathname: string) {
-  const experiencePath = pathname.match(/^\/experience(?:\/(.*))?$/)?.[1];
-  return experiencePath ? `/${experiencePath}` : EXPERIENCE_HOME_PATHNAME;
-}
 
 export function ExperienceHostFrame({ src }: { src: string }) {
   const frameRef = useRef<HTMLIFrameElement>(null);
@@ -31,10 +25,7 @@ export function ExperienceHostFrame({ src }: { src: string }) {
         return;
       }
 
-      const nextPathname =
-        message.pathname === EXPERIENCE_HOME_PATHNAME
-          ? EXPERIENCE_BASE_PATH
-          : `${EXPERIENCE_BASE_PATH}${message.pathname}`;
+      const nextPathname = toHostPathname(message.pathname);
       if (window.location.pathname !== nextPathname) {
         window.history.pushState(null, '', nextPathname);
       }
@@ -43,7 +34,7 @@ export function ExperienceHostFrame({ src }: { src: string }) {
     function handlePopState() {
       const message: HostNavigateMessage = {
         type: 'mzhvv:navigate',
-        pathname: getHostPathname(window.location.pathname),
+        pathname: fromHostPathname(window.location.pathname),
       };
       frameRef.current?.contentWindow?.postMessage(message, hostOrigin);
     }

@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, Blocks, Layers3 } from 'lucide-react';
 import { EXPERIENCE_APPS } from '@workspace/experience-routes';
+import { AppLink } from '@/shared/components/app-link';
 import { ApplicationCard } from '@workspace/ui-react/components/application-card';
 import { PageHeader } from '@workspace/ui-react/components/page-header';
 import { StatusBadge } from '@workspace/ui-react/components/status-badge';
@@ -79,9 +79,9 @@ export default function HomePage() {
         aria-label="Доступные приложения"
       >
         {applications.map((application, index) => (
-          <Link
+          <AppLink
             className="group block h-full rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#090b10]"
-            href={application.pathname}
+            pathname={application.pathname}
             key={application.pathname}
           >
             <ApplicationCard
@@ -107,7 +107,7 @@ export default function HomePage() {
                 </div>
               }
             />
-          </Link>
+          </AppLink>
         ))}
       </section>
 
