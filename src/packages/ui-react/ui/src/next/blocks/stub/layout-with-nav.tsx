@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { cn } from '@workspace/shadcn-ui/lib/utils';
-import { buttonVariants } from '@workspace/shadcn-ui/components/button';
+import { cn } from '@w/shadcn-ui/lib/utils';
+import { buttonVariants } from '@w/shadcn-ui/components/button';
 
 type NavigationItem = {
   href: string;

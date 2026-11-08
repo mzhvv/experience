@@ -1,6 +1,6 @@
 packages:
   - 'src/packages/*'
-  - 'src/packages/confing/*'
+  - 'src/packages/confings/*'
   - 'src/packages/shared/*'
   - 'src/packages/ui-react/*'
 

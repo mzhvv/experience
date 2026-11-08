@@ -1,5 +1,5 @@
 {
-  "name": "@workspace/ui-react",
+  "name": "@w/ui-react",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
-    "@workspace/shadcn-ui": "workspace:*",
+    "@w/shadcn-ui": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.0",
     "lucide-react": "^1.59.0",
@@ -36,9 +36,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/prettier-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
+    "@w/eslint-config": "workspace:*",
+    "@w/prettier-config": "workspace:*",
+    "@w/typescript-config": "workspace:*",
     "eslint": "^10",
     "prettier": "3.9.5",
     "prettier-plugin-tailwindcss": "^0.8.1",

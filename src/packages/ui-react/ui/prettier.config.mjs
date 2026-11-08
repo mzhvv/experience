@@ -1,4 +1,4 @@
-import { prettierConfig, prettierPluginTailwind } from '@workspace/prettier-config';
+import { prettierConfig, prettierPluginTailwind } from '@w/prettier-config';
 
 export default {
   ...prettierConfig,

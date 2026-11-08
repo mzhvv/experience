@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from 'cn';
-import { buttonVariants } from '@workspace/shadcn-ui/components/button';
+import { buttonVariants } from '@w/shadcn-ui/components/button';
 import { Terminal } from './terminal/terminal';
 
 export default function RootPage() {

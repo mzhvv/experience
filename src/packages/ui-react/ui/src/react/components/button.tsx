@@ -1,1 +1,1 @@
-export { Button, buttonVariants } from '@workspace/shadcn-ui/components/button';
+export { Button, buttonVariants } from '@w/shadcn-ui/components/button';

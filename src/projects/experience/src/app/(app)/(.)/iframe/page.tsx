@@ -1,4 +1,4 @@
-import { PageWithNav } from '@workspace/ui-react/next/blocks/stub/page-with-navigation';
+import { PageWithNav } from '@w/ui-react/next/blocks/stub/page-with-navigation';
 import { IFRAME, IFRAME_PAGE } from '@/shared/constants/navigation';
 
 export default function IframePage() {

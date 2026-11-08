@@ -1,6 +1,6 @@
 import { cn } from 'cn';
 import { ArrowRight } from 'lucide-react';
-import { buttonVariants } from '@workspace/shadcn-ui/components/button';
+import { buttonVariants } from '@w/shadcn-ui/components/button';
 import Link from 'next/link';
 
 export const AppsTerminl2 = async () => {

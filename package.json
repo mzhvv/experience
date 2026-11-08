@@ -11,7 +11,7 @@
     "backup:default": "sh ./src/scripts/backup/run.sh python3"
   },
   "devDependencies": {
-    "@workspace/prettier-config": "workspace:*",
+    "@w/prettier-config": "workspace:*",
     "husky": "^9.1.7",
     "turbo": "^2.11.10",
     "prettier": "^3.9.5"

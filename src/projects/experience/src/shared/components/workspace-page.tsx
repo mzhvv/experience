@@ -1,5 +1,5 @@
 import { MicrofrontendFrame } from '@/shared/components/microfrontend-frame';
-import { PageHeader } from '@workspace/ui-react/react/components/page-header';
+import { PageHeader } from '@w/ui-react/react/components/page-header';
 
 type WorkspacePageProps = {
   eyebrow: string;

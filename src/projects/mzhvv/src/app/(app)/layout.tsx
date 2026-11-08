@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { buttonVariants } from '@workspace/shadcn-ui/components/button';
+import { buttonVariants } from '@w/shadcn-ui/components/button';
 
 const RootSidebar = () => {
   return (

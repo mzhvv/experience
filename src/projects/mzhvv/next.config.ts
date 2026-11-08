@@ -8,7 +8,7 @@ const projectDirectory = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   output: process.env.DOCKER_BUILD ? 'standalone' : undefined,
-  // transpilePackages: ['@workspace/shadcn-ui'],
+  // transpilePackages: ['@w/shadcn-ui'],
   outputFileTracingRoot: join(projectDirectory, '../../..'),
 };
 
