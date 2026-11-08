@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./components/*": {
-      "types": "./src/components/*.tsx",
-      "default": "./src/components/*.tsx"
+    "./next/*": {
+      "types": "./src/next/*.tsx",
+      "default": "./src/next/*.tsx"
     },
-    "./blocks/*": {
-      "types": "./src/blocks/*.tsx",
-      "default": "./src/blocks/*.tsx"
+    "./react/*": {
+      "types": "./src/react/*.tsx",
+      "default": "./src/react/*.tsx"
     }
   },
   "files": ["src"],

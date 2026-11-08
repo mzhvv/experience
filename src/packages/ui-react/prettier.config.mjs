@@ -3,5 +3,5 @@ import { prettierConfig, prettierPluginTailwind } from '@workspace/prettier-conf
 export default {
   ...prettierConfig,
   ...prettierPluginTailwind,
-  tailwindStylesheet: 'src/styles/current.css',
+  tailwindStylesheet: '../shadcn-ui/src/styles/globals.css',
 };
