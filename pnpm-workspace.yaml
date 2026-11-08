@@ -1,5 +1,7 @@
 packages:
   - 'src/packages/*'
+  - 'src/packages/confing/*'
+
   - 'src/projects/mzhvv'
   - 'src/projects/experience'
   - 'src/projects/stack/angular-22'
