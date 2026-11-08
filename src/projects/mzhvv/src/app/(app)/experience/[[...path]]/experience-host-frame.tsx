@@ -7,7 +7,7 @@ import {
   toHostPathname,
   type ExperienceNavigateMessage,
   type HostNavigateMessage,
-} from '@workspace/experience-routes';
+} from '@w/shared/constants/routes';
 
 export function ExperienceHostFrame({ src }: { src: string }) {
   const frameRef = useRef<HTMLIFrameElement>(null);
