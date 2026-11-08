@@ -1,6 +1,8 @@
 packages:
   - 'src/packages/*'
   - 'src/packages/confing/*'
+  - 'src/packages/shared/*'
+  - 'src/packages/ui-react/*'
 
   - 'src/projects/mzhvv'
   - 'src/projects/experience'
