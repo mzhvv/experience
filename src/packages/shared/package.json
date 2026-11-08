@@ -1,12 +1,12 @@
 {
-  "name": "@workspace/experience-routes",
+  "name": "@w/shared",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
+    "./constants/*": {
+      "types": "./constants/*/index.ts",
+      "default": "./constants/*/index.ts"
     }
   },
   "files": ["src"],

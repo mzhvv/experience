@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type MouseEvent, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { toHostPathname } from '@workspace/experience-routes';
+import { toHostPathname } from '@w/shared/constants/routes';
 
 function getEmbeddingHost(): string | null {
   if (typeof window === 'undefined' || window.parent === window) {
