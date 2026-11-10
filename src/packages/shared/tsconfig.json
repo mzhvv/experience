@@ -1,9 +1,11 @@
 {
-  "extends": "@w/typescript-config/base.json",
+  "extends": "@w/typescript-config/react-library.json",
   "compilerOptions": {
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "noEmit": true
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["."],
   "exclude": ["node_modules", "dist"]

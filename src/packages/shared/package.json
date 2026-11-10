@@ -4,9 +4,13 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./constants/*": {
-      "types": "./constants/*/index.ts",
-      "default": "./constants/*/index.ts"
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "types": "./src/*/index.ts",
+      "default": "./src/*/index.ts"
     }
   },
   "files": ["src"],

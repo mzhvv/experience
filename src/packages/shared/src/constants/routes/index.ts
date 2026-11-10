@@ -1,16 +1,12 @@
-export const EXPERIENCE_HOME_PATHNAME = '/';
+import { NavigationItem } from '../../types/routes';
 
-export type ExperienceApp = {
-  pathname: string;
-  label: string;
-  shortLabel: string;
-};
+export const EXPERIENCE_HOME_PATHNAME = '/';
 
 /**
  * Единый список приложений experience. Используется навигацией (сайдбар,
  * ссылки) и синхронизацией маршрутов между host (mzhvv) и iframe.
  */
-export const EXPERIENCE_APPS: readonly ExperienceApp[] = [
+export const EXPERIENCE_APPS: readonly NavigationItem[] = [
   { pathname: '/react-19', label: 'React', shortLabel: 'r19' },
   { pathname: '/vue-3', label: 'Vue', shortLabel: 'v3' },
   { pathname: '/angular-22', label: 'Angular', shortLabel: 'a22' },

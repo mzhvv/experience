@@ -1,12 +1,7 @@
 import Link from 'next/link';
+import type { NavigationItem } from '@w/shared/types/routes';
 import { cn } from '@w/shadcn-ui/lib/utils';
 import { buttonVariants } from '@w/shadcn-ui/components/button';
-
-type NavigationItem = {
-  href: string;
-  label: string;
-  shortLabel: string;
-};
 
 export const LayoutWithNav = ({
   hdrObj,
@@ -23,7 +18,7 @@ export const LayoutWithNav = ({
         <nav className="space-y-1.5 p-1.5 *:p-1.5">
           <div>
             {(() => {
-              const { href, label } = hdrObj;
+              const { pathname: href, label } = hdrObj;
               return (
                 <Link href={href} className="text-xs">
                   {label}
@@ -32,7 +27,7 @@ export const LayoutWithNav = ({
             })()}
           </div>
           <ul className="space-y-2">
-            {navArr.map(({ href, label }) => {
+            {navArr.map(({ pathname: href, label }) => {
               return (
                 <li key={href}>
                   <Link

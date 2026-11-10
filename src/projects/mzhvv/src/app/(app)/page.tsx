@@ -4,13 +4,13 @@ export default function MzhvvPage() {
   return (
     <PageWithNav
       hdrObj={{
-        href: '/',
+        pathname: '/',
         label: 'mzhvv',
         shortLabel: 'mazhvv',
       }}
       navArr={[
         {
-          href: '/experience',
+          pathname: '/experience',
           label: 'experience',
           shortLabel: 'experience',
         },

@@ -4,13 +4,13 @@ export default function MzhvvLayout({ children }: { children: React.ReactNode })
   return (
     <LayoutWithNav
       hdrObj={{
-        href: '/',
+        pathname: '/',
         label: 'mzhvv',
         shortLabel: 'mazhvv',
       }}
       navArr={[
         {
-          href: '/experience',
+          pathname: '/experience',
           label: 'experience',
           shortLabel: 'experience',
         },
