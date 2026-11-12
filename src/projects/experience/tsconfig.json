@@ -1,6 +1,31 @@
 {
   "extends": "@w/typescript-config/nextjs.json",
   "compilerOptions": {
+    /* @w/typescript-config/base.json */
+    // "declaration": true,
+    // "declarationMap": true,
+    // "esModuleInterop": true,
+    // "incremental": false,
+    // "isolatedModules": true,
+    // "lib": ["es2022", "DOM", "DOM.Iterable"],
+    // "module": "NodeNext",
+    // "moduleDetection": "force",
+    // "moduleResolution": "NodeNext",
+    // "noUncheckedIndexedAccess": true,
+    // "resolveJsonModule": true,
+    // "skipLibCheck": true,
+    // "strict": true,
+    // "target": "ES2022",
+
+    /* @w/typescript-config/nextjs.json - наследует(расширяется от) base.json */
+    // "allowJs": true,
+    // "jsx": "preserve",
+    // "module": "ESNext",
+    // "moduleResolution": "Bundler",
+    // "noEmit": true,
+    // "plugins": [{ "name": "next" }],
+
+    /* current */
     "paths": {
       "@/*": ["./src/*"]
     }
@@ -15,3 +40,39 @@
   ],
   "exclude": ["node_modules"]
 }
+
+/* default next */
+// {
+//   "compilerOptions": {
+//     "allowJs": true,
+//     "esModuleInterop": true,
+//     "incremental": true,
+//     "isolatedModules": true,
+//     "jsx": "react-jsx",
+//     "lib": ["dom", "dom.iterable", "esnext"],
+//     "module": "esnext",
+//     "moduleResolution": "bundler",
+//     "noEmit": true,
+//     "paths": {
+//       "@/*": ["./src/*"]
+//     },
+//     "plugins": [
+//       {
+//         "name": "next"
+//       }
+//     ],
+//     "resolveJsonModule": true,
+//     "skipLibCheck": true,
+//     "strict": true,
+//     "target": "ES2017"
+//   },
+//   "include": [
+//     "next-env.d.ts",
+//     "**/*.ts",
+//     "**/*.tsx",
+//     ".next/types/**/*.ts",
+//     ".next/dev/types/**/*.ts",
+//     "**/*.mts"
+//   ],
+//   "exclude": ["node_modules"]
+// }
