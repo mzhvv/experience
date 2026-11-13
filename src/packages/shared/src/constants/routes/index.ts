@@ -1,4 +1,4 @@
-import { NavigationItem } from '@/types/routes';
+import { NavigationItem } from '@w/shared/types/routes';
 
 export const EXPERIENCE_HOME_PATHNAME = '/';
 
