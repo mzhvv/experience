@@ -1,9 +1,9 @@
 import { LayoutWithNav } from '@w/ui-react/next/blocks/stub/layout-with-nav';
-import { IFRAME, IFRAME_PAGE } from '@/shared/constants/navigation';
+import { experienceNav } from '@w/shared/constants/routes';
 
 export default function IframeLayout({ children }: { children: React.ReactNode }) {
   return (
-    <LayoutWithNav hdrObj={IFRAME} navArr={IFRAME_PAGE}>
+    <LayoutWithNav header={experienceNav.stack} segments={experienceNav.stack.children}>
       {children}
     </LayoutWithNav>
   );

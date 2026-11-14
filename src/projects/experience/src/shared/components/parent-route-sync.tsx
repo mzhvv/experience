@@ -6,7 +6,7 @@ import {
   isExperiencePathname,
   type ExperienceNavigateMessage,
   type HostNavigateMessage,
-} from '@w/shared/constants/routes';
+} from '@w/shared/constants/routes-0';
 
 export function ParentRouteSync() {
   const pathname = usePathname();
