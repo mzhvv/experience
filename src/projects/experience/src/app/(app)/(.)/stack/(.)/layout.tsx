@@ -3,7 +3,7 @@ import { experienceNav } from '@w/shared/constants/routes';
 
 export default function IframeLayout({ children }: { children: React.ReactNode }) {
   return (
-    <LayoutWithNav header={experienceNav.stack} segments={experienceNav.stack.children}>
+    <LayoutWithNav hdrObj={experienceNav.children[0]} navArr={experienceNav.children[0].children}>
       {children}
     </LayoutWithNav>
   );

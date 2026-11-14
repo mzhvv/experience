@@ -1,22 +1,21 @@
 import Link from 'next/link';
-import type { ProjectNav } from '@w/shared/types/routes';
+import type { NavEntry } from '@w/shared/types/routes';
 import { cn } from '@w/shadcn-ui/lib/utils';
 import { buttonVariants } from '@w/shadcn-ui/components/button';
 
 type LayoutWithNavProps = {
-  header: ProjectNav['header'];
-  segments: ProjectNav['segments'];
+  hdrObj: NavEntry;
+  navArr: NavEntry[];
   children: React.ReactNode;
 };
-
-export const LayoutWithNav = ({ header, segments, children }: LayoutWithNavProps) => {
+export const LayoutWithNav = ({ hdrObj, navArr, children }: LayoutWithNavProps) => {
   return (
     <div className="flex min-h-svh w-full">
       <header className="border-r font-mono">
         <nav className="space-y-1.5 p-1.5 *:p-1.5">
           <div>
             {(() => {
-              const { pathname: href, label } = header;
+              const { pathname: href, label } = hdrObj;
               return (
                 <Link href={href} className="text-xs">
                   {label}
@@ -25,7 +24,7 @@ export const LayoutWithNav = ({ header, segments, children }: LayoutWithNavProps
             })()}
           </div>
           <ul className="space-y-2">
-            {segments.map(({ pathname: href, label, children }) => {
+            {navArr.map(({ pathname: href, label }) => {
               return (
                 <li key={href}>
                   <Link
