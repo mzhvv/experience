@@ -1,17 +1,12 @@
 import Link from 'next/link';
-import type { NavigationItem } from '@w/shared/types/routes';
+import type { ProjectNav } from '@w/shared/types/routes';
 import { cn } from '@w/shadcn-ui/lib/utils';
 import { buttonVariants } from '@w/shadcn-ui/components/button';
 
-export const LayoutWithNav = ({
-  hdrObj,
-  navArr,
-  children,
-}: {
-  hdrObj: NavigationItem;
-  navArr: NavigationItem[];
+type LayoutWithNavProps = ProjectNav & {
   children: React.ReactNode;
-}) => {
+};
+export const LayoutWithNav = ({ hdrObj, navArr, children }: LayoutWithNavProps) => {
   return (
     <div className="flex min-h-svh w-full">
       <header className="border-r font-mono">

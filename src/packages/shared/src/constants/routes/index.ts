@@ -1,51 +1,47 @@
-import { NavigationItem } from '@w/shared/types/routes';
+import { NavMeta, ProjectNav } from '@w/shared/types/routes';
 
-export const EXPERIENCE_HOME_PATHNAME = '/';
+// #region experience
 
-/**
- * Единый список приложений experience. Используется навигацией (сайдбар,
- * ссылки) и синхронизацией маршрутов между host (mzhvv) и iframe.
- */
-export const EXPERIENCE_APPS: readonly NavigationItem[] = [
-  { pathname: '/react-19', label: 'React', shortLabel: 'r19' },
-  { pathname: '/vue-3', label: 'Vue', shortLabel: 'v3' },
-  { pathname: '/angular-22', label: 'Angular', shortLabel: 'a22' },
-];
+// EXPERIENCE_PROJECT_PORT = '3001';
+const EXPERIENCE_PROJECT_PATHNAME = '/';
+const EXPERIENCE_HOST_PATHNAME = EXPERIENCE_PROJECT_PATHNAME;
+const EXPERIENCE_PROXY_PATHNAME = '/experience'; // :3000/experience
+const EXPERIENCE_META = {
+  label: 'experience',
+  shortLabel: 'experience',
+} satisfies NavMeta;
 
-export function isExperiencePathname(value: unknown): value is string {
-  return (
-    typeof value === 'string' &&
-    (value === EXPERIENCE_HOME_PATHNAME || EXPERIENCE_APPS.some((app) => app.pathname === value))
-  );
-}
+export const experienceNav = {
+  hdrObj: {
+    pathname: EXPERIENCE_PROJECT_PATHNAME,
+    ...EXPERIENCE_META,
+  },
+  navArr: [],
+} as const satisfies ProjectNav;
 
-/** Базовый путь, по которому host (mzhvv) монтирует experience во фрейме. */
-export const EXPERIENCE_HOST_BASE_PATH = '/experience';
+// #endregion
+// #region mzhvv
 
-export function toHostPathname(pathname: string) {
-  return pathname === EXPERIENCE_HOME_PATHNAME
-    ? EXPERIENCE_HOST_BASE_PATH
-    : `${EXPERIENCE_HOST_BASE_PATH}${pathname}`;
-}
+// MZHVV_PROJECT_PORT = '3000';
+const MZHVV_PROJECT_PATHNAME = '/';
+const MZHVV_HOST_PATHNAME = MZHVV_PROJECT_PATHNAME; // :3000 является HOST для :3001
+// EXPERIENCE_PROXY_PATHNAME - отсутствует
+const MZHVV_META = {
+  label: 'mzhvv',
+  shortLabel: 'mazhvv',
+} satisfies NavMeta;
 
-export function fromHostPathname(hostPathname: string) {
-  if (hostPathname === EXPERIENCE_HOST_BASE_PATH) {
-    return EXPERIENCE_HOME_PATHNAME;
-  }
-  if (hostPathname.startsWith(`${EXPERIENCE_HOST_BASE_PATH}/`)) {
-    return hostPathname.slice(EXPERIENCE_HOST_BASE_PATH.length);
-  }
-  return EXPERIENCE_HOME_PATHNAME;
-}
+export const mzhvvNav = {
+  hdrObj: {
+    pathname: MZHVV_HOST_PATHNAME,
+    ...MZHVV_META,
+  },
+  navArr: [
+    {
+      ...EXPERIENCE_META,
+      pathname: EXPERIENCE_PROXY_PATHNAME, // :3000/experience проксирует :3001
+    },
+  ],
+} as const satisfies ProjectNav;
 
-/** iframe -> host: маршрут внутри experience изменился. */
-export type ExperienceNavigateMessage = {
-  type: 'experience:navigate';
-  pathname: string;
-};
-
-/** host -> iframe: родитель запрашивает переход на маршрут experience. */
-export type HostNavigateMessage = {
-  type: 'mzhvv:navigate';
-  pathname: string;
-};
+// #endregion

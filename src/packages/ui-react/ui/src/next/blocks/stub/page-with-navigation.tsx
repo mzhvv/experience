@@ -1,14 +1,9 @@
 import Link from 'next/link';
-import type { NavigationItem } from '@w/shared/types/routes';
+import type { ProjectNav } from '@w/shared/types/routes';
 import { buttonVariants } from '@w/shadcn-ui/components/button';
 
-export const PageWithNav = ({
-  hdrObj,
-  navArr,
-}: {
-  hdrObj: NavigationItem;
-  navArr: NavigationItem[];
-}) => {
+type PageWithNavProps = ProjectNav;
+export const PageWithNav = ({ hdrObj, navArr }: PageWithNavProps) => {
   return (
     <main className="space-y-1.5 p-1.5 font-mono *:p-1.5">
       <section>
