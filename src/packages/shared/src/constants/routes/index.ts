@@ -137,12 +137,19 @@ export const experienceNav = {
   ],
 } as const satisfies NavEntry;
 export const experienceNamedNav = {
-  experience: experienceNav,
-  stack: experienceNav.children[0],
-  react19: experienceNav.children[0].children[0],
-  vue3: experienceNav.children[0].children[1],
-  angular22: experienceNav.children[0].children[2],
-} as const satisfies Record<'experience' | 'stack' | 'react19' | 'angular22' | 'vue3', NavEntry>;
+  '/': experienceNav,
+  '/stack': experienceNav.children[0],
+  '/react-19': experienceNav.children[0].children[0],
+  '/vue-3': experienceNav.children[0].children[1],
+  '/angular-22': experienceNav.children[0].children[2],
+} as const satisfies Record<
+  | typeof EXPERIENCE_ROOT_PATHNAME
+  | typeof EXPERIENCE_STACK_PATHNAME
+  | typeof REACT19_PROXY_PATHNAME
+  | typeof VUE3_PROXY_PATHNAME
+  | typeof ANGULAR22_PROXY_PATHNAME,
+  NavEntry
+>;
 
 // #endregion
 
@@ -197,14 +204,19 @@ export const mzhvvNav = {
 } as const satisfies NavEntry;
 
 export const mzhvvNamedNav = {
-  mzhvv: mzhvvNav,
-  experience: mzhvvNav.children[0],
-  stack: mzhvvNav.children[0].children[0],
-  react19: mzhvvNav.children[0].children[0].children[0],
-  vue3: mzhvvNav.children[0].children[0].children[1],
-  angular22: mzhvvNav.children[0].children[0].children[2],
+  '/': mzhvvNav,
+  '/experience': mzhvvNav.children[0],
+  '/stack': mzhvvNav.children[0].children[0],
+  '/react-19': mzhvvNav.children[0].children[0].children[0],
+  '/vue-3': mzhvvNav.children[0].children[0].children[1],
+  '/angular-22': mzhvvNav.children[0].children[0].children[2],
 } as const satisfies Record<
-  'mzhvv' | 'experience' | 'stack' | 'react19' | 'angular22' | 'vue3',
+  | typeof MZHVV_ROOT_PATHNAME
+  | typeof EXPERIENCE_PROXY_PATHNAME
+  | typeof EXPERIENCE_STACK_PATHNAME
+  | typeof REACT19_PROXY_PATHNAME
+  | typeof VUE3_PROXY_PATHNAME
+  | typeof ANGULAR22_PROXY_PATHNAME,
   NavEntry
 >;
 
