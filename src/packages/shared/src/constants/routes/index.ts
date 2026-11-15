@@ -120,7 +120,7 @@ const experienceProxyNav = [
   // :3001/stack/angular-22/*/**
   createPrefixedNav(angular22Nav, `${EXPERIENCE_STACK_PATHNAME}${ANGULAR22_PROXY_PATHNAME}`),
 
-  // { ...react19Nav, pathname: `/stack${REACT19_PROXY_PATHNAME}` }, // :3001/stack/vue-3
+  // { ...react19Nav, pathname: `/stack${REACT19_PROXY_PATHNAME}` }, // :3001/stack/react-19
   // { ...vue3Nav, pathname: `/stack${VUE3_PROXY_PATHNAME}` }, // :3001/stack/vue-3
   // { ...angular22Nav, pathname: `/stack${ANGULAR22_PROXY_PATHNAME}` }, // :3001/stack/angular-22
 ] as const satisfies NavEntry[];
