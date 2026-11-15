@@ -112,11 +112,18 @@ const experienceNavMeta = {
   NavMeta
 >;
 
-// const experienceProxyNav = [
-//   { ...react19Nav, pathname: `/stack${PROXY_REACT19_PATHNAME}` }, // :3001/stack/vue-3
-//   { ...vue3Nav, pathname: `/stack${PROXY_VUE3_PATHNAME}` }, // :3001/stack/vue-3
-//   { ...angular22Nav, pathname: `/stack${PROXY_ANGULAR22_PATHNAME}` }, // :3001/stack/angular-22
-// ] as const satisfies NavEntry[];
+const experienceProxyNav = [
+  // :3001/stack/react-19/*/**
+  createPrefixedNav(react19Nav, `${EXPERIENCE_STACK_PATHNAME}${REACT19_PROXY_PATHNAME}`),
+  // :3001/stack/vue-3/*/**
+  createPrefixedNav(vue3Nav, `${EXPERIENCE_STACK_PATHNAME}${VUE3_PROXY_PATHNAME}`),
+  // :3001/stack/angular-22/*/**
+  createPrefixedNav(angular22Nav, `${EXPERIENCE_STACK_PATHNAME}${ANGULAR22_PROXY_PATHNAME}`),
+
+  // { ...react19Nav, pathname: `/stack${REACT19_PROXY_PATHNAME}` }, // :3001/stack/vue-3
+  // { ...vue3Nav, pathname: `/stack${VUE3_PROXY_PATHNAME}` }, // :3001/stack/vue-3
+  // { ...angular22Nav, pathname: `/stack${ANGULAR22_PROXY_PATHNAME}` }, // :3001/stack/angular-22
+] as const satisfies NavEntry[];
 
 export const experienceNav = {
   pathname: EXPERIENCE_ROOT_PATHNAME, // :3001/
@@ -125,12 +132,7 @@ export const experienceNav = {
     {
       pathname: EXPERIENCE_STACK_PATHNAME, // :3001/stack
       ...experienceNavMeta['/stack'],
-      children: [
-        // ...experienceProxyNav,
-        createPrefixedNav(react19Nav, `/stack${REACT19_PROXY_PATHNAME}`), // :3001/.../react-19/*
-        createPrefixedNav(vue3Nav, `/stack${VUE3_PROXY_PATHNAME}`), // :3001/.../vue-3/*
-        createPrefixedNav(angular22Nav, `/stack${ANGULAR22_PROXY_PATHNAME}`), // :3001/.../angular-22/*
-      ],
+      children: [...experienceProxyNav], // :3001/stack/*/**
     },
   ],
 } as const satisfies NavEntry;
@@ -146,35 +148,38 @@ export const experienceNamedNav = {
 
 // #region mzhvv
 
-// const mzhvvProxyNav = [
-//   {
-//     ...experienceNav,
-//     pathname: PROXY_EXPERIENCE_PATHNAME, // :3000/experience
-//     children: [
-//       {
-//         ...experienceNamedNav.stack,
-//         pathname: `${PROXY_EXPERIENCE_PATHNAME}${experienceNamedNav.stack.pathname}`,
-//         children: [
-//           {
-//             // 3000/experience/stack/react-19
-//             ...experienceNamedNav.react19,
-//             pathname: `${PROXY_EXPERIENCE_PATHNAME}${experienceNamedNav.react19.pathname}`,
-//           },
-//           {
-//             // 3000/experience/stack/vue-3
-//             ...experienceNamedNav.vue3,
-//             pathname: `${PROXY_EXPERIENCE_PATHNAME}${experienceNamedNav.vue3.pathname}`,
-//           },
-//           {
-//             // 3000/experience/stack/angular-22
-//             ...experienceNamedNav.angular22,
-//             pathname: `${PROXY_EXPERIENCE_PATHNAME}${experienceNamedNav.angular22.pathname}`,
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// ] as const satisfies NavEntry[];
+const mzhvvProxyNav = [
+  createPrefixedNav(experienceNav, EXPERIENCE_PROXY_PATHNAME), // :3000/.../experience/*/**
+
+  // {
+  //   ...experienceNav,
+  //   // :3000/experience
+  //   pathname: EXPERIENCE_PROXY_PATHNAME,
+  //   children: [
+  //     {
+  //       ...experienceNamedNav.stack,
+  //       pathname: `${EXPERIENCE_STACK_PATHNAME}${experienceNamedNav.stack.pathname}`,
+  //       children: [
+  //         {
+  //           ...experienceNamedNav.react19,
+  //           // 3000/experience/stack/react-19
+  //           pathname: `${EXPERIENCE_PROXY_PATHNAME}${experienceNamedNav.react19.pathname}`,
+  //         },
+  //         {
+  //           ...experienceNamedNav.vue3,
+  //           // 3000/experience/stack/vue-3
+  //           pathname: `${EXPERIENCE_PROXY_PATHNAME}${experienceNamedNav.vue3.pathname}`,
+  //         },
+  //         {
+  //           ...experienceNamedNav.angular22,
+  //           // 3000/experience/stack/angular-22
+  //           pathname: `${EXPERIENCE_PROXY_PATHNAME}${experienceNamedNav.angular22.pathname}`,
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+] as const satisfies NavEntry[];
 
 const MZHVV_ROOT_PATHNAME = '/';
 
@@ -188,10 +193,7 @@ const mzhvvNavMeta = {
 export const mzhvvNav = {
   pathname: MZHVV_ROOT_PATHNAME, // :3000/
   ...mzhvvNavMeta['/'],
-  children: [
-    // ...mzhvvProxyNav
-    createPrefixedNav(experienceNav, EXPERIENCE_PROXY_PATHNAME), // :3000/.../experience/*
-  ],
+  children: [...mzhvvProxyNav], // :3000/*/**
 } as const satisfies NavEntry;
 
 export const mzhvvNamedNav = {
