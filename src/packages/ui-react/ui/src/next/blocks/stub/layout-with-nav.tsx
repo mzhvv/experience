@@ -17,7 +17,7 @@ export const LayoutWithNav = ({ hdrObj, navArr, children }: LayoutWithNavProps) 
             {(() => {
               const { pathname: href, label } = hdrObj;
               return (
-                <Link href={href} className="text-xs">
+                <Link href={href} className="w-full text-xs">
                   {label}
                 </Link>
               );

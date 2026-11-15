@@ -1,6 +1,6 @@
 import { NavEntry, NavMeta } from '@w/shared/types/routes';
 
-// #region libs
+// #region libs 🧩
 
 type PrefixedChildren<P extends string, T extends readonly NavEntry[]> = {
   -readonly [K in keyof T]: T[K] extends NavEntry ? PrefixedNav<P, T[K], false> : never;
@@ -34,7 +34,7 @@ function createPrefixedNav<
 
 // #endregion
 
-// #region react-19
+// #region react-19 🧩
 
 const REACT19_ROOT_PATHNAME = '/';
 const REACT19_PROXY_PATHNAME = '/react-19';
@@ -53,7 +53,7 @@ const react19Nav = {
 
 // #endregion
 
-// #region vue-3
+// #region vue-3 🧩
 
 const VUE3_ROOT_PATHNAME = '/';
 const VUE3_PROXY_PATHNAME = '/vue-3';
@@ -72,7 +72,7 @@ const vue3Nav = {
 
 // #endregion
 
-// #region angular-22
+// #region angular-22 🧩
 
 const ANGULAR22_ROOT_PATHNAME = '/';
 const ANGULAR22_PROXY_PATHNAME = '/angular-22';
@@ -91,7 +91,7 @@ const angular22Nav = {
 
 // #endregion
 
-// #region experience
+// #region experience 🧩
 
 const EXPERIENCE_ROOT_PATHNAME = '/';
 const EXPERIENCE_PROXY_PATHNAME = '/experience';
@@ -153,7 +153,7 @@ export const experienceNamedNav = {
 
 // #endregion
 
-// #region mzhvv
+// #region mzhvv 🧩
 
 const mzhvvProxyNav = [
   createPrefixedNav(experienceNav, EXPERIENCE_PROXY_PATHNAME), // :3000/.../experience/*/**
