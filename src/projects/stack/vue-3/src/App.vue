@@ -1,53 +1,85 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const count = ref(0);
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <main class="app">
-    <header class="app-header">
-      <div>
-        <div class="eyebrow">INDEPENDENT APPLICATION / VUE</div>
-        <h1>Vue workspace</h1>
-        <p>Самостоятельный Vue-проект в monorepo.</p>
-      </div>
-      <span class="badge">Vue 3 · Vite</span>
-    </header>
+  <header>
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <section class="workspace">
-      <div class="workspace-heading">
-        <div>
-          <span class="section-label">VUE APPLICATION</span>
-          <h2>Счётчик Vue</h2>
-        </div>
-        <span class="task-count">Реактивное состояние</span>
-      </div>
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
 
-      <p class="description">
-        Это отдельный Vue 3 проект со своими зависимостями и сервером. Next.js отображает его в
-        своей оболочке, не собирая Vue в свой bundle.
-      </p>
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </div>
+  </header>
 
-      <div class="counter">
-        <button
-          aria-label="Уменьшить значение"
-          class="counter-button"
-          type="button"
-          @click="count--"
-        >
-          −
-        </button>
-        <output class="counter-value">{{ count }}</output>
-        <button
-          aria-label="Увеличить значение"
-          class="counter-button"
-          type="button"
-          @click="count++"
-        >
-          +
-        </button>
-      </div>
-    </section>
-  </main>
+  <RouterView />
 </template>
+
+<style scoped>
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
+}
+</style>
