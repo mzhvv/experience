@@ -22,14 +22,14 @@
 
   "dependencies": {
     "@base-ui/react": "^1.9.0",
-    "@w/shared": "workspace:*",
     "@w/shadcn-ui": "workspace:*",
+    "@w/shared": "workspace:*",
     "@w/ui-react": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.1",
     "concurrently": "^9.2.5",
     "lucide-react": "^1.66.0",
-    "next": "16.4.3",
+    "next": "16.4.6",
     "next-themes": "^0.4.6",
     "react": "19.3.1",
     "react-dom": "19.3.1",
