@@ -53,7 +53,7 @@
     "@w/eslint-config": "workspace:*",
     "@w/prettier-config": "workspace:*",
     "@w/typescript-config": "workspace:*",
-    "eslint": "^9",
+    "eslint": "^10",
     "eslint-config-next": "16.4.3",
     "prettier": "3.9.5",
     "prettier-plugin-tailwindcss": "^0.8.1",
