@@ -8,6 +8,11 @@
 
     // Path mapping for cleaner imports.
     "paths": {
+      "@entities/*": ["./src/entities/*"],
+      "@features/*": ["./src/features/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@widgets/*": ["./src/widgets/*"],
       "@/*": ["./src/*"]
     },
 

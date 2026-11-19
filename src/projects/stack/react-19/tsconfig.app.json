@@ -24,11 +24,11 @@
 
     /* Alias */
     "paths": {
-      "@pages/*": ["./src/pages/*"],
-      "@widgets/*": ["./src/widgets/*"],
-      "@features/*": ["./src/features/*"],
       "@entities/*": ["./src/entities/*"],
+      "@features/*": ["./src/features/*"],
+      "@pages/*": ["./src/pages/*"],
       "@shared/*": ["./src/shared/*"],
+      "@widgets/*": ["./src/widgets/*"],
       "@/*": ["./src/*"]
     }
   },
